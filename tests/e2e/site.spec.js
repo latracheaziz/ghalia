@@ -1,0 +1,306 @@
+import { expect, test } from '@playwright/test'
+
+const ROUTES = [
+  '/', '/maison', '/atelier', '/collections', '/collections/standard-classic', '/collections/arabian-heritage',
+  '/collections/signature-rose', '/collections/ramadan', '/collections/eid-al-fitr', '/collections/eid-al-adha',
+  '/collections/saudi-national-day', '/weddings', '/studio', '/corporate', '/order', '/contact',
+]
+
+/** Opens a page and waits until the preloader has lifted. */
+async function open(page, path) {
+  await page.goto(path)
+  await expect(page.locator('.preloader')).toHaveCount(0, { timeout: 30_000 })
+}
+
+function trackErrors(page) {
+  const errors = []
+  page.on('pageerror', (e) => errors.push(e.message))
+  page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()) })
+  return errors
+}
+
+const adminList = async (request) => {
+  const res = await request.get('/api/admin/submissions', { headers: { authorization: 'Bearer e2e-token' } })
+  return (await res.json()).submissions
+}
+
+test.describe('every page', () => {
+  for (const path of ROUTES) {
+    test(`${path} renders without errors`, async ({ page }) => {
+      const errors = trackErrors(page)
+      await open(page, path)
+      await expect(page.locator('main')).toBeVisible()
+      await expect(page).toHaveTitle(/GHALIA/)
+      await expect(page.locator('h1').first()).toBeAttached()
+      expect(errors).toEqual([])
+    })
+  }
+
+  test('every internal link leads somewhere real', async ({ page }) => {
+    test.setTimeout(420_000)
+    const targets = new Map()
+    for (const path of ROUTES) {
+      await page.goto(path)
+      await expect(page.locator('main')).toBeAttached({ timeout: 30_000 })
+      const hrefs = await page.$$eval('a[href^="/"]', (links) => links.map((a) => a.getAttribute('href')))
+      for (const href of hrefs) {
+        const [target, hash] = href.split('#')
+        if (!targets.has(target)) targets.set(target, new Set())
+        if (hash) targets.get(target).add(hash)
+      }
+    }
+    expect(targets.size).toBeGreaterThan(15)
+    for (const [target, hashes] of targets) {
+      await page.goto(target)
+      await expect(page.locator('main'), `${target} should render`).toBeAttached({ timeout: 30_000 })
+      await expect(page.locator('.lost'), `${target} should not be a 404`).toHaveCount(0)
+      for (const hash of hashes) await expect(page.locator(`#${hash}`), `${target} needs #${hash}`).toBeAttached()
+    }
+  })
+
+  test('unknown paths and collections show the 404 page', async ({ page }) => {
+    await open(page, '/nowhere')
+    await expect(page.locator('.lost')).toBeVisible()
+    await page.goto('/collections/not-a-collection')
+    await expect(page.locator('.lost')).toBeVisible()
+  })
+})
+
+test.describe('navigation', () => {
+  test('menu opens, takes focus, closes on Escape and navigates', async ({ page }) => {
+    await open(page, '/maison')
+    await page.getByRole('button', { name: 'Menu' }).first().click()
+    const dialog = page.getByRole('dialog', { name: 'Menu' })
+    await expect(dialog).toBeVisible()
+    await expect(dialog.locator(':focus')).toHaveCount(1)
+    await page.keyboard.press('Escape')
+    await expect(dialog).toBeHidden()
+
+    await page.getByRole('button', { name: 'Menu' }).first().click()
+    await dialog.getByRole('link', { name: 'Corporate Gifting' }).click()
+    await expect(page).toHaveURL(/\/corporate$/)
+    await expect(page.locator('.curtain')).toBeHidden({ timeout: 8000 })
+    await expect(dialog).toBeHidden()
+  })
+
+  test('moving between collections lifts the curtain each time', async ({ page }) => {
+    await open(page, '/collections/ramadan')
+    await expect(page.locator('h1')).toContainText('Ramadan')
+    await page.locator('.next').click()
+    await expect(page).toHaveURL(/eid-al-fitr$/)
+    await expect(page.locator('h1')).toContainText('Eid Al Fitr')
+    await expect(page.locator('.curtain')).toBeHidden({ timeout: 8000 })
+    await page.locator('.next').click()
+    await expect(page).toHaveURL(/eid-al-adha$/)
+    await expect(page.locator('.curtain')).toBeHidden({ timeout: 8000 })
+  })
+
+  test('browser back returns to the previous page', async ({ page }) => {
+    await open(page, '/collections')
+    await page.locator('.index__item a').first().click()
+    await expect(page).toHaveURL(/standard-classic$/)
+    await expect(page.locator('.curtain')).toBeHidden({ timeout: 8000 })
+    await page.goBack()
+    await expect(page).toHaveURL(/\/collections$/)
+    await expect(page.locator('.index__list')).toBeVisible()
+  })
+
+  test('collection filter narrows the list', async ({ page }) => {
+    await open(page, '/collections')
+    await expect(page.locator('.index__item')).toHaveCount(7)
+    await page.getByRole('button', { name: 'Seasonal & limited' }).click()
+    await expect(page.locator('.index__item')).toHaveCount(4)
+    await page.getByRole('button', { name: 'The signature lines' }).click()
+    await expect(page.locator('.index__item')).toHaveCount(3)
+  })
+
+  test('language switch mirrors the site and survives a reload', async ({ page }) => {
+    await open(page, '/maison')
+    await page.getByRole('button', { name: 'Switch to Arabic' }).click()
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'ar')
+    await expect(page.locator('.curtain')).toBeHidden({ timeout: 8000 })
+    await page.reload()
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
+    await expect(page.locator('h1').first()).toContainText('غالية')
+  })
+})
+
+test.describe('ordering', () => {
+  test('a visitor composes an order and the Maison receives it', async ({ page, request }) => {
+    await open(page, '/order?collection=ramadan')
+    await page.getByRole('button', { name: 'Corporate hamper' }).click()
+    await page.getByRole('button', { name: 'Chocolates & dates' }).click()
+    await page.getByRole('button', { name: 'Increase quantity' }).click()
+    await page.getByLabel('Gift note (optional)').fill('Ramadan Kareem')
+    await page.getByRole('button', { name: 'Add to bag' }).click()
+
+    const bag = page.getByRole('dialog', { name: 'Bag' })
+    await expect(bag).toContainText('Ramadan')
+    await expect(bag).toContainText('Corporate hamper')
+    await expect(page.locator('.bag-count')).toHaveText('2')
+
+    await bag.getByRole('link', { name: 'Continue to your details' }).click()
+    await expect(bag).toBeHidden()
+
+    // A submit with nothing filled in stays on the page and explains why.
+    await page.getByRole('button', { name: 'Send order request' }).click()
+    await expect(page.getByText('Please give us an email or a phone number')).toBeVisible()
+
+    await page.getByLabel('Full name').fill('Noor Al-Harbi')
+    await page.getByLabel('Phone').fill('+966 50 123 4567')
+    await page.getByLabel('City').fill('Hail')
+    await page.getByRole('checkbox').check()
+    await page.getByRole('button', { name: 'Send order request' }).click()
+
+    const reference = await page.locator('.sent__ref').textContent()
+    expect(reference).toMatch(/^GH-[0-9A-F]{6}$/)
+    await expect(page.locator('.bag-count')).toHaveText('0')
+
+    const saved = (await adminList(request)).find((s) => s.reference === reference)
+    expect(saved.kind).toBe('order')
+    expect(saved.payload.items).toEqual([
+      { collection: 'ramadan', format: 'hamper', filling: 'dates', quantity: 2, note: 'Ramadan Kareem' },
+    ])
+  })
+
+  test('the bag survives a reload', async ({ page }) => {
+    await open(page, '/order')
+    await page.getByRole('button', { name: 'Add to bag' }).click()
+    await expect(page.locator('.bag-count')).toHaveText('1')
+    await page.reload()
+    await expect(page.locator('.bag-count')).toHaveText('1')
+  })
+
+  test('collection pages hand their format to the order page', async ({ page }) => {
+    await open(page, '/collections/signature-rose')
+    await page.getByRole('link', { name: 'Square gift box' }).click()
+    await expect(page).toHaveURL(/collection=signature-rose&format=square-box/)
+    await expect(page.getByRole('button', { name: 'Square gift box' })).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.getByRole('button', { name: 'Signature Rose' })).toHaveAttribute('aria-pressed', 'true')
+  })
+})
+
+test.describe('enquiries', () => {
+  test('a contact enquiry reaches the inbox, which is locked by token', async ({ page, request }) => {
+    await open(page, '/contact?subject=partnership')
+    await page.getByLabel('Full name').fill('Layla Hotel Group')
+    await page.getByLabel('Email').fill('not-an-email')
+    await page.getByLabel('Tell us about your vision').fill('A collaboration with our hotels.')
+    await page.getByRole('checkbox').check()
+    await page.getByRole('button', { name: 'Send to the Maison' }).click()
+    await expect(page.getByText('Please enter a valid email.')).toBeVisible()
+
+    await page.getByLabel('Email').fill('layla@example.com')
+    await page.getByRole('button', { name: 'Send to the Maison' }).click()
+    const reference = await page.locator('.sent__ref').textContent()
+    expect((await adminList(request)).find((s) => s.reference === reference).kind).toBe('partnership')
+
+    await open(page, '/inbox')
+    await page.getByLabel('Admin token').fill('wrong')
+    await page.getByRole('button', { name: 'Open inbox' }).click()
+    await expect(page.getByText('That token was not accepted.')).toBeVisible()
+    await page.getByLabel('Admin token').fill('e2e-token')
+    await page.getByRole('button', { name: 'Open inbox' }).click()
+
+    const row = page.locator('.inbox__row', { hasText: reference })
+    await expect(row).toContainText('A collaboration with our hotels.')
+    await row.getByRole('combobox').selectOption('closed')
+    await expect.poll(async () => (await adminList(request)).find((s) => s.reference === reference).status).toBe('closed')
+  })
+
+  test('a failed send keeps what the visitor typed', async ({ page }) => {
+    await open(page, '/contact')
+    await page.route('**/api/submissions', (route) => route.abort())
+    await page.getByLabel('Full name').fill('Sara')
+    await page.getByLabel('Email').fill('sara@example.com')
+    await page.getByLabel('Tell us about your vision').fill('A spring wedding.')
+    await page.getByRole('checkbox').check()
+    await page.getByRole('button', { name: 'Send to the Maison' }).click()
+    await expect(page.getByRole('alert')).toContainText('could not send')
+    await expect(page.getByLabel('Tell us about your vision')).toHaveValue('A spring wedding.')
+  })
+})
+
+test.describe('3D experiences', () => {
+  test('the Studio updates, exports and sends a concept', async ({ page, request }) => {
+    await open(page, '/studio')
+    await expect(page.locator('.studio canvas')).toBeVisible()
+
+    await page.getByRole('button', { name: 'Pergola' }).click()
+    await page.getByRole('button', { name: 'Emerald & Gold' }).click()
+    await page.getByRole('button', { name: 'Candlelit Evening' }).click()
+    await expect(page).toHaveURL(/setting=pergola/)
+    await expect(page).toHaveURL(/palette=emerald/)
+    await expect(page).toHaveURL(/mood=evening/)
+
+    const download = page.waitForEvent('download')
+    await page.getByRole('button', { name: 'Save image' }).click()
+    expect((await download).suggestedFilename()).toBe('ghalia-concept-pergola.png')
+
+    await page.getByRole('button', { name: 'Send this concept' }).click()
+    const form = page.getByRole('dialog', { name: 'Send this concept' })
+    await expect(form).toContainText('Your 3D concept is attached')
+    await form.getByLabel('Full name').fill('Reem')
+    await form.getByLabel('Email').fill('reem@example.com')
+    await form.getByRole('checkbox').check()
+    await form.getByRole('button', { name: 'Send to the Maison' }).click()
+
+    const reference = await page.locator('.sent__ref').textContent()
+    const saved = (await adminList(request)).find((s) => s.reference === reference)
+    expect(saved.payload.concept).toMatchObject({ setting: 'pergola', palette: 'emerald', mood: 'evening' })
+    expect(saved.payload.concept.link).toContain('setting=pergola')
+  })
+
+  test('a shared Studio link restores the design', async ({ page }) => {
+    await open(page, '/studio?setting=reception&palette=royal&floral=light&mood=day')
+    await expect(page.getByRole('button', { name: 'Reception Table' })).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.getByRole('button', { name: 'Royal Blue & Gold' })).toHaveAttribute('aria-pressed', 'true')
+  })
+
+  test('the Halo Tray viewer switches views', async ({ page }) => {
+    await open(page, '/atelier')
+    await page.locator('#halo').scrollIntoViewIfNeeded()
+    await page.getByRole('button', { name: 'Back', exact: true }).click()
+    await expect(page.getByRole('button', { name: 'Back', exact: true })).toHaveAttribute('aria-pressed', 'true')
+  })
+})
+
+test.describe('graceful fallbacks', () => {
+  test('without WebGL the site still works, with photographs', async ({ page }) => {
+    await page.addInitScript(() => {
+      const real = HTMLCanvasElement.prototype.getContext
+      HTMLCanvasElement.prototype.getContext = function getContext(type, ...args) {
+        return /webgl/.test(type) ? null : real.call(this, type, ...args)
+      }
+    })
+    const errors = trackErrors(page)
+    await open(page, '/')
+    await expect(page.locator('canvas')).toHaveCount(0)
+    await expect(page.locator('.scene__fallback img')).toBeVisible()
+    await open(page, '/studio')
+    await expect(page.locator('.scene__fallback img')).toBeVisible()
+    await expect(page.getByText('3D is not available on this device')).toBeVisible()
+    expect(errors).toEqual([])
+  })
+
+  test('reduced motion shows the whole story with nothing hidden', async ({ browser }) => {
+    const context = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 1280, height: 800 } })
+    const page = await context.newPage()
+    await open(page, '/')
+    for (const text of ['Beyond chocolate, Ghalia creates emotions.', 'Each client experiences luxury differently.']) {
+      await expect(page.getByText(text).first()).toBeVisible()
+    }
+    await context.close()
+  })
+
+  test('phones get the swipe reel instead of the pinned one', async ({ browser }) => {
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true })
+    const page = await context.newPage()
+    await open(page, '/')
+    await expect(page.locator('.reel--pinned')).toHaveCount(0)
+    const sideways = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
+    expect(sideways).toBeLessThanOrEqual(0)
+    await context.close()
+  })
+})

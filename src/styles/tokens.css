@@ -1,0 +1,69 @@
+:root {
+  /* Brand palette, sampled from the moodboard swatches */
+  --ivory: #ebd7be;
+  --blush: #d7a894;
+  --mocha: #44291a;
+  --gold: #d3a05f;
+  --camel: #bd7d45;
+
+  /* Working tints */
+  --paper: #fbf4ea;
+  --ivory-soft: #f4e8d8;
+  --blush-soft: #efd9d0;
+  --mocha-deep: #21120a;
+  --gold-ink: #80591f;
+  --error: #9b2c1f;
+
+  --font-display: 'Cormorant', 'Times New Roman', serif;
+  --font-text: 'Jost', 'Segoe UI', sans-serif;
+  --font-script: 'Mrs Saint Delafield', cursive;
+  --track-wide: 0.28em;
+  --track-mid: 0.14em;
+  --track-tight: -0.015em;
+  --accent-style: italic;
+
+  --t-mega: clamp(3.6rem, 13.5vw, 15rem);
+  --t-hero: clamp(3rem, 8.4vw, 9rem);
+  --t-title: clamp(2.3rem, 5.4vw, 5.6rem);
+  --t-sub: clamp(1.6rem, 2.9vw, 2.9rem);
+  --t-lead: clamp(1.18rem, 1.55vw, 1.5rem);
+  --t-body: clamp(1rem, 1.08vw, 1.12rem);
+  --t-small: 0.9rem;
+  --t-micro: 0.72rem;
+
+  --gutter: clamp(1.25rem, 4.5vw, 5rem);
+  --section: clamp(5.5rem, 13vw, 13rem);
+  --header-h: 5rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --z-header: 50;
+  --z-drawer: 70;
+  --z-menu: 80;
+  --z-curtain: 90;
+  --z-preloader: 95;
+  --z-cursor: 100;
+}
+
+/* Arabic has no italics or tracking: spacing breaks the connected script. */
+:root[dir='rtl'] {
+  --font-display: 'Amiri', 'Times New Roman', serif;
+  --font-text: 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif;
+  --font-script: 'Amiri', serif;
+  --track-wide: 0;
+  --track-mid: 0;
+  --track-tight: 0;
+  --accent-style: normal;
+  --t-mega: clamp(3.2rem, 11vw, 12rem);
+  --t-hero: clamp(2.6rem, 6.8vw, 7.4rem);
+  --t-title: clamp(2rem, 4.6vw, 4.8rem);
+  --t-sub: clamp(1.45rem, 2.5vw, 2.5rem);
+  --t-lead: clamp(1.12rem, 1.45vw, 1.4rem);
+}
+
+[data-theme='paper'] { --bg: var(--paper); --fg: var(--mocha); --muted: #6e5444; --line: rgb(68 41 26 / 0.18); --accent: var(--gold-ink); }
+[data-theme='ivory'] { --bg: var(--ivory); --fg: var(--mocha); --muted: #5e4434; --line: rgb(68 41 26 / 0.22); --accent: #6f4c18; }
+[data-theme='blush'] { --bg: var(--blush-soft); --fg: var(--mocha); --muted: #5f4235; --line: rgb(68 41 26 / 0.2); --accent: #74501a; }
+[data-theme='mocha'] { --bg: var(--mocha); --fg: var(--ivory-soft); --muted: #d4bda6; --line: rgb(235 215 190 / 0.2); --accent: var(--gold); }
+[data-theme='deep'] { --bg: var(--mocha-deep); --fg: var(--ivory-soft); --muted: #c9b29b; --line: rgb(235 215 190 / 0.16); --accent: var(--gold); }

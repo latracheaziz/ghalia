@@ -1,0 +1,62 @@
+/* Order: the 3D configurator */
+.cfg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(23rem, 29rem); block-size: 100svh; min-block-size: 40rem; }
+.cfg__stage { position: relative; min-block-size: 0; overflow: hidden; isolation: isolate; background: radial-gradient(90% 80% at 50% 42%, #fbf4ea 0%, #f1e3cf 62%, #e4cfb4 100%); cursor: grab; touch-action: none; }
+.cfg__stage:active { cursor: grabbing; }
+.cfg__backdrop { position: absolute; z-index: -1; inset-block: 11% 0; inset-inline-start: 50%; transform: translateX(-50%); inline-size: min(62%, 40rem); background: linear-gradient(to bottom, rgb(255 255 255 / 0.42), transparent 78%); box-shadow: inset 0 0 0 1px rgb(211 160 95 / 0.42); }
+:root[dir='rtl'] .cfg__backdrop { transform: translateX(50%); }
+.cfg__caption { position: absolute; inset-block-start: calc(var(--header-h) + 0.25rem); inset-inline-start: var(--gutter); display: grid; gap: 0.1rem; font-size: var(--t-small); color: var(--mocha); pointer-events: none; }
+.cfg__caption .display { font-size: var(--t-sub); }
+.cfg__tools { position: absolute; inset-block-end: 1.1rem; inset-inline-start: var(--gutter); display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.cfg__tool { display: inline-flex; align-items: center; gap: 0.5rem; min-block-size: 2.75rem; padding: 0.4rem 0.95rem; font-size: 0.88rem; background: rgb(251 244 234 / 0.88); color: var(--mocha); box-shadow: inset 0 0 0 1px rgb(68 41 26 / 0.18); transition: background-color 0.3s, color 0.3s; }
+.cfg__tool:hover, .cfg__tool[aria-pressed='true'] { background: var(--mocha); color: var(--ivory-soft); }
+.cfg__tool svg { inline-size: 1.05rem; block-size: 1.05rem; }
+.cfg__hint { position: absolute; inset-block-end: 1.5rem; inset-inline-end: var(--gutter); font-size: var(--t-small); color: #6e5444; pointer-events: none; }
+.cfg__panel { display: flex; flex-direction: column; gap: 1.1rem; min-block-size: 0; padding: calc(var(--header-h) + 0.25rem) clamp(1.25rem, 2.4vw, 2rem) 1.25rem; overflow-y: auto; }
+.cfg__head { display: grid; gap: 0.4rem; }
+.cfg__head .muted { font-size: var(--t-small); line-height: 1.5; }
+.cfg__body { flex: 1; min-block-size: 0; }
+.cfg__title { margin-block-end: 0.9rem; }
+.cfg__nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block-start: 0.9rem; border-block-start: 1px solid var(--line); }
+
+.cfg-steps { display: grid; grid-template-columns: repeat(5, 1fr); }
+.cfg-steps button { display: grid; justify-items: center; gap: 0.3rem; inline-size: 100%; padding-block: 0.3rem; color: var(--muted); font-size: 0.72rem; line-height: 1.2; text-align: center; }
+.cfg-steps__mark { display: grid; place-items: center; inline-size: 1.9rem; block-size: 1.9rem; box-shadow: inset 0 0 0 1px var(--line); border-start-start-radius: 50vmax; border-start-end-radius: 50vmax; font-size: 0.8rem; transition: background-color 0.3s, color 0.3s; }
+.cfg-steps__mark svg { inline-size: 0.95rem; block-size: 0.95rem; }
+.cfg-steps [aria-current] { color: var(--fg); }
+.cfg-steps [aria-current] .cfg-steps__mark { background: var(--fg); color: var(--bg); box-shadow: none; }
+.cfg-steps .is-done .cfg-steps__mark { background: var(--gold); color: var(--mocha-deep); box-shadow: none; }
+
+.cfg-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; }
+.cfg-grid--shapes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cfg-tile { display: flex; align-items: center; gap: 0.6rem; min-block-size: 3.4rem; padding: 0.4rem 0.55rem; text-align: start; font-size: 0.9rem; line-height: 1.25; box-shadow: inset 0 0 0 1px var(--line); transition: background-color 0.3s, color 0.3s, box-shadow 0.3s; }
+.cfg-tile:hover { box-shadow: inset 0 0 0 1px var(--accent); }
+.cfg-tile[aria-pressed='true'] { background: var(--fg); color: var(--bg); box-shadow: none; }
+.cfg-tile__image { flex: none; inline-size: 2.3rem; block-size: 2.9rem; }
+.cfg-tile--shape { flex-direction: column; justify-content: center; gap: 0.3rem; padding-block: 0.6rem; text-align: center; font-size: 0.82rem; }
+.cfg-tile--shape svg { inline-size: 2.5rem; block-size: 2.5rem; }
+.cfg-tile--shape path { fill: none; stroke: currentColor; stroke-width: 0.13; stroke-linejoin: round; }
+.cfg-note { margin-block-start: 0.9rem; font-size: var(--t-small); }
+.cfg-finish { display: grid; gap: 1.2rem; }
+.cfg-finish .qty { justify-self: start; }
+.cfg-review { display: grid; }
+.cfg-review > div { display: flex; justify-content: space-between; gap: 1.2rem; padding-block: 0.6rem; border-block-end: 1px solid var(--line); }
+.cfg-review dt { color: var(--muted); font-size: var(--t-small); }
+.cfg-review dd { text-align: end; overflow-wrap: anywhere; }
+
+.checkout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: clamp(2.5rem, 6vw, 6rem); margin-block-start: 1.5rem; align-items: start; }
+.checkout__lines { display: grid; }
+#details > .t-sub, #details .sent { margin-block-start: 1.5rem; }
+
+@media (max-width: 56rem) {
+  .cfg { grid-template-columns: 1fr; block-size: auto; min-block-size: 0; }
+  .cfg__stage { position: sticky; inset-block-start: 0; z-index: 5; block-size: 50svh; }
+  .cfg__hint { display: none; }
+  .cfg__caption { inset-block-start: calc(var(--header-h) - 0.5rem); }
+  .cfg__caption .display { font-size: 1.3rem; }
+  .cfg__tools { inset-block-end: 0.6rem; }
+  .cfg__tool span { font-size: 0.8rem; }
+  .cfg__panel { padding-block-start: 1rem; overflow: visible; }
+  .cfg__head .muted { display: none; }
+  .cfg-steps__label { font-size: 0.66rem; }
+  .checkout { grid-template-columns: 1fr; }
+}

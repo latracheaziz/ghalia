@@ -3,11 +3,12 @@ import { Page } from '../components/layout/Page'
 import { PageHero } from '../components/ui/PageHero'
 import { Picture } from '../components/ui/Picture'
 import { Words } from '../components/ui/Words'
-import { Button } from '../components/ui/Button'
 import { useLang } from '../state/LangContext'
 import { about, commitment, fulfil, future, mission, pillars, promise, story, vision, world } from '../content/maison'
 import { expertise } from '../content/events'
 import { ui } from '../content/ui'
+import { whatsappLink } from '../utils/whatsapp'
+import { SocialIcon } from '../components/brand/SocialIcon'
 
 const COPY = {
   page: { en: 'The Maison', ar: 'الدار' },
@@ -202,9 +203,15 @@ export default function Maison() {
             </ol>
           </div>
         </div>
-        <div className="actions" data-reveal="fade">
-          <Button to="/contact?subject=partnership">{t({ en: 'Collaborate with us', ar: 'تعاونوا معنا' })}</Button>
-        </div>
+        {whatsappLink('') ? (
+          <div className="actions" data-reveal="fade">
+            <a className="btn btn--whatsapp" href={whatsappLink(t(ui.collaborateGreeting))} target="_blank" rel="noopener noreferrer">
+              <span>{t({ en: 'Collaborate with us', ar: 'تعاونوا معنا' })}</span>
+              <SocialIcon id="whatsapp" />
+              <span className="sr-only">{t(ui.newTab)}</span>
+            </a>
+          </div>
+        ) : null}
       </section>
     </Page>
   )

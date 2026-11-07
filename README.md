@@ -1,6 +1,6 @@
 # GHALIA
 
-Website for GHALIA, a Luxury Chocolate Maison in Hail, Saudi Arabia. Bilingual (English and Arabic with full RTL), built with React, Three.js and GSAP, with a small Node server that stores orders and enquiries.
+Website for GHALIA, a Luxury Chocolate Maison in Hail, Saudi Arabia. Bilingual (English and Arabic with full RTL), built with React, Three.js and GSAP, with a small Node server that stores enquiries. It is a showcase, not a shop: visitors compose a gift at `/order` and send it to the Maison on WhatsApp.
 
 See [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) for how each brand requirement maps to the site, and for what still needs the client's input.
 
@@ -23,7 +23,9 @@ npm start                # http://localhost:8787
 
 ## Where orders and enquiries go
 
-Every form posts to `/api/submissions` and is stored in SQLite (`data/ghalia.db`). The Maison reads them at `/inbox`, using the `ADMIN_TOKEN` from `.env`. The inbox stays locked until that token is set.
+Orders are not taken on the site. The last step at `/order` opens WhatsApp with the chosen collection, format, filling, quantity and gift note already written. The number comes from the WhatsApp entry in `src/content/site.js` (`social`).
+
+Every enquiry form posts to `/api/submissions` and is stored in SQLite (`data/ghalia.db`). The Maison reads them at `/inbox`, using the `ADMIN_TOKEN` from `.env`. The inbox stays locked until that token is set.
 
 To be notified as well, set `NOTIFY_WEBHOOK_URL`. Each new submission is then POSTed there as JSON, which works with Slack, Make, Zapier or a CRM.
 
@@ -31,7 +33,7 @@ Hosting must keep the `data/` folder between deploys, or set `DATABASE_PATH` to 
 
 ## Contact details
 
-Neither source document includes a phone number, email or social account, so none are shown. Set the `VITE_CONTACT_*` values in `.env` and rebuild, and they appear in the footer and on the contact page.
+Neither source document includes a phone number or email, so none are shown. Set the `VITE_CONTACT_*` values in `.env` and rebuild, and they appear in the footer. The social accounts, supplied by the Maison, are listed in `src/content/site.js` (`social`); an entry without a url stays hidden.
 
 ## Project layout
 
@@ -46,7 +48,7 @@ src/
   components/        layout/ (header, menu, footer...), home/, forms/, ui/, brand/
   three/             3D: scenes/, models/ (Halo Tray, roses, ribbon...), quality tiers
   animations/        GSAP setup, Lenis, the data-reveal scroll system
-  state/             Language, bag, page transitions, intro
+  state/             Language, page transitions, intro
   styles/            Design tokens, base, components, pages
 ```
 

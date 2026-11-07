@@ -1,4 +1,4 @@
-// Facts below come from the brand book. Contact details do not appear in either
+// Facts below come from the brand book. Phone and email do not appear in either
 // source document, so they are read from the environment and stay hidden until set.
 const env = import.meta.env
 
@@ -17,9 +17,19 @@ export const brand = {
 export const contact = {
   phone: env.VITE_CONTACT_PHONE || null,
   email: env.VITE_CONTACT_EMAIL || null,
-  whatsapp: env.VITE_CONTACT_WHATSAPP || null,
-  instagram: env.VITE_CONTACT_INSTAGRAM || null,
 }
+
+// The Maison's own accounts, as supplied by the Maison. An entry without a url
+// stays hidden: Facebook is listed but has no address yet.
+export const social = [
+  { id: 'instagram', name: { en: 'Instagram', ar: 'إنستغرام' }, handle: '@gh.alia415', url: 'https://www.instagram.com/gh.alia415', action: { en: 'Follow the atelier', ar: 'تابعوا المشغل' } },
+  { id: 'whatsapp', name: { en: 'WhatsApp', ar: 'واتساب' }, handle: '+966 54 342 2132', url: 'https://wa.me/966543422132', action: { en: 'Write to the Maison', ar: 'راسلوا الدار' } },
+  { id: 'youtube', name: { en: 'YouTube', ar: 'يوتيوب' }, handle: '@GhaliaInfo', url: 'https://www.youtube.com/@GhaliaInfo', action: { en: 'Watch', ar: 'شاهدوا' } },
+  { id: 'threads', name: { en: 'Threads', ar: 'ثريدز' }, handle: '@gh.alia415', url: 'https://www.threads.com/@gh.alia415', action: { en: 'Join the conversation', ar: 'شاركوا الحديث' } },
+  { id: 'facebook', name: { en: 'Facebook', ar: 'فيسبوك' }, handle: null, url: null, action: { en: 'Follow', ar: 'تابعوا' } },
+  { id: 'snapchat', name: { en: 'Snapchat', ar: 'سناب شات' }, handle: '@ghaliainfo', url: 'https://www.snapchat.com/@ghaliainfo', action: { en: 'Follow', ar: 'تابعوا' } },
+  { id: 'linktree', name: { en: 'Linktree', ar: 'لينكتري' }, handle: 'linktr.ee/Ghali.A', url: 'https://linktr.ee/Ghali.A', action: { en: 'Every link in one place', ar: 'كل الروابط في مكان واحد' } },
+].filter((account) => account.url)
 
 export const navigation = [
   { to: '/maison', label: { en: 'The Maison', ar: 'الدار' }, image: 'boutique' },

@@ -103,7 +103,7 @@ export default function Atelier() {
         <p className="display t-sub" data-reveal="fade">{t(COPY.exclusive)}</p>
         <div className="actions" data-reveal="fade">
           <Button to="/weddings">{t(ui.planEvent)}</Button>
-          <Button to="/contact?subject=wedding" variant="ghost">{t(ui.enquire)}</Button>
+          <Button to="/weddings#enquire" variant="ghost">{t(ui.enquire)}</Button>
         </div>
       </section>
     </Page>

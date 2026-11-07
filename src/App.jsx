@@ -6,7 +6,6 @@ import { Header } from './components/layout/Header'
 import { Footer } from './components/layout/Footer'
 import { Preloader } from './components/layout/Preloader'
 import { Cursor } from './components/layout/Cursor'
-import { BagDrawer } from './components/layout/BagDrawer'
 import { ErrorBoundary } from './components/layout/ErrorBoundary'
 
 const Home = lazy(() => import('./pages/Home'))
@@ -42,7 +41,6 @@ export default function App() {
       <Preloader />
       <Cursor />
       <Header />
-      <BagDrawer />
       <ErrorBoundary>
         <Suspense fallback={null}>
           <Routes key={lang}>

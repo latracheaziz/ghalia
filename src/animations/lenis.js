@@ -23,7 +23,11 @@ export const pauseScroll = () => lenis?.stop()
 export const resumeScroll = () => lenis?.start()
 
 export function scrollToTarget(target, options = {}) {
-  if (lenis) return lenis.scrollTo(target, { offset: -80, duration: 1.4, ...options })
+  if (lenis) {
+    // Lenis caps scrolling at the page height it last measured; content can grow after that.
+    lenis.resize()
+    return lenis.scrollTo(target, { offset: -80, duration: 1.4, ...options })
+  }
   const y = typeof target === 'number' ? target : target.getBoundingClientRect().top + window.scrollY - 80
   window.scrollTo({ top: y, behavior: options.immediate || prefersReducedMotion() ? 'auto' : 'smooth' })
 }

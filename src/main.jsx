@@ -12,7 +12,6 @@ import '@fontsource/ibm-plex-sans-arabic/500.css'
 import '@fontsource/mrs-saint-delafield/400.css'
 import './styles/index.css'
 import { LangProvider } from './state/LangContext'
-import { BagProvider } from './state/BagContext'
 import { TransitionProvider } from './state/TransitionContext'
 import { startSmoothScroll } from './animations/lenis'
 import App from './App'
@@ -24,11 +23,9 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <LangProvider>
-        <BagProvider>
-          <TransitionProvider>
-            <App />
-          </TransitionProvider>
-        </BagProvider>
+        <TransitionProvider>
+          <App />
+        </TransitionProvider>
       </LangProvider>
     </BrowserRouter>
   </StrictMode>,

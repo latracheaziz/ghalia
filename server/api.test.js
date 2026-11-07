@@ -31,9 +31,10 @@ test('rejects a submission without a way to reply', async () => {
   assert.equal((await res.json()).errors.contact, 'required')
 })
 
-test('rejects an order with an empty bag', async () => {
-  const res = await post({ kind: 'order', name: 'Sara', phone: '+966 50 000 0000', items: [], consent: true })
-  assert.equal((await res.json()).errors.items, 'required')
+test('no longer takes orders: those go to the Maison on WhatsApp', async () => {
+  const res = await post({ kind: 'order', name: 'Sara', phone: '+966 50 000 0000', items: [{ collection: 'ramadan', format: 'gift-box', quantity: 1 }], consent: true })
+  assert.equal(res.status, 422)
+  assert.equal((await res.json()).errors.kind, 'invalid')
 })
 
 test('requires consent', async () => {
@@ -59,10 +60,7 @@ test('admin endpoints need the token', async () => {
 })
 
 test('admin can read and update a submission', async () => {
-  const created = await post({
-    kind: 'order', name: 'Noor', phone: '+966500000000', consent: true,
-    items: [{ collection: 'ramadan', format: 'gift-box', quantity: 3 }],
-  })
+  const created = await post({ kind: 'corporate', name: 'Noor', phone: '+966500000000', company: 'Hail Co', message: 'Gifts for 300 guests', consent: true })
   const { reference } = await created.json()
   const patched = await fetch(`${base}/api/admin/submissions/${reference}`, {
     method: 'PATCH',
@@ -72,7 +70,7 @@ test('admin can read and update a submission', async () => {
   assert.equal(patched.status, 200)
   const { submissions } = await (await fetch(`${base}/api/admin/submissions?status=closed`, { headers: auth })).json()
   assert.equal(submissions[0].reference, reference)
-  assert.equal(submissions[0].payload.items[0].quantity, 3)
+  assert.equal(submissions[0].payload.company, 'Hail Co')
 })
 
 test('malformed JSON gets a 400, not a crash', async () => {

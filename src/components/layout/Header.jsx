@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { useBag } from '../../state/BagContext'
 import { useLang } from '../../state/LangContext'
 import { useTransition } from '../../state/TransitionContext'
 import { ui } from '../../content/ui'
@@ -25,7 +24,6 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [atTop, setAtTop] = useState(true)
-  const { count, setOpen } = useBag()
   const { t } = useLang()
   const { switchLanguage } = useTransition()
   const { pathname } = useLocation()
@@ -66,10 +64,6 @@ export function Header() {
         <TLink to="/" aria-label="GHALIA" className="header__logo"><Wordmark /></TLink>
         <div className="header__end">
           <button type="button" className="header__btn header__lang" aria-label={t(ui.languageLabel)} onClick={switchLanguage}>{t(ui.language)}</button>
-          <button type="button" className="header__btn" onClick={() => setOpen(true)} aria-label={`${t(ui.bag)} (${count})`}>
-            <span className="header__label">{t(ui.bag)}</span>
-            <span className="bag-count">{count}</span>
-          </button>
         </div>
       </header>
       <Menu open={menuOpen} onClose={() => setMenuOpen(false)} />

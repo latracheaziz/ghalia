@@ -25,10 +25,10 @@ const JOBS = {
   hosts: ['A_p03_2_X9.jpg', null, 1.3],
   'halo-board': ['A_p03_0_X4.png', null, 1.6],
   'halo-tray': ['A_p03_0_X4.png', [52, 42, 320, 372], 2.2],
-  pergola: ['A_p03_1_X7.png', [172, 0, 670, 406], 2],
+  pergola: ['pergola-dusk.png'], // supplied separately, not from the PDFs: keep it in GHALIA_SOURCE
   'pergola-arch': ['A_p03_1_X7.png', [2, 448, 164, 176], 2.4],
   'pergola-ceiling': ['A_p03_1_X7.png', [172, 448, 164, 176], 2.4],
-  'pergola-ceremony': ['A_p03_1_X7.png', [342, 448, 164, 176], 2.4],
+  'pergola-ceremony': ['pergola-ceremony.png', [424, 0, 859, 922]], // supplied separately, not from the PDFs: keep it in GHALIA_SOURCE
   'pergola-decor': ['A_p03_1_X7.png', [510, 448, 164, 176], 2.4],
   'pergola-lounge': ['A_p03_1_X7.png', [678, 448, 164, 176], 2.4],
   moodboard: ['A_p09_0_X4.png', null, 1.1],

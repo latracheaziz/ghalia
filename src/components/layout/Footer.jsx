@@ -1,6 +1,7 @@
 import { useLang } from '../../state/LangContext'
-import { brand, contact, navigation } from '../../content/site'
+import { brand, contact, navigation, social } from '../../content/site'
 import { Wordmark } from '../brand/Logo'
+import { SocialIcon } from '../brand/SocialIcon'
 import { TLink } from '../ui/TLink'
 
 export function Footer() {
@@ -30,8 +31,15 @@ export function Footer() {
             <li>{t(brand.location)}</li>
             {contact.phone ? <li><a href={`tel:${contact.phone}`} dir="ltr">{contact.phone}</a></li> : null}
             {contact.email ? <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li> : null}
-            {contact.whatsapp ? <li><a href={`https://wa.me/${contact.whatsapp.replace(/\D/g, '')}`} rel="noreferrer" target="_blank">WhatsApp</a></li> : null}
-            {contact.instagram ? <li><a href={contact.instagram} rel="noreferrer" target="_blank">Instagram</a></li> : null}
+          </ul>
+          <ul className="footer__social">
+            {social.map((account) => (
+              <li key={account.id}>
+                <a href={account.url} target="_blank" rel="noopener noreferrer" aria-label={`${t(account.name)} ${account.handle}`} title={t(account.name)}>
+                  <SocialIcon id={account.id} />
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

@@ -3,7 +3,6 @@ export const ui = {
   skip: { en: 'Skip to content', ar: 'انتقل إلى المحتوى' },
   menu: { en: 'Menu', ar: 'القائمة' },
   close: { en: 'Close', ar: 'إغلاق' },
-  bag: { en: 'Bag', ar: 'الحقيبة' },
   language: { en: 'العربية', ar: 'English' },
   languageLabel: { en: 'Switch to Arabic', ar: 'التبديل إلى الإنجليزية' },
   scroll: { en: 'Scroll to enter', ar: 'مرّر للدخول' },
@@ -36,15 +35,14 @@ export const ui = {
 
   planEvent: { en: 'Plan your celebration', ar: 'خططوا لمناسبتكم' },
   openStudio: { en: 'Open the 3D Event Studio', ar: 'افتحوا استوديو المناسبات' },
-  orderNow: { en: 'Begin an order', ar: 'ابدأ الطلب' },
   explore: { en: 'Explore the collections', ar: 'استكشف المجموعات' },
   enquire: { en: 'Enquire', ar: 'استفسر' },
 
   // Order
   orderTitle: { en: 'Compose your order', ar: 'نسّقوا طلبكم' },
   orderIntro: {
-    en: 'Choose a collection, a format and what goes inside. The Maison will confirm price, availability and delivery with you directly.',
-    ar: 'اختاروا المجموعة والشكل وما بداخله، وستؤكد لكم الدار السعر والتوفر والتوصيل مباشرة.',
+    en: 'Choose a collection, a format and what goes inside, then send your choice to the Maison on WhatsApp. The Maison confirms price, availability and delivery with you directly.',
+    ar: 'اختاروا المجموعة والشكل وما بداخله، ثم أرسلوا اختياركم إلى الدار عبر واتساب. تؤكد لكم الدار السعر والتوفر والتوصيل مباشرة.',
   },
   stepCollection: { en: 'The collection', ar: 'المجموعة' },
   stepFormat: { en: 'The format', ar: 'الشكل' },
@@ -60,14 +58,12 @@ export const ui = {
   decrease: { en: 'Decrease quantity', ar: 'إنقاص الكمية' },
   increase: { en: 'Increase quantity', ar: 'زيادة الكمية' },
   giftNote: { en: 'Gift note (optional)', ar: 'رسالة الهدية (اختياري)' },
-  addToBag: { en: 'Add to bag', ar: 'أضف إلى الحقيبة' },
-  added: { en: 'Added to your bag', ar: 'أُضيف إلى حقيبتكم' },
-  bagEmpty: { en: 'Your bag is waiting to be filled.', ar: 'حقيبتكم بانتظار أن تمتلئ.' },
-  remove: { en: 'Remove', ar: 'إزالة' },
-  checkout: { en: 'Send order request', ar: 'إرسال طلب الشراء' },
-  continueToDetails: { en: 'Continue to your details', ar: 'المتابعة إلى بياناتكم' },
-  pricesNote: { en: 'No payment is taken here. The Maison confirms price and delivery before anything is prepared.', ar: 'لا يتم الدفع هنا. تؤكد الدار السعر والتوصيل قبل تجهيز أي شيء.' },
-  yourDetails: { en: 'Your details', ar: 'بياناتكم' },
+  giftNoteShort: { en: 'Gift note', ar: 'رسالة الهدية' },
+  orderWhatsApp: { en: 'Order on WhatsApp', ar: 'اطلبوا عبر واتساب' },
+  orderGreeting: { en: 'Hello GHALIA, I would like to order:', ar: 'مرحبًا غالية، أودّ أن أطلب:' },
+  collaborateGreeting: { en: 'Hello GHALIA, I would like to discuss a collaboration.', ar: 'مرحبًا غالية، أودّ مناقشة فرصة تعاون.' },
+  newTab: { en: '(opens in a new tab)', ar: '(يفتح في علامة تبويب جديدة)' },
+  pricesNote: { en: 'No payment online. The Maison confirms price, availability and delivery with you on WhatsApp before anything is prepared.', ar: 'لا يوجد دفع عبر الموقع. تؤكد لكم الدار السعر والتوفر والتوصيل عبر واتساب قبل تجهيز أي شيء.' },
 
   // Forms
   name: { en: 'Full name', ar: 'الاسم الكامل' },

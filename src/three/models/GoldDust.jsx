@@ -56,8 +56,10 @@ export function GoldDust({ count, zRange = [-52, 6], radius = 13, opacityRef }) 
   }), [])
 
   useFrame((state) => {
-    uniforms.uTime.value = state.clock.elapsedTime
-    if (opacityRef) uniforms.uOpacity.value = opacityRef.current
+    // Written through the material: R3F copies the uniforms object it is given.
+    const u = material.current.uniforms
+    u.uTime.value = state.clock.elapsedTime
+    if (opacityRef) u.uOpacity.value = opacityRef.current
   })
 
   return (

@@ -127,49 +127,28 @@ test.describe('navigation', () => {
 })
 
 test.describe('ordering', () => {
-  test('a visitor composes an order and the Maison receives it', async ({ page, request }) => {
+  test('a visitor composes a gift and sends it to the Maison on WhatsApp', async ({ page }) => {
     await open(page, '/order?collection=ramadan')
+    await expect(page.getByRole('button', { name: /^Bag/ })).toHaveCount(0)
+    await page.getByRole('button', { name: 'Next' }).click()
     await page.getByRole('button', { name: 'Corporate hamper' }).click()
+    await page.getByRole('button', { name: 'Next' }).click()
     await page.getByRole('button', { name: 'Chocolates & dates' }).click()
+    await page.getByRole('button', { name: 'Next' }).click()
     await page.getByRole('button', { name: 'Increase quantity' }).click()
     await page.getByLabel('Gift note (optional)').fill('Ramadan Kareem')
-    await page.getByRole('button', { name: 'Add to bag' }).click()
+    await page.getByRole('button', { name: 'Next' }).click()
 
-    const bag = page.getByRole('dialog', { name: 'Bag' })
-    await expect(bag).toContainText('Ramadan')
-    await expect(bag).toContainText('Corporate hamper')
-    await expect(page.locator('.bag-count')).toHaveText('2')
-
-    await bag.getByRole('link', { name: 'Continue to your details' }).click()
-    await expect(bag).toBeHidden()
-
-    // A submit with nothing filled in stays on the page and explains why.
-    await page.getByRole('button', { name: 'Send order request' }).click()
-    await expect(page.getByText('Please give us an email or a phone number')).toBeVisible()
-
-    await page.getByLabel('Full name').fill('Noor Al-Harbi')
-    await page.getByLabel('Phone').fill('+966 50 123 4567')
-    await page.getByLabel('City').fill('Hail')
-    await page.getByRole('checkbox').check()
-    await page.getByRole('button', { name: 'Send order request' }).click()
-
-    const reference = await page.locator('.sent__ref').textContent()
-    expect(reference).toMatch(/^GH-[0-9A-F]{6}$/)
-    await expect(page.locator('.bag-count')).toHaveText('0')
-
-    const saved = (await adminList(request)).find((s) => s.reference === reference)
-    expect(saved.kind).toBe('order')
-    expect(saved.payload.items).toEqual([
-      { collection: 'ramadan', format: 'hamper', filling: 'dates', quantity: 2, note: 'Ramadan Kareem' },
-    ])
-  })
-
-  test('the bag survives a reload', async ({ page }) => {
-    await open(page, '/order')
-    await page.getByRole('button', { name: 'Add to bag' }).click()
-    await expect(page.locator('.bag-count')).toHaveText('1')
-    await page.reload()
-    await expect(page.locator('.bag-count')).toHaveText('1')
+    const order = page.getByRole('link', { name: /Order on WhatsApp/ })
+    await expect(order).toHaveAttribute('target', '_blank')
+    const href = await order.getAttribute('href')
+    expect(href.startsWith('https://wa.me/966543422132?text=')).toBe(true)
+    const message = new URL(href).searchParams.get('text')
+    expect(message).toContain('The collection: Ramadan')
+    expect(message).toContain('The format: Corporate hamper')
+    expect(message).toContain('Inside: Chocolates & dates')
+    expect(message).toContain('Quantity: 2')
+    expect(message).toContain('Gift note: Ramadan Kareem')
   })
 
   test('collection pages hand their format to the order page', async ({ page }) => {
@@ -177,13 +156,14 @@ test.describe('ordering', () => {
     await page.getByRole('link', { name: 'Square gift box' }).click()
     await expect(page).toHaveURL(/collection=signature-rose&format=square-box/)
     await expect(page.getByRole('button', { name: 'Square gift box' })).toHaveAttribute('aria-pressed', 'true')
+    await page.getByRole('button', { name: 'The collection' }).click()
     await expect(page.getByRole('button', { name: 'Signature Rose' })).toHaveAttribute('aria-pressed', 'true')
   })
 })
 
 test.describe('enquiries', () => {
-  test('a contact enquiry reaches the inbox, which is locked by token', async ({ page, request }) => {
-    await open(page, '/contact?subject=partnership')
+  test('a wedding enquiry reaches the inbox, which is locked by token', async ({ page, request }) => {
+    await open(page, '/weddings')
     await page.getByLabel('Full name').fill('Layla Hotel Group')
     await page.getByLabel('Email').fill('not-an-email')
     await page.getByLabel('Tell us about your vision').fill('A collaboration with our hotels.')
@@ -194,7 +174,7 @@ test.describe('enquiries', () => {
     await page.getByLabel('Email').fill('layla@example.com')
     await page.getByRole('button', { name: 'Send to the Maison' }).click()
     const reference = await page.locator('.sent__ref').textContent()
-    expect((await adminList(request)).find((s) => s.reference === reference).kind).toBe('partnership')
+    expect((await adminList(request)).find((s) => s.reference === reference).kind).toBe('wedding')
 
     await open(page, '/inbox')
     await page.getByLabel('Admin token').fill('wrong')
@@ -210,7 +190,7 @@ test.describe('enquiries', () => {
   })
 
   test('a failed send keeps what the visitor typed', async ({ page }) => {
-    await open(page, '/contact')
+    await open(page, '/weddings')
     await page.route('**/api/submissions', (route) => route.abort())
     await page.getByLabel('Full name').fill('Sara')
     await page.getByLabel('Email').fill('sara@example.com')
@@ -302,5 +282,29 @@ test.describe('graceful fallbacks', () => {
     const sideways = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
     expect(sideways).toBeLessThanOrEqual(0)
     await context.close()
+  })
+})
+
+test.describe('social accounts', () => {
+  test('the contact page and the footer link every account, and Facebook stays hidden without an address', async ({ page }) => {
+    await open(page, '/contact')
+    // One screen per account; only the one on screen is reachable, so check the links themselves.
+    const links = page.locator('.pour__panel a.pour__cta')
+    await expect(links).toHaveCount(6)
+    expect(await links.evaluateAll((as) => as.map((a) => a.getAttribute('href')))).toEqual([
+      'https://www.instagram.com/gh.alia415',
+      'https://wa.me/966543422132',
+      'https://www.youtube.com/@GhaliaInfo',
+      'https://www.threads.com/@gh.alia415',
+      'https://www.snapchat.com/@ghaliainfo',
+      'https://linktr.ee/Ghali.A',
+    ])
+    await expect(links.first()).toHaveAttribute('target', '_blank')
+    // The dots pour straight to an account.
+    await page.getByRole('button', { name: 'Go to Snapchat' }).click()
+    await expect(page.locator('.pour__panel.is-on .pour__name')).toContainText('Snapchat', { timeout: 15_000 })
+    await expect(page.getByRole('link', { name: /Open Snapchat/ })).toBeVisible()
+    await expect(page.locator('.footer__social a')).toHaveCount(6)
+    await expect(page.locator('a[href*="facebook"]')).toHaveCount(0)
   })
 })

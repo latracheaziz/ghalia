@@ -109,7 +109,7 @@ export default function Weddings() {
         </div>
       </section>
 
-      <section className="section wrap form-band" data-theme="paper">
+      <section id="enquire" className="section wrap form-band" data-theme="paper">
         <div>
           <p className="eyebrow" data-reveal="fade">{t(ui.planEvent)}</p>
           <Words as="h2" className="display t-title" text={t(COPY.form)} />

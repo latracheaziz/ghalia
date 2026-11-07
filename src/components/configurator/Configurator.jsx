@@ -2,13 +2,14 @@ import { useCallback, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
 import { Box, Check, RotateCcw } from 'lucide-react'
-import { useBag } from '../../state/BagContext'
 import { useLang } from '../../state/LangContext'
 import { collections, findCollection } from '../../content/collections'
 import { ui } from '../../content/ui'
 import { BOXES, ringOf } from '../../three/configurator/boxes.js'
 import { Scene } from '../../three/Scene'
 import { prefersReducedMotion } from '../../utils/env'
+import { whatsappLink } from '../../utils/whatsapp'
+import { SocialIcon } from '../brand/SocialIcon'
 import { Field } from '../forms/Field'
 import { Button } from '../ui/Button'
 import { Picture } from '../ui/Picture'
@@ -71,7 +72,6 @@ function FillingStep({ collection, value, onPick, isBag }) {
 
 export function Configurator() {
   const { t } = useLang()
-  const { add, setOpen: setBagOpen } = useBag()
   const [params] = useSearchParams()
 
   const [slug, setSlug] = useState(() => findCollection(params.get('collection'))?.slug ?? collections[0].slug)
@@ -86,7 +86,6 @@ export function Configurator() {
   const [stepIndex, setStepIndex] = useState(() => (params.get('format') ? 1 : 0))
   const [boxOpen, setBoxOpen] = useState(false)
   const [viewKey, setViewKey] = useState(0)
-  const [added, setAdded] = useState(false)
   const [status, setStatus] = useState({})
   const direction = useRef(1)
 
@@ -114,18 +113,17 @@ export function Configurator() {
     setStatus((s) => (Object.keys(patch).every((key) => s[key] === patch[key]) ? s : { ...s, ...patch }))
   }, [])
 
-  const addToBag = () => {
-    add({ collection: slug, format, filling, quantity, note: note.trim() })
-    setQuantity(1)
-    setNote('')
-    setAdded(true)
-    setBagOpen(true)
-    setTimeout(() => setAdded(false), 2400)
-  }
-
   const config = useMemo(() => ({ collection: slug, format, filling, note }), [slug, format, filling, note])
   const formatLabel = collection.formats.find((f) => f.id === format)?.label
   const fillingLabel = collection.fillings.find((f) => f.id === filling)?.label
+  const orderLink = whatsappLink([
+    t(ui.orderGreeting),
+    `• ${t(ui.stepCollection)}: ${t(collection.name)}`,
+    `• ${t(ui.stepFormat)}: ${t(formatLabel)}`,
+    `• ${t(ui.stepFilling)}: ${t(fillingLabel)}`,
+    `• ${t(ui.quantity)}: ${quantity}`,
+    ...(note.trim() ? [`• ${t(ui.giftNoteShort)}: ${note.trim()}`] : []),
+  ].join('\n'))
   const stepTitles = [ui.stepCollection, ui.stepFormat, ui.stepFilling, ui.stepDetails, ui.stepReview]
   const slide = prefersReducedMotion() ? 0 : 26
 
@@ -220,9 +218,10 @@ export function Configurator() {
                   <div><dt>{t(ui.stepFormat)}</dt><dd>{t(formatLabel)}</dd></div>
                   <div><dt>{t(ui.stepFilling)}</dt><dd>{t(fillingLabel)}</dd></div>
                   <div><dt>{t(ui.quantity)}</dt><dd>{quantity}</dd></div>
-                  {note.trim() ? <div><dt>{t(ui.giftNote)}</dt><dd>{note.trim()}</dd></div> : null}
+                  {note.trim() ? <div><dt>{t(ui.giftNoteShort)}</dt><dd>{note.trim()}</dd></div> : null}
                 </dl>
               ) : null}
+              {step === 'review' ? <p className="notice cfg-note">{t(ui.pricesNote)}</p> : null}
             </motion.div>
           </AnimatePresence>
         </div>
@@ -230,7 +229,15 @@ export function Configurator() {
         <div className="cfg__nav">
           {stepIndex > 0 ? <Button variant="ghost" icon={false} onClick={() => goTo(stepIndex - 1)}>{t(ui.back)}</Button> : <span />}
           {step === 'review'
-            ? <Button onClick={addToBag} icon={false}>{t(added ? ui.added : ui.addToBag)}</Button>
+            ? orderLink
+              ? (
+                <a className="btn btn--whatsapp" href={orderLink} target="_blank" rel="noopener noreferrer">
+                  <span>{t(ui.orderWhatsApp)}</span>
+                  <SocialIcon id="whatsapp" />
+                  <span className="sr-only">{t(ui.newTab)}</span>
+                </a>
+              )
+              : <Button to="/contact">{t(ui.enquire)}</Button>
             : <Button onClick={() => goTo(stepIndex + 1)}>{t(ui.next)}</Button>}
         </div>
       </div>

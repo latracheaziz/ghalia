@@ -8,7 +8,7 @@ The brand book's Future Growth Strategy states one direct requirement: *"Strengt
 
 | Requirement | Where it lives |
 | --- | --- |
-| Online ordering | `/order`: compose, bag, order request stored for the Maison |
+| Ordering (showcase site) | `/order`: compose a gift in 3D, then send it to the Maison on WhatsApp. No bag or online checkout |
 | Virtual event planning | `/studio`: setting, palette, florals, atmosphere; send, save or share |
 | 3D wedding visualization | `/studio` and the Halo Tray viewer on `/atelier` |
 
@@ -39,7 +39,7 @@ These are missing from both documents. Nothing was invented to fill them.
 
 1. **Prices.** There are none, so ordering is a request that the Maison confirms. The site says this plainly and takes no payment.
 2. **Payment provider,** if online checkout is wanted. It needs prices and a gateway such as Moyasar, HyperPay or Tap.
-3. **Contact details:** phone, email, WhatsApp, Instagram. These are hidden until set in `.env`.
+3. **Contact details:** phone and email are hidden until set in `.env`. The social accounts (Instagram, WhatsApp, YouTube, Threads, Snapchat, Linktree) were supplied on 2026-11-07; Facebook still needs its address.
 4. **Boutique address and hours.** The site gives only "Hail, Saudi Arabia", from the brand book cover.
 5. **Delivery areas, lead times and minimum order quantities.**
 6. **Product list.** The documents describe packaging and categories, not individual chocolates or flavours.

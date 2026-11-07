@@ -4,7 +4,7 @@ import { Button } from '../components/ui/Button'
 import { Field } from '../components/forms/Field'
 import { useLang } from '../state/LangContext'
 import { ui } from '../content/ui'
-import { describeItem } from '../utils/bag'
+import { findCollection } from '../content/collections'
 
 const KEY = 'ghalia.admin'
 const STATUSES = ['new', 'in-progress', 'closed']
@@ -14,6 +14,16 @@ function readToken() {
     return sessionStorage.getItem(KEY) ?? ''
   } catch {
     return ''
+  }
+}
+
+/** Orders were taken online before the site became a showcase; older records still carry items. */
+function describeItem(item) {
+  const collection = findCollection(item.collection)
+  return {
+    collection,
+    format: collection?.formats.find((f) => f.id === item.format),
+    filling: collection?.fillings.find((f) => f.id === item.filling),
   }
 }
 

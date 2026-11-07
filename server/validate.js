@@ -1,20 +1,10 @@
-export const KINDS = ['order', 'wedding', 'corporate', 'partnership', 'general']
+// Orders go to the Maison on WhatsApp, so the site only takes enquiries.
+export const KINDS = ['wedding', 'corporate', 'partnership', 'general']
 export const STATUSES = ['new', 'in-progress', 'closed']
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 const PHONE = /^[+()\d\s-]{7,24}$/
 const clean = (v, max) => (typeof v === 'string' ? v.trim().slice(0, max) : '')
-
-function cleanItems(items) {
-  if (!Array.isArray(items)) return []
-  return items.slice(0, 40).map((i) => ({
-    collection: clean(i?.collection, 60),
-    format: clean(i?.format, 60),
-    filling: clean(i?.filling, 60),
-    quantity: Math.min(Math.max(Math.trunc(Number(i?.quantity)) || 0, 0), 5000),
-    note: clean(i?.note, 400),
-  }))
-}
 
 function cleanConcept(concept) {
   if (!concept || typeof concept !== 'object' || Array.isArray(concept)) return null
@@ -51,10 +41,7 @@ export function validateSubmission(body = {}) {
     language: clean(body.language, 2),
   }
 
-  if (kind === 'order') {
-    payload.items = cleanItems(body.items).filter((i) => i.collection && i.format && i.quantity > 0)
-    if (!payload.items.length) errors.items = 'required'
-  } else if (payload.message.length < 5 && !payload.concept) {
+  if (payload.message.length < 5 && !payload.concept) {
     errors.message = 'required'
   }
 

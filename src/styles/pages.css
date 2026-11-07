@@ -117,6 +117,8 @@
 .open-arch__title { position: absolute; inset-inline: 0; inset-block-start: 8vh; text-align: center; color: var(--gold); z-index: 0; }
 .open-arch__mask { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
 .open-arch__mask img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+/* Wider than the screen, the photo would lose the GHALIA sign at its left edge. */
+@media (min-aspect-ratio: 5/4) { .open-arch__mask img { object-position: left center; } }
 .open-arch__copy { position: absolute; z-index: 2; inset-block-end: 0; inset-inline: 0; padding-block: 8rem clamp(2rem, 6vh, 4rem); display: grid; gap: 1.2rem; background: linear-gradient(to top, rgb(33 18 10 / 0.92) 45%, transparent); }
 .open-arch__copy .btn:not(.btn--ghost) { background: var(--ivory-soft); color: var(--mocha); }
 
@@ -257,7 +259,7 @@
 .journey__steps li { display: grid; gap: 0.8rem; align-content: start; padding-block-start: 1.2rem; border-block-start: 1px solid var(--accent); }
 .journey__steps li:nth-child(even) { margin-block-start: 3rem; }
 .pergola__head { display: grid; gap: 1.2rem; }
-.pergola__image { margin-block: clamp(2.5rem, 5vw, 4rem); margin-inline: auto calc(var(--gutter) * -1); aspect-ratio: 67 / 40; max-inline-size: 66rem; }
+.pergola__image { margin-block: clamp(2.5rem, 5vw, 4rem); margin-inline: auto calc(var(--gutter) * -1); aspect-ratio: 853 / 461; max-inline-size: 66rem; }
 .zones { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: center; }
 .zones__view { aspect-ratio: 4 / 5; }
 .zones__view img { position: absolute; inset: 0; opacity: 0; transition: opacity 0.7s; }
@@ -310,12 +312,55 @@
 }
 
 /* Contact */
-.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(3rem, 8vw, 8rem); padding-block-start: calc(var(--header-h) + 3rem); }
-.contact__intro { display: grid; gap: 1.6rem; align-content: start; }
-.contact__image { aspect-ratio: 5 / 6; max-inline-size: 26rem; }
-.contact__details { display: grid; gap: 0.3rem; }
-.contact__form { display: grid; gap: 1.5rem; align-content: start; padding-block-start: 1rem; }
-@media (max-width: 56rem) { .contact { grid-template-columns: 1fr; } }
+
+/* Contact: the Maison's accounts, poured one at a time. The stage sticks while
+   the track scrolls; one screen of track per account. Layers: the account's
+   screen, then the 3D praline and chocolate, then the controls. */
+.pour { position: relative; }
+.pour__intro { display: grid; gap: 1.2rem; justify-items: start; padding-block: calc(var(--header-h) + clamp(3rem, 9vw, 8rem)) clamp(2rem, 6vh, 4rem); }
+.pour__track { position: relative; block-size: calc(var(--count) * 100svh); }
+.pour__stage { position: sticky; inset-block-start: 0; block-size: 100svh; overflow: hidden; isolation: isolate; }
+.pour__panels { position: absolute; inset: 0; z-index: 1; }
+.pour__panel { position: absolute; inset: 0; display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; padding-block: calc(var(--header-h) + 1rem) clamp(1.75rem, 6vh, 3.5rem); visibility: hidden; }
+.pour__panel.is-on { visibility: visible; }
+.pour .scene { z-index: 2; pointer-events: none; }
+.pour__ui { position: absolute; z-index: 3; inset: 0; pointer-events: none; }
+
+.pour__top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; font-size: var(--t-micro); letter-spacing: var(--track-wide); text-transform: uppercase; color: var(--accent); }
+:root[dir='rtl'] .pour__top { font-size: 0.9rem; }
+.pour__index { color: var(--muted); font-variant-numeric: tabular-nums; }
+.pour__action { display: inline-flex; align-items: center; gap: 0.7rem; }
+.pour__action svg { inline-size: 1.1rem; block-size: 1.1rem; }
+.pour__name { margin-block-start: clamp(0.5rem, 3vh, 2rem); text-align: center; font-size: clamp(4.5rem, 17vw, 19rem); line-height: 0.86; letter-spacing: -0.03em; white-space: nowrap; color: var(--fg); }
+:root[dir='rtl'] .pour__name { margin-block-start: 0; font-size: clamp(4rem, 15vw, 15rem); line-height: 1.05; letter-spacing: 0; }
+.pour__name .w { overflow: visible; }
+.pour__bottom { grid-row: 4; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 2rem; }
+.pour__handle { font-family: var(--font-display); font-size: clamp(1.5rem, 2.6vw, 2.6rem); color: var(--fg); }
+
+.pour__progress { position: absolute; inset-inline: 0; inset-block-end: 0; block-size: 3px; background: var(--line); }
+.pour__progress i { position: absolute; inset: 0; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
+:root[dir='rtl'] .pour__progress i { transform-origin: 100% 50%; }
+.pour__dots { position: absolute; inset-inline-end: var(--gutter); inset-block-start: 50%; translate: 0 -50%; display: grid; gap: 0.55rem; pointer-events: auto; }
+.pour__dots button { display: grid; place-items: center; inline-size: 2.5rem; block-size: 2.5rem; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); transition: color 0.4s, background-color 0.4s, border-color 0.4s, scale 0.5s var(--ease-out); }
+.pour__dots button:hover { color: var(--fg); border-color: var(--accent); }
+.pour__dots button[aria-current='true'] { color: var(--bg); background-color: var(--fg); border-color: var(--fg); scale: 1.1; }
+.pour__dots svg { inline-size: 1rem; block-size: 1rem; }
+
+/* Still: the accounts stacked, each with a praline drawn in CSS. */
+.pour--still .pour__track { block-size: auto; }
+.pour--still .pour__stage { position: relative; block-size: auto; overflow: visible; }
+.pour--still .pour__panels { position: relative; }
+.pour--still .pour__panel { position: relative; inset: auto; visibility: visible; min-block-size: 90svh; row-gap: 2rem; }
+.pour__medal { grid-row: 3; place-self: center; display: grid; place-items: center; inline-size: min(56vw, 15rem); aspect-ratio: 1; border-radius: 1.4rem; rotate: -8deg; color: #f2cb8a; background: linear-gradient(145deg, color-mix(in srgb, var(--tone) 78%, white), var(--tone) 55%, color-mix(in srgb, var(--tone) 70%, black)); box-shadow: 0 1.6rem 3rem rgb(0 0 0 / 0.3), inset 0 2px 0 rgb(255 255 255 / 0.25); }
+.pour__medal svg { inline-size: 48%; block-size: 48%; filter: drop-shadow(0 2px 0 rgb(110 69 34 / 0.6)); }
+
+@media (max-width: 56rem) {
+  .pour__name { margin-block-start: 1.2rem; font-size: clamp(3.4rem, 19vw, 7rem); }
+  :root[dir='rtl'] .pour__name { font-size: clamp(3.2rem, 17vw, 6rem); }
+  .pour__bottom { display: grid; justify-items: start; gap: 0.9rem; }
+  .pour__dots { gap: 0.4rem; }
+  .pour__dots button { inline-size: 2.2rem; block-size: 2.2rem; }
+}
 
 /* Inbox */
 .inbox { padding-block-start: calc(var(--header-h) + 3rem); min-block-size: 100svh; }

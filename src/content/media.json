@@ -72,14 +72,14 @@
   "color": "rgb(152 120 104)"
  },
  "pergola": {
-  "ratio": 0.606,
+  "ratio": 0.5404,
   "widths": [
    480,
    800,
    1200,
-   1340
+   1706
   ],
-  "color": "rgb(56 24 8)"
+  "color": "rgb(72 24 8)"
  },
  "pergola-arch": {
   "ratio": 1.0732,
@@ -96,11 +96,12 @@
   "color": "rgb(88 40 8)"
  },
  "pergola-ceremony": {
-  "ratio": 1.0732,
+  "ratio": 1.0733,
   "widths": [
-   394
+   480,
+   859
   ],
-  "color": "rgb(136 104 88)"
+  "color": "rgb(216 168 136)"
  },
  "pergola-decor": {
   "ratio": 1.0732,

@@ -11,6 +11,7 @@ const scenes = {
   halo: lazy(() => import('./scenes/HaloViewer')),
   event: lazy(() => import('./scenes/EventScene')),
   box: lazy(() => import('./scenes/BoxScene')),
+  pour: lazy(() => import('./scenes/PourScene')),
 }
 
 /**

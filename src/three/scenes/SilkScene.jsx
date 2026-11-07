@@ -57,6 +57,7 @@ const fragment = /* glsl */ `
 
 function Silk({ colors, pointer }) {
   const { size } = useThree()
+  const material = useRef()
   const uniforms = useMemo(() => ({
     uTime: { value: 0 },
     uAspect: { value: 1 },
@@ -67,14 +68,17 @@ function Silk({ colors, pointer }) {
   }), [])
 
   useEffect(() => {
-    uniforms.uLight.value.set(colors[0])
-    uniforms.uDark.value.set(colors[1])
-  }, [colors, uniforms])
+    const u = material.current.uniforms
+    u.uLight.value.set(colors[0])
+    u.uDark.value.set(colors[1])
+  }, [colors])
 
   useFrame((state, delta) => {
-    uniforms.uTime.value = state.clock.elapsedTime
-    uniforms.uAspect.value = size.width / size.height
-    const m = uniforms.uMouse.value
+    // Written through the material: R3F copies the uniforms object it is given.
+    const u = material.current.uniforms
+    u.uTime.value = state.clock.elapsedTime
+    u.uAspect.value = size.width / size.height
+    const m = u.uMouse.value
     m.x = THREE.MathUtils.damp(m.x, pointer.current.x, 3, delta)
     m.y = THREE.MathUtils.damp(m.y, pointer.current.y, 3, delta)
   })
@@ -82,7 +86,7 @@ function Silk({ colors, pointer }) {
   return (
     <mesh frustumCulled={false}>
       <planeGeometry args={[2, 2]} />
-      <shaderMaterial vertexShader={vertex} fragmentShader={fragment} uniforms={uniforms} depthTest={false} />
+      <shaderMaterial ref={material} vertexShader={vertex} fragmentShader={fragment} uniforms={uniforms} depthTest={false} />
     </mesh>
   )
 }

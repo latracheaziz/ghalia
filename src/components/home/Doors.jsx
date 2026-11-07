@@ -4,9 +4,9 @@ import { Picture } from '../ui/Picture'
 import { TLink } from '../ui/TLink'
 
 const DOORS = [
-  { to: '/order', image: 'mood-open-box', title: { en: 'Order', ar: 'اطلب' }, text: { en: 'Compose a gift from any collection.', ar: 'نسّقوا هدية من أي مجموعة.' }, alt: { en: 'Hands opening a box of GHALIA chocolates', ar: 'يدان تفتحان علبة شوكولاتة غالية' } },
-  { to: '/studio', image: 'pergola-ceremony', title: { en: 'Plan', ar: 'خطط' }, text: { en: 'Sketch your celebration in 3D.', ar: 'ارسموا مناسبتكم بتقنية ثلاثية الأبعاد.' }, alt: { en: 'A ceremony aisle under a flowered pergola', ar: 'ممر حفل تحت برجولة مزهرة' } },
-  { to: '/corporate', image: 'national-5', title: { en: 'Gift', ar: 'أهدِ' }, text: { en: 'Corporate gifting for prestigious brands.', ar: 'هدايا الشركات للعلامات المرموقة.' }, alt: { en: 'GHALIA gift boxes in emerald and gold', ar: 'علب هدايا غالية بالزمردي والذهبي' } },
+  { to: '/order', image: 'mood-open-box', title: { en: 'Order', ar: 'اطلب' }, text: { en: 'Signature trays and gift collections that tell the story of the person who receives them.', ar: 'أطباق وتشكيلات تحكي قصة اللي تهديه.' }, alt: { en: 'Hands opening a box of GHALIA chocolates', ar: 'يدان تفتحان علبة شوكولاتة غالية' } },
+  { to: '/studio', image: 'pergola-ceremony', title: { en: 'Plan', ar: 'خطط' }, text: { en: 'See your celebration before it begins.', ar: 'شوفوا فرحتكم قبل لا تبدأ.' }, alt: { en: 'A ceremony aisle under a flowered pergola', ar: 'ممر حفل تحت برجولة مزهرة' } },
+  { to: '/corporate', image: 'national-5', title: { en: 'Gift', ar: 'أهدِ' }, text: { en: 'For prestigious brands and VIP clients, a gift is a statement.', ar: 'للعلامات المرموقة وعملاء كبار الشخصيات، الهدية رسالة.' }, alt: { en: 'GHALIA gift boxes in emerald and gold', ar: 'علب هدايا غالية بالزمردي والذهبي' } },
 ]
 
 /** Three arches for the three things people come here to do. */

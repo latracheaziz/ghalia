@@ -4,7 +4,7 @@ import { gsap, useGSAP } from '../../animations/gsap'
 import { useLang } from '../../state/LangContext'
 import { useIntroDone } from '../../state/intro'
 import { brand } from '../../content/site'
-import { story } from '../../content/maison'
+import { home } from '../../content/home'
 import { ui } from '../../content/ui'
 import { prefersReducedMotion } from '../../utils/env'
 import { Scene } from '../../three/Scene'
@@ -81,10 +81,10 @@ export function Film() {
   }, { scope: root, dependencies: [introDone, reduced] })
 
   return (
-    <section ref={root} className={`film ${reduced ? 'film--still' : ''}`} aria-label={t(brand.tagline)}>
+    <section ref={root} className={`film ${reduced ? 'film--still' : ''}`} aria-label={t(home.headline)}>
       <div ref={stage} className="film__stage" data-tone="dark">
         <h1 className="film__mega">
-          <span className="sr-only">{t(brand.name)}: {t(brand.tagline)}</span>
+          <span className="sr-only">{t(brand.name)}: {t(home.headline)}</span>
           <Wordmark />
         </h1>
         <Scene name="film" film={film} fallback="gift-heritage" />
@@ -96,12 +96,12 @@ export function Film() {
           )}
         </div>
         <div className="film__beats wrap">
-          <p className="film__beat display t-hero" data-beat="beyond">{t(story.beyond)}</p>
-          {story.lines.map((line, i) => (
+          <p className="film__beat display t-hero" data-beat="beyond">{t(home.headline)}</p>
+          {home.memory.map((line, i) => (
             <p key={line.en} className="film__beat display t-title" data-beat={`line${i}`}>{t(line)}</p>
           ))}
           <div className="film__beat film__beat--end" data-beat="opening">
-            <p className="t-lead">{t(story.opening)}</p>
+            <p className="t-lead">{t(home.born)}</p>
             <TextLink to="/maison">{t(ui.enter)}</TextLink>
           </div>
         </div>

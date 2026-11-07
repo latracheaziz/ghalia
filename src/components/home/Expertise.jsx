@@ -4,6 +4,7 @@ import { gsap } from '../../animations/gsap'
 import { useLang } from '../../state/LangContext'
 import { expertise } from '../../content/events'
 import { ui } from '../../content/ui'
+import { home } from '../../content/home'
 import { hasFinePointer } from '../../utils/env'
 import { Picture } from '../ui/Picture'
 import { TLink } from '../ui/TLink'
@@ -31,7 +32,7 @@ export function Expertise() {
     <section id="expertise" className="section wrap expertise" data-theme="paper" data-chapter={t(ui.chapters.expertise)}>
       <header className="expertise__head">
         <p className="eyebrow" data-reveal="fade">{t(ui.chapters.expertise)}</p>
-        <Words as="h2" className="display t-title" text={t({ en: 'Beyond chocolate, one exclusive destination.', ar: 'أبعد من الشوكولاتة، وجهة واحدة حصرية.' })} />
+        <Words as="h2" className="display t-title" text={t(home.subheadline)} />
       </header>
       <ul className="expertise__list" onPointerLeave={() => setHovered(-1)}>
         {expertise.map((item, i) => (

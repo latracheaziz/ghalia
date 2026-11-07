@@ -8,17 +8,11 @@ import { useLang } from '../state/LangContext'
 import { corporate } from '../content/events'
 import { ui } from '../content/ui'
 
-const COPY = {
-  page: { en: 'Corporate Gifting', ar: 'هدايا الشركات' },
-  title: { en: 'Corporate Gifting Solutions', ar: 'حلول هدايا الشركات' },
-  form: { en: 'Tell us about your programme', ar: 'حدثونا عن برنامجكم' },
-}
-
 export default function Corporate() {
   const { t } = useLang()
   return (
-    <Page title={t(COPY.page)} description={t(corporate.intro)}>
-      <PageHero eyebrow={t(COPY.page)} title={t(COPY.title)} intro={t(corporate.intro)} silk={['#16694F', '#0A3327']} tone="light" />
+    <Page title={t(corporate.title)} description={t(corporate.intro)}>
+      <PageHero eyebrow={t(corporate.title)} title={t(corporate.headline)} intro={t(corporate.intro)} silk={['#16694F', '#0A3327']} tone="light" />
 
       <section className="section wrap moments" data-theme="paper">
         <ul className="moments__list">
@@ -39,7 +33,7 @@ export default function Corporate() {
       <section className="section wrap form-band" data-theme="mocha">
         <div>
           <p className="eyebrow" data-reveal="fade">{t(ui.enquire)}</p>
-          <Words as="h2" className="display t-title" text={t(COPY.form)} />
+          <Words as="h2" className="display t-title" text={t(corporate.closing)} />
         </div>
         <div data-reveal="fade"><EnquiryForm kind="corporate" /></div>
       </section>

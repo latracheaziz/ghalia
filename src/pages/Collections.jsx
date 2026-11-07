@@ -8,6 +8,16 @@ import { useLang } from '../state/LangContext'
 import { collections } from '../content/collections'
 import { story } from '../content/maison'
 import { ui } from '../content/ui'
+
+const COPY = {
+  page: { en: 'Handcrafted Chocolates, Pastries and Gifting', ar: 'شوكولاتة وحلويات فاخرة وهدايا مفصّلة' },
+  description: { en: 'Ghalia', ar: 'غالية' },
+  eyebrow: { en: 'The Collections', ar: 'المجموعات' },
+  intro: {
+    en: 'From the first cocoa bean to the final ribbon, every Ghalia creation is made by hand, with care, and designed in-house. Nothing here is ordinary, and nothing is rushed.',
+    ar: 'من أول حبّة كاكاو لين آخر شريطة، كل إبداع من غالية يُصنع باليد وبكل عناية، ويُصمَّم عندنا. ما فيه شي عادي، وما فيه شي مستعجل.',
+  },
+}
 import { ScrollTrigger } from '../animations/gsap'
 
 const FILTERS = [
@@ -22,8 +32,8 @@ export default function Collections() {
   const shown = collections.filter((c) => filter === 'all' || c.group === filter)
 
   return (
-    <Page title={t(ui.chapters.collections)} description={t(story.lines[0])}>
-      <PageHero eyebrow={t(ui.chapters.collections)} title={t(story.lines[0])} intro={t({ en: 'Bespoke Gift Collections, in seven signature and seasonal lines.', ar: 'مجموعات هدايا مصممة خصيصًا، في سبعة خطوط مميزة وموسمية.' })} silk={['#F4E2D6', '#C9A07F']} />
+    <Page title={t(COPY.page)} description={t(COPY.description)}>
+      <PageHero eyebrow={t(COPY.eyebrow)} title={t(story.lines[0])} intro={t(COPY.intro)} silk={['#F4E2D6', '#C9A07F']} />
 
       <section className="section wrap index" data-theme="paper">
         <div className="choices index__filters" role="group" aria-label={t(ui.chapters.collections)}>

@@ -1,22 +1,25 @@
-// Facts below come from the brand book. Phone and email do not appear in either
-// source document, so they are read from the environment and stay hidden until set.
+// Copy follows "Ghalia: Website Copy" (Nov 2026). Its contact table gives an email but
+// no phone, so the phone is read from the environment and stays hidden until set.
 const env = import.meta.env
 
 export const brand = {
   name: { en: 'GHALIA', ar: 'غالية' },
-  descriptor: { en: 'Chocolate Maison | Weddings & Events', ar: 'دار شوكولاتة | حفلات الزفاف والمناسبات' },
-  patisserie: { en: 'Chocolate and Patisserie', ar: 'شوكولاتة وحلويات راقية' },
+  descriptor: { en: 'Luxury Chocolate and Patisserie', ar: 'دار للشوكولاتة والحلا والحلويات الفاخرة' },
   location: { en: 'Hail, Saudi Arabia', ar: 'حائل، المملكة العربية السعودية' },
-  tagline: { en: 'Crafting Luxury, Celebrating Life.', ar: 'نصنع الفخامة، ونحتفي بالحياة.' },
-  signature: {
-    en: 'Where luxury is crafted and every celebration becomes a masterpiece.',
-    ar: 'حيث تُصنع الفخامة، وتغدو كل مناسبة تحفة فنية.',
+  tagline: { en: 'Crafting luxury. Creating emotions. Celebrating life.', ar: 'نسوي حلى مميز، ونصنع المشاعر، ونحتفل بالحياة.' },
+  footerTagline: {
+    en: 'Ghalia Chocolate and Patisserie. Crafting luxury. Creating emotions. Celebrating life.',
+    ar: 'غالية للشوكولاتة والحلا والحلويات. نصنع الفخامة، ونصنع المشاعر، ونحتفل بالحياة.',
+  },
+  footerDescription: {
+    en: 'A Luxury Chocolate and Patisserie in Saudi Arabia, creating handcrafted chocolates, refined pastries, bespoke gifts and unforgettable celebrations.',
+    ar: 'دار للشوكولاتة والحلا والحلويات الفاخرة في المملكة العربية السعودية، تصنع شوكولاتة باليد وحلويات راقية وهدايا مفصّلة واحتفالات ما تنسى.',
   },
 }
 
 export const contact = {
   phone: env.VITE_CONTACT_PHONE || null,
-  email: env.VITE_CONTACT_EMAIL || null,
+  email: env.VITE_CONTACT_EMAIL || 'ghalia@natheelco.com',
 }
 
 // The Maison's own accounts, as supplied by the Maison. An entry without a url
@@ -32,10 +35,10 @@ export const social = [
 ].filter((account) => account.url)
 
 export const navigation = [
-  { to: '/maison', label: { en: 'The Maison', ar: 'الدار' }, image: 'boutique' },
+  { to: '/maison', label: { en: 'Our Story', ar: 'قصتنا' }, image: 'boutique' },
   { to: '/atelier', label: { en: 'The Atelier', ar: 'المشغل' }, image: 'mood-craft' },
-  { to: '/collections', label: { en: 'Collections', ar: 'المجموعات' }, image: 'gift-heritage' },
-  { to: '/weddings', label: { en: 'Weddings & Events', ar: 'الزفاف والمناسبات' }, image: 'pergola' },
+  { to: '/collections', label: { en: 'Collections and Gifting', ar: 'المجموعات والإهداء' }, image: 'gift-heritage' },
+  { to: '/weddings', label: { en: 'Weddings and Events', ar: 'الأعراس والمناسبات' }, image: 'pergola' },
   { to: '/studio', label: { en: '3D Event Studio', ar: 'استوديو المناسبات ثلاثي الأبعاد' }, image: 'pergola-ceremony' },
   { to: '/corporate', label: { en: 'Corporate Gifting', ar: 'هدايا الشركات' }, image: 'national-5' },
   { to: '/order', label: { en: 'Order', ar: 'اطلب الآن' }, image: 'mood-open-box' },

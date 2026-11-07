@@ -1,25 +1,22 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Page } from '../components/layout/Page'
 import { PageHero } from '../components/ui/PageHero'
 import { Picture } from '../components/ui/Picture'
 import { Words } from '../components/ui/Words'
 import { useLang } from '../state/LangContext'
-import { about, commitment, fulfil, future, mission, pillars, promise, story, vision, world } from '../content/maison'
+import { commitment, fulfil, future, mission, patisserie, pillars, promise, story, vision, world } from '../content/maison'
 import { expertise } from '../content/events'
 import { ui } from '../content/ui'
 import { whatsappLink } from '../utils/whatsapp'
 import { SocialIcon } from '../components/brand/SocialIcon'
 
 const COPY = {
-  page: { en: 'The Maison', ar: 'الدار' },
-  story: { en: 'Brand Story', ar: 'قصة العلامة' },
-  about: { en: 'About Our Business', ar: 'عن أعمالنا' },
+  page: { en: 'Our Story and the Patisserie', ar: 'قصتنا والحلا والحلويات' },
+  description: { en: 'Ghalia Chocolate and Patisserie', ar: 'غالية للشوكولاتة والحلا والحلويات' },
   vision: { en: 'Our Vision', ar: 'رؤيتنا' },
-  visionStatement: { en: 'Vision Statement', ar: 'بيان الرؤية' },
   mission: { en: 'Our Mission', ar: 'رسالتنا' },
-  missionStatement: { en: 'Mission Statement', ar: 'بيان الرسالة' },
-  fulfil: { en: 'How We Fulfill Our Mission', ar: 'كيف نحقق رسالتنا' },
-  commitment: { en: 'Our Commitment', ar: 'التزامنا' },
+  fulfil: { en: 'How we fulfill our mission', ar: 'كيف نحقق رسالتنا' },
+  commitment: { en: 'Our commitment', ar: 'التزامنا' },
   world: { en: 'Our World', ar: 'عالمنا' },
   essence: { en: 'The Essence', ar: 'الجوهر' },
   experience: { en: 'The Experience', ar: 'التجربة' },
@@ -57,8 +54,8 @@ function Pillars() {
 export default function Maison() {
   const { t } = useLang()
   return (
-    <Page title={t(COPY.page)} description={t(story.born)}>
-      <PageHero eyebrow={t(COPY.page)} title={t(story.beyond)} intro={t(story.opening)} />
+    <Page title={t(COPY.page)} description={t(COPY.description)}>
+      <PageHero eyebrow={t(story.title)} title={t(story.headline)} intro={t(story.quote)} />
 
       <section className="section wrap split split--story" data-theme="paper">
         <div className="split__media">
@@ -67,9 +64,14 @@ export default function Maison() {
           </div>
         </div>
         <div className="split__copy">
-          <p className="eyebrow" data-reveal="fade">{t(COPY.story)}</p>
-          <p className="t-lead" data-reveal="fade">{t(story.born)}</p>
-          <p className="muted" data-reveal="fade">{t(story.detail)}</p>
+          {story.chapters.map((chapter, c) => (
+            <Fragment key={chapter.title.en}>
+              <p className="eyebrow" data-reveal="fade">{t(chapter.title)}</p>
+              {chapter.paragraphs.map((p, i) => <p key={p.en} className={c === 0 && i === 0 ? 't-lead' : 'muted'} data-reveal="fade">{t(p)}</p>)}
+            </Fragment>
+          ))}
+          <p className="eyebrow" data-reveal="fade">{t(story.name.title)}</p>
+          <p className="muted" data-reveal="fade">{t(story.name.text)}</p>
           <ul className="story-lines" data-reveal="stagger">
             {story.lines.map((line) => <li key={line.en} className="display t-sub">{t(line)}</li>)}
           </ul>
@@ -77,10 +79,11 @@ export default function Maison() {
       </section>
 
       <section className="section wrap about" data-theme="ivory">
-        <p className="eyebrow" data-reveal="fade">{t(COPY.about)}</p>
+        <p className="eyebrow" data-reveal="fade">{t(patisserie.title)}</p>
         <div className="about__grid">
           <div className="about__copy">
-            {about.map((p, i) => <p key={p.en} className={i === 0 ? 't-lead' : 'muted'} data-reveal="fade">{t(p)}</p>)}
+            <p className="t-lead" data-reveal="fade">{t(patisserie.headline)}</p>
+            {patisserie.intro.map((p) => <p key={p.en} className="muted" data-reveal="fade">{t(p)}</p>)}
           </div>
           <div>
             <h2 className="eyebrow eyebrow--plain" data-reveal="fade">{t(ui.chapters.expertise)}</h2>
@@ -102,10 +105,6 @@ export default function Maison() {
           {vision.paragraphs.map((p) => <p key={p.en} className="muted" data-reveal="fade">{t(p)}</p>)}
         </div>
         <p className="display t-sub vision__closing" data-reveal="fade">{t(vision.closing)}</p>
-        <div className="statement" data-reveal="fade">
-          <h3 className="eyebrow eyebrow--plain">{t(COPY.visionStatement)}</h3>
-          <p className="t-lead">{t(vision.statement)}</p>
-        </div>
       </section>
 
       <section className="section wrap split" data-theme="deep">
@@ -126,12 +125,7 @@ export default function Maison() {
 
       <section className="section wrap mission" data-theme="paper">
         <p className="eyebrow" data-reveal="fade">{t(COPY.mission)}</p>
-        <Words as="h2" className="display t-title" text={t(mission.title)} />
-        <div className="columns">
-          {mission.paragraphs.map((p) => <p key={p.en} className="muted" data-reveal="fade">{t(p)}</p>)}
-        </div>
         <div className="statement" data-reveal="fade">
-          <h3 className="eyebrow eyebrow--plain">{t(COPY.missionStatement)}</h3>
           <p className="t-lead">{t(mission.statement)}</p>
         </div>
       </section>

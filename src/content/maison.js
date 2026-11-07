@@ -1,161 +1,187 @@
-// Brand book copy, kept verbatim in English.
+// Copy from "Ghalia: Website Copy" (Nov 2026): Page 2, Our Story and the Patisserie.
+// The Arabic is the document's own Hail-dialect version.
 
 export const story = {
-  opening: {
-    en: 'Located in the Kingdom of Saudi Arabia, Ghalia is a Luxury Chocolate Maison created to redefine the art of chocolate, gifting, and celebration.',
-    ar: 'في قلب المملكة العربية السعودية، وُلدت غالية دارًا فاخرة للشوكولاتة، لتعيد تعريف فن الشوكولاتة والإهداء والاحتفال.',
+  title: { en: 'Our Story', ar: 'قصتنا' },
+  headline: { en: 'It began in a kitchen, long before it had a name.', ar: 'بدت في مطبخ، قبل لا يصير لها اسم.' },
+  chapters: [
+    {
+      title: { en: 'Chapter 1: The Kitchen', ar: 'الفصل الأول: المطبخ' },
+      paragraphs: [
+        {
+          en: 'Every story has a first room. Ours is a family kitchen, where a little girl stood on tiptoe beside her mother, watching flour drift like snow and sugar turn to gold.',
+          ar: 'كل قصة لها أول مكان. وقصتنا أولها مطبخ بيت، فيه بنية صغيرة واقفة على أطراف أصابعها جنب أمها، تطالع الطحين يتطاير مثل الثلج، والسكر يصير ذهب.',
+        },
+        {
+          en: "Together they made sweets and pastries. There was no recipe book on the counter, only patience, laughter and a mother's hands showing smaller hands how it is done. For the girl, those hours were not a chore or a hobby. They were the happiest place in the world.",
+          ar: 'كانوا يسوّون الحلويات والمعجنات سوا. ما كان في دفتر وصفات على الطاولة، بس صبر وضحك، وإيدين أمٍّ تعلّم إيدين صغيرة كيف تصير الأشياء. وبالنسبة للبنية، تلك الساعات ما كانت شغل ولا هواية.. كانت أحلى مكان في الدنيا.',
+        },
+      ],
+    },
+    {
+      title: { en: 'Chapter 2: The Dream', ar: 'الفصل الثاني: الحلم' },
+      paragraphs: [
+        {
+          en: 'Even then, she knew what she wanted. She would tell her mother, again and again, that one day she would open a place of her own, a place filled with the sweets and pastries they made together.',
+          ar: 'وهي صغيرة، كانت عارفة وش تبي. كانت تقول لأمها مرة بعد مرة إنها يوم من الأيام بتفتح محل لها، ويكون مليان من الحلويات اللي يسوّونها سوا.',
+        },
+        {
+          en: 'Her mother smiled, as mothers do. But the dream never left.',
+          ar: 'وأمها تبتسم، مثل ما تسوّي الأمهات. لكن الحلم ما راح.',
+        },
+      ],
+    },
+    {
+      title: { en: 'Chapter 3: The Years Between', ar: 'الفصل الثالث: السنين اللي بينهم' },
+      paragraphs: [
+        {
+          en: 'Life took her down another road. She grew up, studied, and built a path that looked nothing like a pastry kitchen.',
+          ar: 'ومشت بها الدنيا في طريق ثاني. كبرت ودرست وبنت لها مسار ما يشبه مطابخ الحلويات بشيء.',
+        },
+        {
+          en: 'Yet the passion stayed. It lived in the quiet moments, in the sweets she still made for the people she loved, and in the memory of that kitchen, which never faded. Years pass. Some dreams simply wait for the right moment.',
+          ar: 'لكن الشغف ظل معها. عاش في اللحظات الهادية، وفي الحلويات اللي ما وقفت تسوّيها للناس اللي تحبهم، وفي ذكرى ذاك المطبخ اللي ما بهتت. والسنين تمر.. وبعض الأحلام تنتظر الوقت المناسب.',
+        },
+      ],
+    },
+    {
+      title: { en: 'Chapter 4: The Patisserie', ar: 'الفصل الرابع: دار الحلا والحلويات' },
+      paragraphs: [
+        {
+          en: "That moment came. The little girl's dream stepped out of memory and became something real.",
+          ar: 'وجا الوقت. الحلم طلع من الذاكرة وصار حقيقة.',
+        },
+        {
+          en: 'Ghalia is the result: a Luxury Chocolate and Patisserie in the Kingdom of Saudi Arabia, created to redefine the art of chocolate, gifting and celebration. Every handcrafted praline, every pastry, every tray carries the same warmth that began in that first kitchen, now shaped with the finest ingredients and the highest standards of craft.',
+          ar: 'غالية هي هذي الحقيقة: دار للشوكولاتة والحلا والحلويات الفاخرة في المملكة العربية السعودية، أُسّست عشان تعيد تعريف فنّ الشوكولاتة والإهداء والاحتفال. كل حبّة برالين، وكل معجّنة، وكل صينية فيها نفس الدفا اللي بدا في ذاك المطبخ الأول، بس اليوم بأجود المكوّنات وأعلى معايير الصنعة.',
+        },
+      ],
+    },
+  ],
+  name: {
+    title: { en: 'The meaning of our name', ar: 'معنى اسمنا' },
+    text: {
+      en: 'Ghalia means precious: something dear, something treasured. It is how we regard every recipe, every client and every moment we are trusted to make sweeter.',
+      ar: 'غالية يعني الغالي، الشي اللي له قيمة في القلب. وهذي نظرتنا لكل وصفة، ولكل ضيف، ولكل لحظة يأتمنّونا نحلّيها.',
+    },
   },
-  born: {
-    en: 'Born from a passion for exceptional craftsmanship, Ghalia combines premium ingredients, refined aesthetics, and bespoke experiences into one exclusive destination.',
-    ar: 'نشأت غالية من شغف بالحرفية الاستثنائية، فجمعت أجود المكونات والجمال الراقي والتجارب المصممة خصيصًا في وجهة واحدة حصرية.',
+  quote: {
+    en: 'No matter how many years pass, a dream that is truly loved will find its way home.',
+    ar: 'مهما مرّت السنين، الحلم اللي تحبه صدق بيرجع لك.',
   },
-  beyond: { en: 'Beyond chocolate, Ghalia creates emotions.', ar: 'أبعد من الشوكولاتة، تصنع غالية المشاعر.' },
-  detail: {
-    en: 'From handcrafted pralines and signature pastries to luxurious wedding experiences and exclusive celebrations, every detail reflects elegance, creativity, and excellence.',
-    ar: 'من البرالين المصنوع يدويًا والحلويات المميزة إلى تجارب الزفاف الفاخرة والمناسبات الحصرية، تعكس كل تفصيلة الأناقة والإبداع والتميز.',
-  },
+  // The closing, one line at a time.
   lines: [
-    { en: 'Each collection tells a story.', ar: 'كل مجموعة تروي قصة.' },
-    { en: 'Each celebration becomes unforgettable.', ar: 'كل مناسبة تغدو خالدة في الذاكرة.' },
-    { en: 'Each client experiences luxury differently.', ar: 'وكل عميل يعيش الفخامة على طريقته.' },
+    { en: 'Each collection tells a story.', ar: 'كل مجموعة تحكي قصة.' },
+    { en: 'Each celebration becomes unforgettable.', ar: 'وكل مناسبة تصير ما تنسى.' },
+    { en: 'And it all began with a mother, a daughter and a tray of something sweet.', ar: 'وكل شي بدا بأمٍّ وبنت وصينية حلا.' },
   ],
 }
 
-export const about = [
-  {
-    en: 'Our expertise extends beyond handcrafted chocolates to bespoke gifting, luxury weddings, corporate events, and exclusive celebrations. Every product, tray, dessert, and decorative element is designed in-house to ensure originality, sophistication, and an exceptional customer experience.',
-    ar: 'تمتد خبرتنا إلى ما هو أبعد من الشوكولاتة المصنوعة يدويًا، لتشمل الهدايا المصممة خصيصًا وحفلات الزفاف الفاخرة ومناسبات الشركات والاحتفالات الحصرية. يُصمَّم كل منتج وصينية وحلوى وعنصر زخرفي داخل الدار، ضمانًا للأصالة والرقي وتجربة استثنائية للعميل.',
-  },
-  {
-    en: "With the support of our in-house Wedding Planner and Creative Design Team, clients can visualize their entire event through immersive 3D concepts before bringing their vision to life. From the first consultation to the final celebration, every detail is carefully curated to reflect each client's personality and aspirations.",
-    ar: 'بدعم من مخطط حفلات الزفاف وفريق التصميم الإبداعي في الدار، يستطيع عملاؤنا تصور مناسبتهم كاملة عبر مفاهيم غامرة ثلاثية الأبعاد قبل تحويل رؤيتهم إلى واقع. ومن الاستشارة الأولى حتى ختام الاحتفال، تُنتقى كل تفصيلة بعناية لتعكس شخصية كل عميل وتطلعاته.',
-  },
-  {
-    en: 'At GHALIA, every creation is designed to leave a lasting impression, where exceptional taste meets timeless elegance.',
-    ar: 'في غالية، يُصمَّم كل إبداع ليترك أثرًا باقيًا، حيث يلتقي المذاق الاستثنائي بالأناقة الخالدة.',
-  },
-]
+export const patisserie = {
+  title: { en: 'The Patisserie', ar: 'الحلا والحلويات' },
+  headline: { en: 'Beyond chocolate, we create emotions.', ar: 'أكثر من شوكولاتة.. نصنع مشاعر.' },
+  intro: [
+    {
+      en: 'Ghalia is a Luxury Chocolate and Patisserie, created to redefine the art of chocolate, gifting and celebration. We combine premium ingredients, refined aesthetics and bespoke experiences in one exclusive destination.',
+      ar: 'غالية دار للشوكولاتة والحلا والحلويات الفاخرة، قامت عشان تعيد تعريف فنّ الشوكولاتة والإهداء والاحتفال. نجمع المكوّنات الفاخرة والذوق الرفيع والتجارب المفصّلة على كيفكم في وجهة وحدة.',
+    },
+    {
+      en: 'Every product, tray, dessert and decorative element is designed in-house, so that everything you receive is original, sophisticated and unmistakably Ghalia.',
+      ar: 'كل منتج وصينية وحلا وتفصيلة ديكور نصمّمها بأنفسنا من الألف إلى الياء، عشان كل شي تستلمونه يكون أصيل وراقي وفيه توقيع غالية.',
+    },
+  ],
+}
 
+// The Patisserie's closing line, then the one that closes Weddings and Events.
 export const promise = [
-  { en: "We don't simply create chocolate.", ar: 'نحن لا نصنع الشوكولاتة فحسب.' },
-  { en: 'We design experiences.', ar: 'نحن نصمم التجارب.' },
-  { en: "We don't simply organize events.", ar: 'نحن لا ننظم المناسبات فحسب.' },
-  { en: 'We create unforgettable memories.', ar: 'نحن نصنع ذكريات لا تُنسى.' },
+  { en: "We don't simply create chocolate.", ar: 'نحن ما نسوّي شوكولاتة بس..' },
+  { en: 'We design experiences.', ar: 'نصمّم تجارب.' },
+  { en: "We don't simply organize events.", ar: 'نحن ما ننظّم مناسبات بس..' },
+  { en: 'We create unforgettable memories.', ar: 'نصنع ذكريات ما تنسى.' },
 ]
 
 export const vision = {
   title: {
-    en: 'To Become the Leading Luxury Chocolate & Celebration Maison in the Middle East.',
-    ar: 'أن نصبح الدار الرائدة في الشوكولاتة الفاخرة والاحتفالات في الشرق الأوسط.',
+    en: 'To become the leading luxury chocolate, patisserie and celebration brand in the Middle East.',
+    ar: 'أن نصير الدار الأولى للشوكولاتة والحلا والحلويات والاحتفالات الفاخرة في الشرق الأوسط.',
   },
   paragraphs: [
     {
-      en: 'At GHALIA, we envision a world where every celebration becomes a timeless experience, crafted with elegance, creativity, and exceptional attention to detail.',
-      ar: 'في غالية، نتطلع إلى عالم تصبح فيه كل مناسبة تجربة خالدة، مصوغة بأناقة وإبداع وعناية استثنائية بالتفاصيل.',
+      en: 'We imagine a world where every celebration becomes a timeless experience, crafted with elegance, creativity and exceptional attention to detail.',
+      ar: 'نتخيّل عالم كل احتفال فيه يصير تجربة خالدة، مصنوعة بأناقة وإبداع واهتمام بأدق التفاصيل.',
     },
     {
-      en: 'Our ambition is to redefine luxury by seamlessly combining premium chocolate artistry, refined pastry creations, bespoke gifting, and world-class event design under one distinguished Maison.',
-      ar: 'طموحنا أن نعيد تعريف الفخامة بالجمع المتناغم بين فن الشوكولاتة الراقية وإبداعات الحلويات الرفيعة والهدايا المصممة خصيصًا وتصميم المناسبات بمستوى عالمي، تحت سقف دار واحدة مميزة.',
-    },
-    {
-      en: 'We strive to become the preferred destination for clients seeking exclusive experiences that go beyond products, creating meaningful moments, unforgettable celebrations, and lasting emotions.',
-      ar: 'نسعى لأن نكون الوجهة المفضلة لمن يبحث عن تجارب حصرية تتجاوز المنتجات، لتصنع لحظات ذات معنى واحتفالات لا تُنسى ومشاعر تدوم.',
-    },
-    {
-      en: 'Through continuous innovation, artisanal excellence, and personalized service, GHALIA aims to set new standards for luxury hospitality and event experiences across Saudi Arabia and the region.',
-      ar: 'ومن خلال الابتكار المستمر والتميز الحرفي والخدمة الشخصية، تهدف غالية إلى وضع معايير جديدة لضيافة الفخامة وتجارب المناسبات في المملكة العربية السعودية والمنطقة.',
+      en: 'Through continuous innovation, artisanal excellence and personalized service, we aim to set new standards for luxury hospitality and event experiences across Saudi Arabia and the region.',
+      ar: 'وبالابتكار المستمر والإتقان الحرفي والخدمة اللي تناسب كل واحد، نطمح نرفع المعايير في الضيافة الفاخرة وتجارب المناسبات في السعودية والمنطقة كلها.',
     },
   ],
   closing: {
     en: "Our vision is not simply to create beautiful chocolates or extraordinary events. It is to create memories that become part of people's most cherished moments.",
-    ar: 'رؤيتنا ليست مجرد صنع شوكولاتة جميلة أو مناسبات استثنائية، بل صنع ذكريات تصبح جزءًا من أغلى لحظات الناس.',
-  },
-  statement: {
-    en: "To become the Middle East's most prestigious Chocolate Maison and Luxury Events House, where craftsmanship, innovation, and timeless elegance transform every celebration into an unforgettable experience.",
-    ar: 'أن نصبح أعرق دار للشوكولاتة والمناسبات الفاخرة في الشرق الأوسط، حيث تحوّل الحرفية والابتكار والأناقة الخالدة كل مناسبة إلى تجربة لا تُنسى.',
+    ar: 'رؤيتنا مو بس إنا نسوّي شوكولاتة حلوة أو مناسبات استثنائية، رؤيتنا إنا نصنع ذكريات تصير جزء من أغلى لحظات الناس.',
   },
 }
 
+// "Our Promise"
 export const pillars = [
   {
-    title: { en: 'Excellence', ar: 'التميز' },
-    text: { en: 'Deliver uncompromising quality in every creation and every experience.', ar: 'جودة لا تقبل المساومة في كل إبداع وكل تجربة.' },
+    title: { en: 'Excellence', ar: 'التميّز' },
+    text: { en: 'Uncompromising quality in every creation and every experience.', ar: 'جودة ما نتنازل عنها في كل منتج وكل تجربة.' },
   },
   {
     title: { en: 'Creativity', ar: 'الإبداع' },
-    text: { en: 'Design original concepts that inspire and surprise.', ar: 'تصميم مفاهيم أصيلة تُلهم وتُدهش.' },
+    text: { en: 'Original concepts that inspire and surprise.', ar: 'أفكار أصيلة تلهم وتفاجئ.' },
   },
   {
     title: { en: 'Innovation', ar: 'الابتكار' },
-    text: { en: 'Blend tradition with modern design and technology, including immersive 3D event planning.', ar: 'مزج التقاليد بالتصميم والتقنية الحديثة، ومنها التخطيط الغامر للمناسبات بتقنية ثلاثية الأبعاد.' },
+    text: { en: 'Tradition blended with modern design and technology, including immersive 3D event planning.', ar: 'نمزج الأصالة بالتصميم العصري والتقنية، ومنها التخطيط ثلاثي الأبعاد للمناسبات.' },
   },
   {
-    title: { en: 'Luxury Experience', ar: 'تجربة الفخامة' },
-    text: { en: 'Offer personalized services that reflect sophistication, exclusivity, and attention to detail.', ar: 'خدمات شخصية تعكس الرقي والحصرية والعناية بالتفاصيل.' },
+    title: { en: 'Luxury Experience', ar: 'التجربة الفاخرة' },
+    text: { en: 'Personalized service that reflects sophistication, exclusivity and attention to detail.', ar: 'خدمة تفصّل على ذوقكم وتعكس الرقي والحصرية والاهتمام بالتفاصيل.' },
   },
   {
-    title: { en: 'Emotional Connection', ar: 'الرابط العاطفي' },
-    text: { en: 'Create meaningful moments that clients will remember for a lifetime.', ar: 'صنع لحظات ذات معنى يتذكرها العملاء مدى الحياة.' },
+    title: { en: 'Emotional Connection', ar: 'الارتباط العاطفي' },
+    text: { en: 'Meaningful moments that clients will remember for a lifetime.', ar: 'لحظات لها معنى، تبقى في بال عملائنا طول العمر.' },
   },
 ]
 
 export const mission = {
-  title: {
-    en: 'Creating Exceptional Experiences Through Luxury, Craftsmanship, and Innovation.',
-    ar: 'صنع تجارب استثنائية بالفخامة والحرفية والابتكار.',
-  },
-  paragraphs: [
-    {
-      en: 'At GHALIA, our mission is to craft exceptional chocolates, refined pastries, and unforgettable celebrations that reflect the highest standards of quality, elegance, and creativity.',
-      ar: 'في غالية، رسالتنا صنع شوكولاتة استثنائية وحلويات راقية واحتفالات لا تُنسى، تعكس أعلى معايير الجودة والأناقة والإبداع.',
-    },
-    {
-      en: "We are dedicated to delivering unique experiences by combining artisanal excellence, premium ingredients, sophisticated design, and personalized service. Every creation is thoughtfully designed to celebrate life's most meaningful moments with authenticity and distinction.",
-      ar: 'نكرّس جهدنا لتقديم تجارب فريدة تجمع التميز الحرفي وأجود المكونات والتصميم الراقي والخدمة الشخصية. ويُصمَّم كل إبداع بعناية ليحتفي بأسمى لحظات الحياة بأصالة وتميز.',
-    },
-    {
-      en: 'Beyond our products, we provide a complete luxury journey, from bespoke gifting and signature collections to fully customized weddings and events, supported by innovative 3D visualization and expert event planning.',
-      ar: 'وأبعد من منتجاتنا، نقدم رحلة فخامة متكاملة، من الهدايا المصممة خصيصًا والمجموعات المميزة إلى حفلات الزفاف والمناسبات المخصصة بالكامل، مدعومة بالتصور المبتكر ثلاثي الأبعاد وخبرة تخطيط المناسبات.',
-    },
-    {
-      en: 'Our mission is to exceed expectations by transforming every detail into an expression of beauty, refinement, and lasting emotion.',
-      ar: 'رسالتنا أن نتجاوز التوقعات بتحويل كل تفصيلة إلى تعبير عن الجمال والرقي والمشاعر الباقية.',
-    },
-  ],
   statement: {
-    en: 'To create luxurious chocolate, pastry, and event experiences that combine exceptional craftsmanship, innovative design, and personalized service, making every celebration unique, elegant, and unforgettable.',
-    ar: 'صنع تجارب فاخرة في الشوكولاتة والحلويات والمناسبات، تجمع الحرفية الاستثنائية والتصميم المبتكر والخدمة الشخصية، لتكون كل مناسبة فريدة وأنيقة ولا تُنسى.',
+    en: 'To create luxurious chocolate, pastry and event experiences that combine exceptional craftsmanship, innovative design and personalized service, making every celebration unique, elegant and unforgettable.',
+    ar: 'أن نبتكر تجارب شوكولاتة وحلويات ومناسبات فاخرة، تجمع الحرفية الاستثنائية والتصميم المبتكر والخدمة الشخصية، وتخلّي كل احتفال مميز وأنيق وما ينسى.',
   },
 }
 
+// "How we fulfill our mission"
 export const fulfil = [
   {
-    title: { en: 'Premium Craftsmanship', ar: 'حرفية راقية' },
-    text: { en: 'We create handcrafted chocolates and pastries using carefully selected ingredients and exceptional artisanal techniques.', ar: 'نصنع الشوكولاتة والحلويات يدويًا بمكونات منتقاة بعناية وتقنيات حرفية استثنائية.' },
+    title: { en: 'Premium Craftsmanship', ar: 'حرفية رفيعة' },
+    text: { en: 'Handcrafted chocolates and pastries, made with carefully selected ingredients and exceptional artisanal technique.', ar: 'شوكولاتة وحلويات مصنوعة باليد من مكوّنات منتقاة بعناية وبأساليب حرفية متقنة.' },
   },
   {
-    title: { en: 'Bespoke Experiences', ar: 'تجارب مصممة خصيصًا' },
-    text: { en: "We design personalized gifts, signature collections, and exclusive concepts tailored to each client's vision and occasion.", ar: 'نصمم هدايا شخصية ومجموعات مميزة ومفاهيم حصرية تناسب رؤية كل عميل ومناسبته.' },
+    title: { en: 'Bespoke Experiences', ar: 'تجارب على كيفكم' },
+    text: { en: "Personalized gifts, signature collections and exclusive concepts, tailored to each client's vision and occasion.", ar: 'هدايا وتشكيلات خاصة وأفكار حصرية تنفصّل على رؤية كل عميل ومناسبته.' },
   },
   {
-    title: { en: 'Luxury Weddings & Events', ar: 'حفلات زفاف ومناسبات فاخرة' },
-    text: { en: 'We develop complete event experiences, from creative concept development and 3D visualization to flawless execution.', ar: 'نطوّر تجارب مناسبات متكاملة، من ابتكار المفهوم والتصور ثلاثي الأبعاد إلى التنفيذ المتقن.' },
+    title: { en: 'Luxury Weddings and Events', ar: 'أعراس ومناسبات فاخرة' },
+    text: { en: 'Complete event experiences, from creative concept and 3D visualization to flawless execution.', ar: 'نجهّز المناسبة كاملة، من فكرة الإبداع والتصور ثلاثي الأبعاد لين التنفيذ بدون ولا غلطة.' },
   },
   {
-    title: { en: 'Innovation & Creativity', ar: 'الابتكار والإبداع' },
-    text: { en: 'We continuously explore new ideas, original presentations, and exclusive designs that distinguish GHALIA from the ordinary.', ar: 'نستكشف باستمرار أفكارًا جديدة وعروضًا أصيلة وتصاميم حصرية تميز غالية عن المألوف.' },
+    title: { en: 'Innovation and Creativity', ar: 'ابتكار وإبداع' },
+    text: { en: 'New ideas, original presentations and exclusive designs that set Ghalia apart from the ordinary.', ar: 'نجرّب دايم أفكار جديدة وتقديمات مميزة وتصاميم حصرية تفرّق غالية عن العادي.' },
   },
   {
-    title: { en: 'Customer Excellence', ar: 'التميز في خدمة العملاء' },
-    text: { en: 'We build lasting relationships by delivering attentive service, exceptional quality, and memorable experiences at every touchpoint.', ar: 'نبني علاقات دائمة بخدمة تهتم بالتفاصيل وجودة استثنائية وتجارب لا تُنسى في كل نقطة تواصل.' },
+    title: { en: 'Customer Excellence', ar: 'تميّز في خدمة العميل' },
+    text: { en: 'Attentive service and memorable experiences at every touchpoint, building relationships that last.', ar: 'نبني علاقات تدوم بخدمة بشوشة وجودة عالية وتجارب تنذكر في كل محطة.' },
   },
 ]
 
+// "Our commitment"
 export const commitment = [
-  { en: 'Every chocolate is handcrafted with care.', ar: 'كل قطعة شوكولاتة مصنوعة يدويًا بعناية.' },
-  { en: 'Every dessert is designed with elegance.', ar: 'كل حلوى مصممة بأناقة.' },
-  { en: 'Every gift tells a story.', ar: 'كل هدية تروي قصة.' },
-  { en: 'Every celebration is transformed into a timeless experience.', ar: 'كل مناسبة تتحول إلى تجربة خالدة.' },
+  { en: 'Every chocolate is handcrafted with care.', ar: 'كل شوكولاتة نصنعها باليد وبكل عناية.' },
+  { en: 'Every dessert is designed with elegance.', ar: 'وكل حلا نصمّمه بذوق.' },
+  { en: 'Every gift tells a story.', ar: 'وكل هدية تحكي قصة.' },
+  { en: 'Every celebration is transformed into a timeless experience.', ar: 'وكل مناسبة نحوّلها لتجربة خالدة.' },
 ]
 
 export const world = {

@@ -1,13 +1,13 @@
 // "Our Expertise" from the brand book, each routed to where it lives on the site.
 export const expertise = [
-  { name: { en: 'Premium Handcrafted Chocolates', ar: 'شوكولاتة راقية مصنوعة يدويًا' }, to: '/atelier', hash: 'chocolates', image: 'mood-craft' },
-  { name: { en: 'Luxury Pastries & Desserts', ar: 'حلويات وتحليات فاخرة' }, to: '/atelier', hash: 'pastries', image: 'classic-3' },
-  { name: { en: 'Signature Chocolate Trays', ar: 'صواني شوكولاتة مميزة' }, to: '/atelier', hash: 'halo', image: 'halo-tray' },
-  { name: { en: 'Bespoke Gift Collections', ar: 'مجموعات هدايا مصممة خصيصًا' }, to: '/collections', image: 'gift-heritage' },
-  { name: { en: 'Wedding & Event Planning', ar: 'تخطيط الزفاف والمناسبات' }, to: '/weddings', image: 'mood-arch' },
+  { name: { en: 'Handcrafted Chocolates', ar: 'شوكولاتة مصنوعة باليد' }, to: '/atelier', hash: 'chocolates', image: 'mood-craft' },
+  { name: { en: 'Luxury Pastries and Desserts', ar: 'حلويات ومعجنات فاخرة' }, to: '/atelier', hash: 'pastries', image: 'classic-3' },
+  { name: { en: 'Signature Chocolate Trays', ar: 'أطباق الشوكولاتة الخاصة' }, to: '/atelier', hash: 'halo', image: 'halo-tray' },
+  { name: { en: 'Bespoke Gifting', ar: 'هدايا على الطلب' }, to: '/collections', image: 'gift-heritage' },
+  { name: { en: 'Weddings and Events', ar: 'أعراس ومناسبات' }, to: '/weddings', image: 'mood-arch' },
   { name: { en: '3D Event Concept Design', ar: 'تصميم مفاهيم المناسبات ثلاثي الأبعاد' }, to: '/studio', image: 'pergola-ceremony' },
   { name: { en: 'Corporate Gifting Solutions', ar: 'حلول هدايا الشركات' }, to: '/corporate', image: 'national-5' },
-  { name: { en: 'Luxury Catering Experiences', ar: 'تجارب ضيافة فاخرة' }, to: '/weddings', hash: 'catering', image: 'hosts' },
+  { name: { en: 'Luxury Catering Experiences', ar: 'تجارب ضيافة وتقديم فاخرة' }, to: '/weddings', hash: 'catering', image: 'hosts' },
 ]
 
 // "Concept 01" sheet from the brand book.
@@ -60,13 +60,13 @@ export const pergola = {
   ],
 }
 
-// The journey the brand book describes, from first consultation to final celebration.
+// "How it works", from the Weddings and Events page of the website copy.
 export const journey = [
-  { title: { en: 'The first consultation', ar: 'الاستشارة الأولى' }, text: { en: "Your personality and aspirations, heard by our in-house Wedding Planner.", ar: 'يستمع مخطط الزفاف في الدار إلى شخصيتكم وتطلعاتكم.' } },
-  { title: { en: 'Creative concept', ar: 'ابتكار المفهوم' }, text: { en: 'Our Creative Design Team develops an original concept for your celebration.', ar: 'يطور فريق التصميم الإبداعي مفهومًا أصيلًا لمناسبتكم.' } },
-  { title: { en: '3D visualization', ar: 'التصور ثلاثي الأبعاد' }, text: { en: 'See your entire event through immersive 3D concepts before it comes to life.', ar: 'شاهدوا مناسبتكم كاملة عبر مفاهيم غامرة ثلاثية الأبعاد قبل تنفيذها.' } },
-  { title: { en: 'Flawless execution', ar: 'التنفيذ المتقن' }, text: { en: 'Every product, tray, dessert, and decorative element, designed in-house.', ar: 'كل منتج وصينية وحلوى وعنصر زخرفي يُصمَّم داخل الدار.' } },
-  { title: { en: 'The final celebration', ar: 'الاحتفال الختامي' }, text: { en: 'A timeless experience, and memories that last a lifetime.', ar: 'تجربة خالدة وذكريات تدوم مدى الحياة.' } },
+  { title: { en: 'Consultation', ar: 'الجلسة الأولى' }, text: { en: 'We listen to your story, your style and your vision for the day.', ar: 'نسمع قصتكم وذوقكم ورؤيتكم لليوم.' } },
+  { title: { en: 'Concept', ar: 'الفكرة' }, text: { en: 'Our design team shapes a creative direction made only for you.', ar: 'يرسم فريقنا اتجاه إبداعي مخصص لكم وحدكم.' } },
+  { title: { en: '3D Visualization', ar: 'التصور ثلاثي الأبعاد' }, text: { en: 'You see your entire event in immersive detail and refine it with us.', ar: 'تشوفون مناسبتكم كاملة بالتفصيل وتعدّلون معنا.' } },
+  { title: { en: 'Curation', ar: 'الاختيار والتنسيق' }, text: { en: 'Every dessert, tray, decoration and detail is selected and designed in-house.', ar: 'كل حلا وصينية وديكور وتفصيلة تُختار وتُصمَّم عندنا.' } },
+  { title: { en: 'Execution', ar: 'التنفيذ' }, text: { en: 'Our team delivers the celebration flawlessly, so you can simply be present.', ar: 'يسلّمكم فريقنا الحفل بدون ولا خلل، وأنتم بس استمتعوا.' } },
 ]
 
 // Choices offered by the 3D Event Studio. Palettes use the brand and collection colours.
@@ -94,16 +94,51 @@ export const studio = {
   ],
 }
 
-// Bespoke offer from the brand book: corporate events, prestigious brands and VIP clients.
+// The Gifting page of the website copy. Images and links are unchanged.
 export const corporate = {
+  title: { en: 'Gifting', ar: 'الإهداء' },
+  headline: { en: 'Every gift tells a story. Make yours unforgettable.', ar: 'كل هدية تحكي قصة.. خلّوا قصتكم تنذكر.' },
   intro: {
-    en: 'Corporate gifting programs for prestigious brands and VIP clients, with signature packaging available only through Ghalia.',
-    ar: 'برامج هدايا الشركات للعلامات المرموقة وكبار العملاء، بتغليف مميز لا يتوفر إلا لدى غالية.',
+    en: 'The best gifts are remembered long after the moment has passed. At Ghalia, gifting is an art: considered, personal and designed to leave a lasting impression.',
+    ar: 'أحلى الهدايا هي اللي تبقى في البال بعد ما تنتهي اللحظة. وفي غالية، الإهداء فنّ: مدروس وشخصي ومصمَّم يترك أثر.',
   },
   moments: [
-    { title: { en: 'Corporate gifts', ar: 'هدايا الشركات' }, text: { en: 'Signature Rose is suitable for corporate gifts and exclusive seasonal editions.', ar: 'تناسب مجموعة الوردة المميزة هدايا الشركات والإصدارات الموسمية الحصرية.' }, image: 'rose-1', to: '/collections/signature-rose' },
-    { title: { en: 'Ramadan corporate hampers', ar: 'سلال رمضان للشركات' }, text: { en: 'Royal blue, emerald and gold, ideal for luxury gifting and corporate hampers.', ar: 'الأزرق الملكي والزمردي والذهبي، مثالية للهدايا الفاخرة وسلال الشركات.' }, image: 'ramadan-1', to: '/collections/ramadan' },
-    { title: { en: 'Saudi National Day', ar: 'اليوم الوطني السعودي' }, text: { en: 'Emerald green and luxurious gold, a blend of contemporary luxury and Saudi identity.', ar: 'الأخضر الزمردي والذهبي الفاخر، مزيج من الفخامة المعاصرة والهوية السعودية.' }, image: 'national-5', to: '/collections/saudi-national-day' },
-    { title: { en: 'Corporate events', ar: 'مناسبات الشركات' }, text: { en: 'Complete event experiences, from creative concept to flawless execution.', ar: 'تجارب مناسبات متكاملة، من ابتكار المفهوم إلى التنفيذ المتقن.' }, image: 'boutique', to: '/weddings' },
+    {
+      title: { en: 'Bespoke Gifting', ar: 'هدايا على الطلب' },
+      text: {
+        en: 'For weddings, births, graduations, anniversaries, Ramadan, Eid or simply because someone deserves it, we design gift collections around the person and the occasion. Choose from our signature collections, or work with our design team to create something entirely your own, from the chocolates inside to the ribbon on the box.',
+        ar: 'للأعراس والمواليد والتخرّج والذكريات السنوية ورمضان والعيد، أو بس لأن فيه أحد يستاهل، نصمّم تشكيلات الهدايا على الشخص وعلى المناسبة. اختاروا من تشكيلاتنا الخاصة، أو اشتغلوا مع فريق التصميم عندنا وسوّوا شي يخصّكم وحدكم، من الشوكولاتة اللي بالداخل لين الشريطة اللي على العلبة.',
+      },
+      image: 'rose-1',
+      to: '/collections/signature-rose',
+    },
+    {
+      title: { en: 'Corporate Gifting Solutions', ar: 'حلول هدايا الشركات' },
+      text: {
+        en: 'For prestigious brands and VIP clients, a gift is a statement. Ghalia creates corporate gifting programs that reflect the standards of the company giving them and the importance of the person receiving them.',
+        ar: 'للعلامات المرموقة وعملاء كبار الشخصيات، الهدية رسالة. وغالية تصمّم برامج هدايا للشركات تعكس مستوى الجهة المهدية ومكانة المُهدى له.',
+      },
+      image: 'ramadan-1',
+      to: '/collections/ramadan',
+    },
+    {
+      title: { en: 'The Ghalia standard', ar: 'معيار غالية' },
+      text: {
+        en: 'Every piece is handcrafted, designed in-house and presented with the same attention to detail, whether it is one gift or one thousand.',
+        ar: 'كل قطعة مصنوعة باليد ومصمَّمة عندنا وتُقدَّم بنفس العناية بالتفاصيل، سواء كانت هدية وحدة أو ألف هدية.',
+      },
+      image: 'national-5',
+      to: '/collections/saudi-national-day',
+    },
+    {
+      title: { en: 'Corporate and Private Events', ar: 'مناسبات الشركات والمناسبات الخاصة' },
+      text: {
+        en: 'From boardroom launches to private receptions, our team designs the sweet side of the occasion, including chocolate tables, desserts and luxury catering, all consistent with your brand.',
+        ar: 'من إطلاقات القاعات لين الاستقبالات الخاصة، يصمّم فريقنا الجانب الحلو من مناسبتكم: طاولات شوكولاتة وحلويات وضيافة فاخرة، كلها متناغمة مع هوية علامتكم.',
+      },
+      image: 'boutique',
+      to: '/weddings',
+    },
   ],
+  closing: { en: 'Tell us about your occasion, and we will design the gift.', ar: 'قولوا لنا عن مناسبتكم، وعلينا تصميم الهدية.' },
 }

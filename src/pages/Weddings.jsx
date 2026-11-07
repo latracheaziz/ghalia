@@ -7,15 +7,33 @@ import { Button, TextLink } from '../components/ui/Button'
 import { EnquiryForm } from '../components/forms/EnquiryForm'
 import { useLang } from '../state/LangContext'
 import { journey, pergola } from '../content/events'
-import { about, fulfil, promise, vision } from '../content/maison'
 import { ui } from '../content/ui'
 
 const COPY = {
-  page: { en: 'Weddings & Events', ar: 'الزفاف والمناسبات' },
-  planner: { en: 'Wedding Planner & Creative Design Team', ar: 'مخطط الزفاف وفريق التصميم الإبداعي' },
-  journey: { en: 'From the first consultation to the final celebration', ar: 'من الاستشارة الأولى حتى ختام الاحتفال' },
-  catering: { en: 'Luxury Catering Experiences', ar: 'تجارب ضيافة فاخرة' },
-  form: { en: 'Begin with a conversation', ar: 'لنبدأ بحوار' },
+  page: { en: 'Weddings and Events', ar: 'الأعراس والمناسبات' },
+  meta: { en: 'Luxury Wedding and Event Planning', ar: 'تخطيط أعراس ومناسبات فاخرة' },
+  description: { en: 'Ghalia', ar: 'غالية' },
+  headline: { en: 'See your celebration before it begins.', ar: 'شوفوا فرحتكم قبل لا تبدأ.' },
+  intro: {
+    en: 'A wedding is not a date on a calendar. It is a story you tell once, in front of everyone you love. At Ghalia, we help you tell it beautifully.',
+    ar: 'العرس مو تاريخ في التقويم. العرس قصة تنحكى مرة وحدة، قدّام كل اللي تحبونهم. وفي غالية نساعدكم تحكونها بأجمل صورة.',
+  },
+  planner: { en: 'Wedding Planner and Creative Design Team', ar: 'منسّقة الأعراس وفريق التصميم الإبداعي' },
+  plannerText: {
+    en: "With our in-house Wedding Planner and Creative Design Team, every celebration is designed around who you are: your personality, your aspirations and the way you want your guests to feel. From the first consultation to the final celebration, nothing is left to chance and nothing is borrowed from anyone else's story.",
+    ar: 'مع منسّقة الأعراس وفريق التصميم الإبداعي عندنا، كل احتفال يُصمَّم على شخصيتكم وطموحكم وعلى الشعور اللي تبونه لضيوفكم. من أول جلسة لين آخر لحظة في الحفل، ما نترك شي للصدفة، وما نستعير شي من قصة غيركم.',
+  },
+  preview: {
+    en: 'Before a single flower is placed, you walk through your event. Our immersive 3D concepts let you visualize the entrance, the ceremony, the tables, the lighting and the details, then refine them until it feels exactly right. Only then do we bring your vision to life.',
+    ar: 'قبل لا توضع وردة وحدة، تمشون في مناسبتكم. تصاميمنا ثلاثية الأبعاد تخلّيكم تشوفون المدخل والزفّة والطاولات والإضاءة والتفاصيل، وتعدّلون عليها لين تكون زي ما تبون بالضبط. وبعدها نبدأ نحوّل الرؤية لواقع.',
+  },
+  journey: { en: 'How it works', ar: 'كيف نشتغل' },
+  catering: { en: 'The Ghalia difference', ar: 'الفرق اللي تسوّيه غالية' },
+  difference: {
+    en: 'Everything is designed under one roof: the chocolates, the pastries, the trays, the decor and the planning. The result is a celebration that feels complete, because it was imagined as a whole.',
+    ar: 'كل شي يتصمم تحت سقف واحد: الشوكولاتة والمعجنات والأطباق والديكور والتخطيط. والنتيجة احتفال متكامل، لأنه انتصوّر من البداية كوحدة وحدة.',
+  },
+  form: { en: "Let's begin your story.", ar: 'تعالوا نبدأ قصتكم.' },
 }
 
 /** The pergola's five spaces. Choosing one brings it into the large arch. */
@@ -45,8 +63,8 @@ function PergolaZones() {
 export default function Weddings() {
   const { t } = useLang()
   return (
-    <Page title={t(COPY.page)} description={t(fulfil[2].text)}>
-      <PageHero eyebrow={t(COPY.page)} title={t(promise[3])} intro={t(fulfil[2].text)} silk={['#EBC8BA', '#B98378']}>
+    <Page title={t(COPY.meta)} description={t(COPY.description)}>
+      <PageHero eyebrow={t(COPY.page)} title={t(COPY.headline)} intro={t(COPY.intro)} silk={['#EBC8BA', '#B98378']}>
         <div className="actions" data-reveal="fade">
           <Button to="/studio">{t(ui.openStudio)}</Button>
         </div>
@@ -55,8 +73,8 @@ export default function Weddings() {
       <section className="section wrap split" data-theme="paper">
         <div className="split__copy">
           <p className="eyebrow" data-reveal="fade">{t(COPY.planner)}</p>
-          <p className="t-lead" data-reveal="fade">{t(about[1])}</p>
-          <p className="muted" data-reveal="fade">{t(about[0])}</p>
+          <p className="t-lead" data-reveal="fade">{t(COPY.plannerText)}</p>
+          <p className="muted" data-reveal="fade">{t(COPY.preview)}</p>
         </div>
         <div className="split__media">
           <div className="arch split__arch grain" data-reveal="arch">
@@ -104,7 +122,7 @@ export default function Weddings() {
         </div>
         <div className="split__copy">
           <Words as="h2" className="display t-title" text={t(COPY.catering)} />
-          <p className="t-lead" data-reveal="fade">{t(vision.paragraphs[3])}</p>
+          <p className="t-lead" data-reveal="fade">{t(COPY.difference)}</p>
           <div data-reveal="fade"><TextLink to="/atelier#halo">{t({ en: 'See the Halo Tray', ar: 'شاهدوا صينية الهالة' })}</TextLink></div>
         </div>
       </section>

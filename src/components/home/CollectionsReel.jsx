@@ -69,7 +69,7 @@ export function CollectionsReel() {
       <div ref={track} className="reel__track">
         <div className="reel__intro">
           <p className="eyebrow eyebrow--plain">{t(ui.chapters.collections)}</p>
-          <h2 className="display t-hero">{t({ en: 'Each collection tells a story.', ar: 'كل مجموعة تروي قصة.' })}</h2>
+          <h2 className="display t-hero">{t({ en: 'Each collection tells a story.', ar: 'كل مجموعة تحكي قصة.' })}</h2>
           <TextLink to="/collections">{t(ui.collectionsAll)}</TextLink>
         </div>
         {collections.map((c, i) => (

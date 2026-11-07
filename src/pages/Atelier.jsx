@@ -12,11 +12,26 @@ import { ui } from '../content/ui'
 
 const COPY = {
   page: { en: 'The Atelier', ar: 'المشغل' },
-  title: { en: 'Every chocolate is handcrafted with care.', ar: 'كل قطعة شوكولاتة مصنوعة يدويًا بعناية.' },
-  chocolates: { en: 'Premium Handcrafted Chocolates', ar: 'شوكولاتة راقية مصنوعة يدويًا' },
-  pastries: { en: 'Luxury Pastries & Desserts', ar: 'حلويات وتحليات فاخرة' },
-  trays: { en: 'Signature Chocolate Trays', ar: 'صواني شوكولاتة مميزة' },
-  exclusive: { en: 'Exclusive chocolate trays and signature packaging, available only through Ghalia.', ar: 'صواني شوكولاتة حصرية وتغليف مميز، لا يتوفران إلا لدى غالية.' },
+  title: commitment[0],
+  chocolates: { en: 'Handcrafted Chocolates', ar: 'شوكولاتة مصنوعة باليد' },
+  chocolatesLead: {
+    en: 'Premium pralines, filled and finished by hand, using carefully selected ingredients and exceptional artisanal techniques.',
+    ar: 'برالين فاخرة تُعبّأ وتُزيَّن باليد، من مكوّنات منتقاة بعناية وبأساليب حرفية متقنة.',
+  },
+  chocolatesMore: {
+    en: 'Each piece is small enough to hold in your palm and made with enough care to remember for a long time.',
+    ar: 'كل قطعة بحجم كفّك، ومصنوعة بعناية تخلّيك تذكرها زمن.',
+  },
+  pastries: { en: 'Luxury Pastries and Desserts', ar: 'حلويات ومعجنات فاخرة' },
+  pastriesLead: {
+    en: 'Signature pastries designed with elegance, where refined flavor meets a presentation worthy of the table it arrives on.',
+    ar: 'معجنات خاصة بنا مصمّمة بأناقة، فيها نكهة راقية وتقديم يليق بالطاولة اللي توصلها.',
+  },
+  trays: { en: 'Signature Chocolate Trays', ar: 'أطباق الشوكولاتة الخاصة' },
+  exclusive: {
+    en: 'Statement trays designed exclusively by Ghalia for welcoming guests, honoring occasions and elevating every celebration. Available only through Ghalia.',
+    ar: 'أطباق مميزة صمّمتها غالية حصرياً لاستقبال الضيوف وتكريم المناسبات ورفع مستوى كل احتفال. ما تلقونها إلا عندنا.',
+  },
 }
 
 function HaloStudio() {
@@ -44,8 +59,8 @@ export default function Atelier() {
         <div className="split__copy">
           <p className="eyebrow" data-reveal="fade">01</p>
           <Words as="h2" className="display t-title" text={t(COPY.chocolates)} />
-          <p className="t-lead" data-reveal="fade">{t(commitment[0])}</p>
-          <p className="muted" data-reveal="fade">{t(fulfil[3].text)}</p>
+          <p className="t-lead" data-reveal="fade">{t(COPY.chocolatesLead)}</p>
+          <p className="muted" data-reveal="fade">{t(COPY.chocolatesMore)}</p>
         </div>
         <div className="split__media split__media--stack">
           <div className="arch split__arch grain" data-reveal="arch">
@@ -66,7 +81,7 @@ export default function Atelier() {
         <div className="split__copy">
           <p className="eyebrow" data-reveal="fade">02</p>
           <Words as="h2" className="display t-title" text={t(COPY.pastries)} />
-          <p className="t-lead" data-reveal="fade">{t(commitment[1])}</p>
+          <p className="t-lead" data-reveal="fade">{t(COPY.pastriesLead)}</p>
         </div>
       </section>
 

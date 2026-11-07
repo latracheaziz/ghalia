@@ -12,9 +12,12 @@ import { SocialIcon } from '../brand/SocialIcon'
 import { Words } from '../ui/Words'
 
 const COPY = {
-  eyebrow: { en: 'Follow the Maison', ar: 'تابعوا الدار' },
-  title: { en: 'Every celebration, shared.', ar: 'كل احتفال، نشاركه معكم.' },
-  lead: { en: 'Keep scrolling: each account is poured fresh.', ar: 'تابعوا التمرير: كل حساب يُسكب من جديد.' },
+  eyebrow: { en: 'Visit and Contact', ar: 'زورونا وتواصلوا معنا' },
+  title: { en: "Let's begin your story.", ar: 'تعالوا نبدأ قصتكم.' },
+  lead: {
+    en: 'Whether you are choosing a gift, planning a wedding or imagining a celebration that does not exist yet, we would love to hear from you. Every conversation with Ghalia begins with listening.',
+    ar: 'سواء تدورون هدية، أو تخططون لعرس، أو تتخيلون احتفال ما له وجود للحين، يسعدنا نسمع منكم. وكل حديث مع غالية يبدأ بالإنصات.',
+  },
   open: { en: 'Open', ar: 'افتح' },
   goTo: { en: 'Go to', ar: 'انتقل إلى' },
 }

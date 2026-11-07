@@ -122,7 +122,7 @@ test.describe('navigation', () => {
     await expect(page.locator('.curtain')).toBeHidden({ timeout: 8000 })
     await page.reload()
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
-    await expect(page.locator('h1').first()).toContainText('غالية')
+    await expect(page.locator('h1').first()).toContainText('بدت في مطبخ')
   })
 })
 
@@ -155,7 +155,8 @@ test.describe('ordering', () => {
     await open(page, '/collections/signature-rose')
     await page.getByRole('link', { name: 'Square gift box' }).click()
     await expect(page).toHaveURL(/collection=signature-rose&format=square-box/)
-    await expect(page.getByRole('button', { name: 'Square gift box' })).toHaveAttribute('aria-pressed', 'true')
+    // The order page loads its 3D chooser on arrival, which is slow under software rendering.
+    await expect(page.getByRole('button', { name: 'Square gift box' })).toHaveAttribute('aria-pressed', 'true', { timeout: 30_000 })
     await page.getByRole('button', { name: 'The collection' }).click()
     await expect(page.getByRole('button', { name: 'Signature Rose' })).toHaveAttribute('aria-pressed', 'true')
   })
@@ -268,7 +269,7 @@ test.describe('graceful fallbacks', () => {
     const context = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 1280, height: 800 } })
     const page = await context.newPage()
     await open(page, '/')
-    for (const text of ['Beyond chocolate, Ghalia creates emotions.', 'Each client experiences luxury differently.']) {
+    for (const text of ['Where a childhood dream became a Patisserie.', 'Some recipes are never written down.']) {
       await expect(page.getByText(text).first()).toBeVisible()
     }
     await context.close()

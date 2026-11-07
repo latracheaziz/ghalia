@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { gsap, useGSAP } from '../../animations/gsap'
 import { useLang } from '../../state/LangContext'
 import { ui } from '../../content/ui'
-import { about } from '../../content/maison'
+import { home } from '../../content/home'
 import { prefersReducedMotion } from '../../utils/env'
 import { Picture } from '../ui/Picture'
 import { Button } from '../ui/Button'
@@ -33,8 +33,8 @@ export function Celebrations() {
         <Picture id="pergola" sizes="max(100vw, 185vh)" alt={t({ en: 'The GHALIA de Chocolat pergola at dusk, dressed with flowers, drapes and lanterns', ar: 'برجولة غالية عند الغروب مزينة بالزهور والستائر والفوانيس' })} />
       </div>
       <div className="open-arch__copy wrap">
-        <p className="eyebrow">{t({ en: 'Weddings & Events', ar: 'الزفاف والمناسبات' })}</p>
-        <p className="t-lead measure">{t(about[1])}</p>
+        <p className="eyebrow">{t(home.celebrations.eyebrow)}</p>
+        <p className="t-lead measure">{t(home.celebrations.text)}</p>
         <div className="actions">
           <Button to="/studio">{t(ui.openStudio)}</Button>
           <Button to="/weddings" variant="ghost">{t(ui.planEvent)}</Button>

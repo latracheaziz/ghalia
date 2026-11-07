@@ -8,14 +8,14 @@ export function Footer() {
   const { t, lang } = useLang()
   const heading = {
     explore: { en: 'Explore', ar: 'استكشف' },
-    reach: { en: 'The Maison', ar: 'الدار' },
+    reach: { en: 'Visit the Patisserie', ar: 'زورونا في دار الحلا والحلويات' },
   }
 
   return (
     <footer className="footer wrap" data-theme="deep">
       <div className="footer__top">
         <div className="footer__intro">
-          <p className="footer__line">{t(brand.signature)}</p>
+          <p className="footer__line">{t(brand.footerTagline)}</p>
         </div>
         <nav aria-label={t(heading.explore)}>
           <h2>{t(heading.explore)}</h2>
@@ -45,7 +45,7 @@ export function Footer() {
       </div>
       <Wordmark className="footer__mark" />
       <div className="footer__base">
-        <span>{t(brand.descriptor)}</span>
+        <span>{t(brand.footerDescription)}</span>
         <span dir={lang === 'ar' ? 'rtl' : 'ltr'}>© {new Date().getFullYear()} {t(brand.name)}</span>
       </div>
     </footer>

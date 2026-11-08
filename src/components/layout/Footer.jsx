@@ -1,6 +1,6 @@
 import { useLang } from '../../state/LangContext'
 import { brand, contact, navigation, social } from '../../content/site'
-import { Wordmark } from '../brand/Logo'
+import { Lockup } from '../brand/Logo'
 import { SocialIcon } from '../brand/SocialIcon'
 import { TLink } from '../ui/TLink'
 
@@ -43,7 +43,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <Wordmark className="footer__mark" />
+      <Lockup className="footer__mark" label="GHALIA, Chocolate and Patisserie" />
       <div className="footer__base">
         <span>{t(brand.footerDescription)}</span>
         <span dir={lang === 'ar' ? 'rtl' : 'ltr'}>© {new Date().getFullYear()} {t(brand.name)}</span>

@@ -204,7 +204,7 @@ test.describe('enquiries', () => {
 })
 
 test.describe('3D experiences', () => {
-  test('the Studio updates, exports and sends a concept', async ({ page, request }) => {
+  test('the Studio updates, exports and sends a concept on WhatsApp', async ({ page }) => {
     await open(page, '/studio')
     await expect(page.locator('.studio canvas')).toBeVisible()
 
@@ -219,18 +219,13 @@ test.describe('3D experiences', () => {
     await page.getByRole('button', { name: 'Save image' }).click()
     expect((await download).suggestedFilename()).toBe('ghalia-concept-pergola.png')
 
-    await page.getByRole('button', { name: 'Send this concept' }).click()
-    const form = page.getByRole('dialog', { name: 'Send this concept' })
-    await expect(form).toContainText('Your 3D concept is attached')
-    await form.getByLabel('Full name').fill('Reem')
-    await form.getByLabel('Email').fill('reem@example.com')
-    await form.getByRole('checkbox').check()
-    await form.getByRole('button', { name: 'Send to the Maison' }).click()
-
-    const reference = await page.locator('.sent__ref').textContent()
-    const saved = (await adminList(request)).find((s) => s.reference === reference)
-    expect(saved.payload.concept).toMatchObject({ setting: 'pergola', palette: 'emerald', mood: 'evening' })
-    expect(saved.payload.concept.link).toContain('setting=pergola')
+    const send = page.getByRole('link', { name: /Send this concept/ })
+    await expect(send).toHaveAttribute('target', '_blank')
+    const href = await send.getAttribute('href')
+    expect(href).toMatch(/^https:\/\/wa\.me\/966543422132\?text=/)
+    const text = decodeURIComponent(href.split('?text=')[1])
+    for (const line of ['Pergola', 'Emerald & Gold', 'Candlelit Evening']) expect(text).toContain(line)
+    expect(text).toContain('setting=pergola')
   })
 
   test('a shared Studio link restores the design', async ({ page }) => {
@@ -304,7 +299,11 @@ test.describe('social accounts', () => {
     // The dots pour straight to an account.
     await page.getByRole('button', { name: 'Go to Snapchat' }).click()
     await expect(page.locator('.pour__panel.is-on .pour__name')).toContainText('Snapchat', { timeout: 15_000 })
-    await expect(page.getByRole('link', { name: /Open Snapchat/ })).toBeVisible()
+    // A real click: it fails if the chocolate canvas lies over the link.
+    await page.context().route('https://www.snapchat.com/**', (route) => route.fulfill({ body: 'ok' }))
+    const popup = page.waitForEvent('popup')
+    await page.getByRole('link', { name: /Open Snapchat/ }).click()
+    await expect.poll(async () => (await popup).url()).toContain('snapchat.com/@ghaliainfo')
     await expect(page.locator('.footer__social a')).toHaveCount(6)
     await expect(page.locator('a[href*="facebook"]')).toHaveCount(0)
   })

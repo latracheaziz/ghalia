@@ -114,6 +114,7 @@ export const ui = {
   studioTray: { en: 'Halo Tray', ar: 'صينية الهالة' },
   studioTrayOn: { en: 'Include the Halo Tray', ar: 'إضافة صينية الهالة' },
   studioSend: { en: 'Send this concept', ar: 'أرسلوا هذا المفهوم' },
+  studioGreeting: { en: 'Hello GHALIA, I would like to discuss this event concept:', ar: 'مرحبًا غالية، أودّ أن أتحدث معكم عن هذا التصور لمناسبتي:' },
   studioSave: { en: 'Save image', ar: 'حفظ الصورة' },
   studioShare: { en: 'Copy link', ar: 'نسخ الرابط' },
   studioCopied: { en: 'Link copied', ar: 'تم نسخ الرابط' },

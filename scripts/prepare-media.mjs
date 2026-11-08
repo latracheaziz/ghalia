@@ -31,6 +31,10 @@ const JOBS = {
   'pergola-ceremony': ['pergola-ceremony.png', [424, 0, 859, 922]], // supplied separately, not from the PDFs: keep it in GHALIA_SOURCE
   'pergola-decor': ['A_p03_1_X7.png', [510, 448, 164, 176], 2.4],
   'pergola-lounge': ['A_p03_1_X7.png', [678, 448, 164, 176], 2.4],
+  // Renders of the boutique, supplied separately (Nov 2026): keep them in GHALIA_SOURCE
+  'boutique-front': ['boutique-front.jpg'],
+  'boutique-salon': ['boutique-salon.jpg'],
+  'boutique-counter': ['boutique-counter.jpg'],
   moodboard: ['A_p09_0_X4.png', null, 1.1],
   'mood-craft': ['A_p09_0_X4.png', [401, 2, 250, 306], 2.4],
   'mood-maison': ['A_p09_0_X4.png', [656, 2, 376, 332], 2.2],
@@ -91,6 +95,7 @@ for (const [id, [file, crop, upscale = 1]] of Object.entries(JOBS)) {
   }
 }
 
-await sharp(path.join(SRC, 'A_p02_0_X4.png')).resize(1200, 630, { fit: 'cover' }).jpeg({ quality: 82 }).toFile(path.join(OUT, 'og.jpg'))
+// Share card: the logo on its paper (ghalia-logo.jpg, 896×1200, supplied Nov 2026), cropped to the lockup.
+await sharp(path.join(SRC, 'ghalia-logo.jpg')).extract({ left: 0, top: 365, width: 896, height: 470 }).resize(1200, 630).jpeg({ quality: 84 }).toFile(path.join(OUT, 'og.jpg'))
 await fs.writeFile(MANIFEST, JSON.stringify(manifest, null, 1))
 console.log(`${Object.keys(manifest).length} images → ${OUT}`)

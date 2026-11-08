@@ -1,16 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { AnimatePresence, motion } from 'motion/react'
-import { Check, Download, Link2, X } from 'lucide-react'
+import { Check, Download, Link2 } from 'lucide-react'
 import { Page } from '../components/layout/Page'
 import { Button } from '../components/ui/Button'
-import { EnquiryForm } from '../components/forms/EnquiryForm'
+import { SocialIcon } from '../components/brand/SocialIcon'
 import { Scene } from '../three/Scene'
 import { pauseScroll, resumeScroll } from '../animations/lenis'
-import { useFocusTrap } from '../hooks/useFocusTrap'
 import { useLang } from '../state/LangContext'
 import { studio } from '../content/events'
 import { ui } from '../content/ui'
+import { whatsappLink } from '../utils/whatsapp'
 
 const DEFAULTS = { setting: 'halo', palette: 'blush', floral: 'full', mood: 'golden', tray: true }
 
@@ -46,10 +45,8 @@ export default function Studio() {
   const { t } = useLang()
   const [params, setParams] = useSearchParams()
   const concept = useMemo(() => readConcept(params), [params])
-  const [sending, setSending] = useState(false)
   const [copied, setCopied] = useState(false)
   const canvas = useRef(null)
-  const dialog = useRef(null)
 
   const update = useCallback((key, value) => {
     setParams((prev) => {
@@ -80,16 +77,23 @@ export default function Studio() {
     })
   }
 
-  const closeForm = useCallback(() => setSending(false), [])
-  useFocusTrap(dialog, sending, closeForm)
-
   // The set owns the whole screen, so the wheel should orbit nothing and scroll nothing.
   useEffect(() => {
     pauseScroll()
     return resumeScroll
   }, [])
 
-  const payload = useMemo(() => ({ ...concept, link: typeof window === 'undefined' ? '' : window.location.href }), [concept])
+  // The concept goes to the Maison on WhatsApp, written out and with its link, so they open the same design.
+  const label = (list, id) => t(list.find((o) => o.id === id).label)
+  const sendLink = whatsappLink([
+    t(ui.studioGreeting),
+    `• ${t(ui.studioSetting)}: ${label(studio.settings, concept.setting)}`,
+    `• ${t(ui.studioPalette)}: ${label(studio.palettes, concept.palette)}`,
+    `• ${t(ui.studioFlorals)}: ${label(studio.florals, concept.floral)}`,
+    `• ${t(ui.studioMood)}: ${label(studio.moods, concept.mood)}`,
+    ...(concept.setting !== 'pergola' && concept.tray ? [`• ${t(ui.studioTray)}`] : []),
+    ...(typeof window === 'undefined' ? [] : ['', window.location.href]),
+  ].join('\n'))
 
   return (
     <Page title={t(ui.studioTitle)} description={t(ui.studioIntro)}>
@@ -114,7 +118,13 @@ export default function Studio() {
             </label>
           )}
           <div className="studio__actions">
-            <Button onClick={() => setSending(true)}>{t(ui.studioSend)}</Button>
+            {sendLink ? (
+              <a className="btn btn--whatsapp" href={sendLink} target="_blank" rel="noopener noreferrer">
+                <span>{t(ui.studioSend)}</span>
+                <SocialIcon id="whatsapp" />
+                <span className="sr-only">{t(ui.newTab)}</span>
+              </a>
+            ) : <Button to="/contact">{t(ui.enquire)}</Button>}
             <div className="studio__tools">
               <button type="button" className="link" onClick={save}><Download aria-hidden="true" /><span>{t(ui.studioSave)}</span></button>
               <button type="button" className="link" onClick={share}>
@@ -126,33 +136,6 @@ export default function Studio() {
           </div>
         </aside>
       </div>
-
-      <AnimatePresence>
-        {sending ? (
-          <motion.div key="form" className="drawer-scrim" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={closeForm} />
-        ) : null}
-        {sending ? (
-          <motion.div
-            key="panel"
-            ref={dialog}
-            className="drawer studio__form"
-            data-theme="paper"
-            data-lenis-prevent
-            role="dialog"
-            aria-modal="true"
-            aria-label={t(ui.studioSend)}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 30 }}
-          >
-            <div className="drawer__head">
-              <h2 className="display t-sub">{t(ui.studioSend)}</h2>
-              <button type="button" className="header__btn" onClick={closeForm} aria-label={t(ui.close)}><X size={20} aria-hidden="true" /></button>
-            </div>
-            <div className="studio__form-body"><EnquiryForm kind="wedding" concept={payload} /></div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
     </Page>
   )
 }

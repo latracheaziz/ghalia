@@ -554,5 +554,32 @@
    922
   ],
   "color": "rgb(232 216 184)"
+ },
+ "boutique-front": {
+  "ratio": 0.5367,
+  "widths": [
+   480,
+   800,
+   1280
+  ],
+  "color": "rgb(232 216 216)"
+ },
+ "boutique-salon": {
+  "ratio": 0.5422,
+  "widths": [
+   480,
+   800,
+   1280
+  ],
+  "color": "rgb(104 88 72)"
+ },
+ "boutique-counter": {
+  "ratio": 0.5617,
+  "widths": [
+   480,
+   800,
+   1280
+  ],
+  "color": "rgb(104 88 72)"
  }
 }

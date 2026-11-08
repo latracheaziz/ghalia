@@ -179,6 +179,9 @@ export default function PourScene({ ids, tones, state, active }) {
   return (
     <Canvas
       className="pour__canvas"
+      // R3F sets pointer-events: auto on its wrapper, which would cover the account links.
+      // The praline follows the mouse through a window listener, so the canvas needs no clicks.
+      style={{ pointerEvents: 'none' }}
       frameloop={active ? 'always' : 'never'}
       dpr={quality.dpr}
       gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}

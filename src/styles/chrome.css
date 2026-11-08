@@ -100,7 +100,7 @@
 .footer__social a { display: grid; place-items: center; inline-size: 2.6rem; block-size: 2.6rem; border: 1px solid var(--line); border-radius: 50%; transition: color 0.3s, background-color 0.3s, border-color 0.3s; }
 .footer__social a:hover { color: var(--mocha-deep); background-color: var(--gold); border-color: var(--gold); }
 .footer__social svg { inline-size: 1.05rem; block-size: 1.05rem; }
-.footer__mark { margin-block: clamp(3rem, 7vw, 6rem) 1.5rem; color: var(--gold); }
+.footer__mark { max-inline-size: 44rem; margin: clamp(3rem, 7vw, 6rem) auto 2.5rem; color: var(--ivory-soft); --logo-accent: var(--gold); }
 .footer__base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: var(--t-small); color: var(--muted); }
 @media (max-width: 52rem) { .footer__top { grid-template-columns: 1fr 1fr; } .footer__intro { grid-column: 1 / -1; } }
 
@@ -113,7 +113,7 @@
 .preloader { position: fixed; inset: 0; z-index: var(--z-preloader); display: grid; place-items: center; background: var(--ivory-soft); color: var(--mocha); }
 .preloader__stage { position: relative; display: grid; place-items: center; inline-size: min(66vw, 21rem); aspect-ratio: 3 / 4; }
 .preloader__arch { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; color: var(--gold); overflow: visible; }
-.preloader__logo { inline-size: 72%; }
+.preloader__logo { inline-size: 72%; --logo-accent: var(--gold); }
 .preloader__count { position: absolute; inset-block-end: 2rem; font-size: var(--t-micro); letter-spacing: var(--track-wide); text-transform: uppercase; color: var(--gold-ink); }
 :root[dir='rtl'] .preloader__count { font-size: 0.9rem; }
 

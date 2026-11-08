@@ -35,12 +35,12 @@ export const social = [
 ].filter((account) => account.url)
 
 export const navigation = [
-  { to: '/maison', label: { en: 'Our Story', ar: 'قصتنا' }, image: 'boutique' },
+  { to: '/maison', label: { en: 'Our Story', ar: 'قصتنا' }, image: 'boutique-salon' },
   { to: '/atelier', label: { en: 'The Atelier', ar: 'المشغل' }, image: 'mood-craft' },
   { to: '/collections', label: { en: 'Collections and Gifting', ar: 'المجموعات والإهداء' }, image: 'gift-heritage' },
   { to: '/weddings', label: { en: 'Weddings and Events', ar: 'الأعراس والمناسبات' }, image: 'pergola' },
   { to: '/studio', label: { en: '3D Event Studio', ar: 'استوديو المناسبات ثلاثي الأبعاد' }, image: 'pergola-ceremony' },
   { to: '/corporate', label: { en: 'Corporate Gifting', ar: 'هدايا الشركات' }, image: 'national-5' },
   { to: '/order', label: { en: 'Order', ar: 'اطلب الآن' }, image: 'mood-open-box' },
-  { to: '/contact', label: { en: 'Contact', ar: 'تواصل معنا' }, image: 'atelier' },
+  { to: '/contact', label: { en: 'Contact', ar: 'تواصل معنا' }, image: 'boutique-front' },
 ]

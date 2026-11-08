@@ -26,7 +26,7 @@ const COPY = {
 
 const COLLAGE = [
   ['mood-craft', 'A gold nozzle finishing chocolates by hand', 'نقش ذهبي على الشوكولاتة باليد'],
-  ['mood-maison', 'The Maison boutique interior', 'المتجر من الداخل'],
+  ['boutique-counter', 'The boutique counter: tulips, roses and chocolates on white marble', 'طاولة المتجر: توليب وورد وشوكولاتة على رخام أبيض'],
   ['mood-arch', 'A flowered arch set for a celebration', 'قوس مزهر مجهز لمناسبة'],
   ['mood-rose-box', 'A blush velvet box of chocolates and a gift bag', 'علبة مخملية وردية وحقيبة هدايا'],
   ['mood-pralines', 'Chocolates finished with gold details', 'شوكولاتة بتفاصيل ذهبية'],
@@ -60,7 +60,7 @@ export default function Maison() {
       <section className="section wrap split split--story" data-theme="paper">
         <div className="split__media">
           <div className="arch split__arch grain" data-reveal="arch">
-            <Picture id="boutique" alt={t({ en: 'The Maison boutique: a marble counter, gift boxes and golden light', ar: 'متجر الدار: طاولة رخامية وعلب هدايا وضوء ذهبي' })} sizes="(max-width: 56rem) 90vw, 46vw" />
+            <Picture id="boutique-salon" alt={t({ en: 'Inside the GHALIA boutique: a marble counter of flowers and chocolate, a blush sofa and blossom overhead', ar: 'داخل متجر غالية: طاولة رخامية للورد والشوكولاتة، وكنبة وردية، وزهر معلّق' })} sizes="(max-width: 56rem) 90vw, 46vw" />
           </div>
         </div>
         <div className="split__copy">
@@ -114,13 +114,13 @@ export default function Maison() {
         </div>
         <div className="split__media">
           <div className="arch arch--ogee split__arch grain" data-reveal="fade">
-            <Picture id="mood-pralines" alt={t({ en: 'Chocolates finished with gold details', ar: 'شوكولاتة بتفاصيل ذهبية' })} sizes="(max-width: 56rem) 90vw, 40vw" />
+            <Picture id="rose-2" alt={t({ en: 'An open blush velvet box of GHALIA chocolates tied with a gold ribbon', ar: 'علبة مخملية وردية مفتوحة من شوكولاتة غالية بشريطة ذهبية' })} sizes="(max-width: 56rem) 90vw, 40vw" />
           </div>
         </div>
       </section>
 
       <section className="mission-band grain" aria-hidden="true">
-        <Picture id="atelier" alt="" data-parallax="0.08" />
+        <Picture id="boutique-front" alt="" data-parallax="0.08" />
       </section>
 
       <section className="section wrap mission" data-theme="paper">

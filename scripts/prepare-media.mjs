@@ -2,19 +2,28 @@
  * Builds the responsive WebP set in /public/media and its manifest from the
  * images embedded in the two brand PDFs. Run with GHALIA_SOURCE pointing at the
  * folder of extracted images:  GHALIA_SOURCE=/path/to/img npm run media
+ *
+ * HD: the PDF images are small (many under 1000 px). If GHALIA_SOURCE/hd holds
+ * AI-upscaled PNG copies under the same base names, those are used instead. Made with
+ * Real-ESRGAN (realesrgan-ncnn-vulkan, model realesrgan-x4plus):
+ *   realesrgan-ncnn-vulkan -i $GHALIA_SOURCE -o $GHALIA_SOURCE/hd -n realesrgan-x4plus -f png
+ * Crop boxes stay in original pixels and are scaled to match.
  */
 import fs from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import path from 'node:path'
 import sharp from 'sharp'
 
 const SRC = process.env.GHALIA_SOURCE
 if (!SRC) throw new Error('Set GHALIA_SOURCE to the folder of extracted PDF images.')
+const HD = path.join(SRC, 'hd')
 
 const OUT = path.resolve('public/media')
 const MANIFEST = path.resolve('src/content/media.json')
-const WIDTHS = [480, 800, 1200, 1680]
+const WIDTHS = [480, 800, 1200, 1600, 2000]
+const MAX_WIDTH = 2400
 
-// id: [source file, crop box [x, y, w, h] | null, upscale factor]
+// id: [source file, crop box [x, y, w, h] | null, upscale factor (only used without an HD copy)]
 const JOBS = {
   // Brand book
   'cover-silk': ['A_p01_0_X4.png', [0, 0, 500, 945], 1.6],
@@ -73,19 +82,31 @@ await fs.rm(OUT, { recursive: true, force: true })
 await fs.mkdir(OUT, { recursive: true })
 
 const manifest = {}
+const missingHd = []
 for (const [id, [file, crop, upscale = 1]] of Object.entries(JOBS)) {
-  let base = sharp(path.join(SRC, file)).removeAlpha()
-  if (crop) base = base.extract({ left: crop[0], top: crop[1], width: crop[2], height: crop[3] })
+  const original = path.join(SRC, file)
+  // The upscaler writes PNG whatever the source format.
+  const hdFile = path.join(HD, file.replace(/\.\w+$/, '.png'))
+  const hasHd = existsSync(hdFile)
+  if (!hasHd) missingHd.push(id)
+  // Ratio of the HD copy to the original, so crop boxes written for the original still apply.
+  const scale = hasHd ? (await sharp(hdFile).metadata()).width / (await sharp(original).metadata()).width : 1
+
+  let base = sharp(hasHd ? hdFile : original).removeAlpha()
+  if (crop) {
+    const [x, y, w, h] = crop.map((v) => Math.round(v * scale))
+    base = base.extract({ left: x, top: y, width: w, height: h })
+  }
   const buffer = await base.png().toBuffer()
   const meta = await sharp(buffer).metadata()
-  const maxW = Math.round(meta.width * upscale)
+  const maxW = Math.min(Math.round(meta.width * (hasHd ? 1 : upscale)), MAX_WIDTH)
   const ratio = meta.height / meta.width
-  const widths = [...WIDTHS.filter((w) => w < maxW * 0.9), Math.min(maxW, 1920)]
+  const widths = [...WIDTHS.filter((w) => w < maxW * 0.9), maxW]
 
   for (const w of widths) {
     let pipe = sharp(buffer).resize({ width: w, kernel: 'lanczos3' })
     if (w > meta.width) pipe = pipe.sharpen({ sigma: 0.8 })
-    await pipe.webp({ quality: 78, effort: 5 }).toFile(path.join(OUT, `${id}-${w}.webp`))
+    await pipe.webp({ quality: 88, effort: 6, smartSubsample: true }).toFile(path.join(OUT, `${id}-${w}.webp`))
   }
   const { dominant } = await sharp(buffer).stats()
   manifest[id] = {
@@ -99,3 +120,4 @@ for (const [id, [file, crop, upscale = 1]] of Object.entries(JOBS)) {
 await sharp(path.join(SRC, 'ghalia-logo.jpg')).extract({ left: 0, top: 365, width: 896, height: 470 }).resize(1200, 630).jpeg({ quality: 84 }).toFile(path.join(OUT, 'og.jpg'))
 await fs.writeFile(MANIFEST, JSON.stringify(manifest, null, 1))
 console.log(`${Object.keys(manifest).length} images → ${OUT}`)
+if (missingHd.length) console.log(`No HD copy in ${HD} for: ${missingHd.join(', ')}`)

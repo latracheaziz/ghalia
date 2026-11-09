@@ -5,3 +5,5 @@ data
 *.log
 test-results
 playwright-report
+
+.claude/settings.local.json

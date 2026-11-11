@@ -41,10 +41,11 @@
 .film__stage { position: sticky; inset-block-start: 0; block-size: 100svh; overflow: hidden; isolation: isolate; background: var(--ivory-soft); }
 .film__canvas { z-index: 1; }
 .film .scene { z-index: 1; }
-.film__mega { position: absolute; z-index: 0; inset-block-start: clamp(5.5rem, 12vh, 8rem); inset-inline: var(--gutter); color: var(--mocha); }
+/* About 40% smaller than full width, and capped by height so it always ends above the Halo Tray's arch. */
+.film__mega { position: absolute; z-index: 0; inset-block-start: clamp(5rem, 10vh, 7rem); inset-inline: 0; margin-inline: auto; inline-size: min(100% - 2 * var(--gutter), 62vw, 88vh); color: var(--mocha); }
 .film__foot { position: absolute; z-index: 2; inset-inline: 0; inset-block-end: clamp(1.2rem, 4vh, 2.6rem); display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: 1.5rem; color: var(--mocha); }
-.film__tagline { font-size: clamp(2.6rem, 4.4vw, 4.6rem); color: var(--mocha); }
-:root[dir='rtl'] .film__tagline { font-size: clamp(1.5rem, 2.3vw, 2.4rem); }
+.film__tagline { font-size: clamp(1.8rem, 2.9vw, 3rem); color: var(--mocha); }
+:root[dir='rtl'] .film__tagline { font-size: clamp(1.1rem, 1.6vw, 1.65rem); }
 .film__descriptor { text-align: center; font-size: var(--t-micro); letter-spacing: var(--track-mid); text-transform: uppercase; line-height: 1.9; }
 :root[dir='rtl'] .film__descriptor { font-size: 0.92rem; }
 .film__hint { justify-self: end; display: inline-flex; gap: 0.7rem; align-items: center; font-size: var(--t-micro); letter-spacing: var(--track-wide); text-transform: uppercase; }
@@ -52,11 +53,13 @@
 .film__hint svg { animation: nudge 2.2s var(--ease-in-out) infinite; }
 @keyframes nudge { 50% { transform: translateY(6px); } }
 .film__beats { position: absolute; z-index: 2; inset: 0; display: grid; place-items: center; color: var(--ivory-soft); pointer-events: none; }
-.film__beat { grid-area: 1 / 1; max-inline-size: 18ch; text-align: center; opacity: 0; text-shadow: 0 2px 30px rgb(33 18 10 / 0.75); }
+.film__beat { grid-area: 1 / 1; max-inline-size: 20ch; text-align: center; opacity: 0; text-shadow: 0 2px 30px rgb(33 18 10 / 0.75); }
+.film__beat.t-hero { font-size: calc(var(--t-hero) * 0.64); }
+.film__beat.t-title { font-size: calc(var(--t-title) * 0.66); line-height: 1.1; }
 .film__beat--end { visibility: hidden; max-inline-size: 40rem; display: grid; justify-items: center; gap: 1.6rem; pointer-events: auto; }
 .film--still { block-size: auto; }
 .film--still .film__stage { position: relative; block-size: auto; background: var(--mocha-deep); overflow: visible; }
-.film--still .film__mega { position: relative; inset: auto; padding: calc(var(--header-h) + 1rem) var(--gutter) 1rem; background: var(--ivory-soft); }
+.film--still .film__mega { position: relative; inset: auto; inline-size: auto; margin: 0; padding: calc(var(--header-h) + 1rem) var(--gutter) 1rem; background: var(--ivory-soft); }
 .film--still .scene { position: relative !important; block-size: 70svh; background: var(--ivory-soft); }
 .film--still .film__foot { position: relative; inset: auto; padding-block: 1rem 2rem; background: var(--ivory-soft); }
 .film--still .film__beats { position: relative; display: grid; gap: 3rem; padding-block: 4rem; pointer-events: auto; }
@@ -96,6 +99,7 @@
 .reel--pinned { block-size: 100svh; }
 .reel--pinned .reel__track { block-size: 100svh; will-change: transform; }
 .reel__intro { inline-size: min(78vw, 46rem); display: grid; gap: 1.6rem; justify-items: start; }
+.reel__intro .t-hero { font-size: calc(var(--t-hero) * 0.82); }
 .reel__card { inline-size: clamp(19rem, 29vw, 30rem); }
 .reel__card--low { padding-block-start: 11vh; }
 .reel__card:not(.reel__card--low) { padding-block-end: 11vh; }
@@ -103,9 +107,8 @@
 .reel__image { aspect-ratio: 4 / 5; max-block-size: 60svh; inline-size: 100%; }
 .reel__image img { transition: transform 1.6s var(--ease-out); }
 .reel__link:hover .reel__image img { transform: scale(1.06); }
-.reel__meta { display: grid; grid-template-columns: auto 1fr; gap: 0.1rem 1rem; }
-.reel__index { font-size: var(--t-micro); color: var(--reel-accent); padding-block-start: 0.5rem; transition: color 0.9s; }
-.reel__meta p { grid-column: 2; font-size: var(--t-small); }
+.reel__meta { display: grid; gap: 0.3rem; }
+.reel__meta p { font-size: var(--t-small); }
 @media (max-width: 56rem), (prefers-reduced-motion: reduce) {
   .reel:not(.reel--pinned) .reel__track { inline-size: auto; overflow-x: auto; scroll-snap-type: x mandatory; gap: 0; padding-inline: 0; align-items: stretch; scrollbar-width: none; }
   .reel:not(.reel--pinned) .reel__intro, .reel:not(.reel--pinned) .reel__card { flex: none; inline-size: 88vw; scroll-snap-align: center; padding: calc(var(--header-h) + 1rem) var(--gutter) 3rem; background: var(--reel-bg); color: var(--reel-ink); }
@@ -114,7 +117,9 @@
 
 /* Celebrations */
 .open-arch { position: relative; block-size: 100svh; overflow: hidden; }
-.open-arch__title { position: absolute; inset-inline: 0; inset-block-start: 8vh; text-align: center; color: var(--gold); z-index: 0; }
+/* Sized by height as well as width so the word always ends above the arch, which opens from 27% down. */
+.open-arch__title { position: absolute; inset-inline: 0; inset-block-start: calc(var(--header-h) + 1vh); text-align: center; color: var(--gold); z-index: 0; font-size: min(var(--t-mega), 15vh); }
+:root[dir='rtl'] .open-arch__title { font-size: min(var(--t-mega), 12vh); }
 .open-arch__mask { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
 .open-arch__mask img { inline-size: 100%; block-size: 100%; object-fit: cover; }
 /* Wider than the screen, the photo would lose the GHALIA sign at its left edge. */
@@ -123,9 +128,11 @@
 .open-arch__copy .btn:not(.btn--ghost) { background: var(--ivory-soft); color: var(--mocha); }
 
 /* Promise */
-.promise { display: grid; gap: 0.2em; }
+.promise { display: grid; gap: 0.2em; justify-items: center; text-align: center; }
 .promise .eyebrow { margin-block-end: 2.5rem; }
-.promise__line--answer { font-style: var(--accent-style); color: var(--gold); text-align: end; margin-block-end: 0.6em; }
+/* A rule on both sides keeps the centred label balanced. */
+.promise .eyebrow::after { content: ''; inline-size: 2.4em; block-size: 1px; background: currentColor; }
+.promise__line--answer { font-style: var(--accent-style); color: var(--gold-warm); margin-block-end: 0.6em; }
 
 /* Doors */
 .doors__row { display: grid; grid-template-columns: 1fr 1.18fr 1fr; gap: clamp(1.25rem, 3vw, 3rem); align-items: end; }

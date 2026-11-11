@@ -19,6 +19,7 @@ const Corporate = lazy(() => import('./pages/Corporate'))
 const Order = lazy(() => import('./pages/Order'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Inbox = lazy(() => import('./pages/Inbox'))
+const Admin = lazy(() => import('./pages/Admin'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 const NO_FOOTER = ['/studio', '/inbox']
@@ -26,6 +27,8 @@ const NO_FOOTER = ['/studio', '/inbox']
 export default function App() {
   const { lang, t } = useLang()
   const { pathname } = useLocation()
+  // The admin is a working tool: no site header, footer or gold cursor.
+  const admin = pathname.startsWith('/admin')
 
   return (
     <>
@@ -39,8 +42,8 @@ export default function App() {
         </defs>
       </svg>
       <Preloader />
-      <Cursor />
-      <Header />
+      {admin ? null : <Cursor />}
+      {admin ? null : <Header />}
       <ErrorBoundary>
         <Suspense fallback={null}>
           <Routes key={lang}>
@@ -55,11 +58,12 @@ export default function App() {
             <Route path="/order" element={<Order />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/inbox" element={<Inbox />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </ErrorBoundary>
-      {NO_FOOTER.includes(pathname) ? null : <Footer />}
+      {admin || NO_FOOTER.includes(pathname) ? null : <Footer />}
     </>
   )
 }

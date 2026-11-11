@@ -20,7 +20,7 @@ export function Celebrations() {
       scrollTrigger: { trigger: root.current, start: 'top top', end: '+=140%', pin: true, scrub: 0.5, anticipatePin: 1 },
       defaults: { ease: 'none' },
     })
-      .fromTo('.open-arch__mask', { clipPath: 'inset(16% 33% 0% 33% round 34vw 34vw 0 0)' }, { clipPath: 'inset(0% 0% 0% 0% round 0vw 0vw 0 0)', duration: 0.6 })
+      .fromTo('.open-arch__mask', { clipPath: 'inset(27% 33% 0% 33% round 34vw 34vw 0 0)' }, { clipPath: 'inset(0% 0% 0% 0% round 0vw 0vw 0 0)', duration: 0.6 })
       .fromTo(photo, { scale: 1.35, objectPosition: '50% 50%' }, { scale: 1, objectPosition: focus, duration: 0.6 }, 0)
       .fromTo('.open-arch__title', { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.18 }, 0.1)
       .fromTo('.open-arch__copy', { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.25 }, 0.55)

@@ -3,6 +3,7 @@ import { ArrowDown } from 'lucide-react'
 import { gsap, useGSAP } from '../../animations/gsap'
 import { useLang } from '../../state/LangContext'
 import { useIntroDone } from '../../state/intro'
+import { useTransition } from '../../state/TransitionContext'
 import { brand } from '../../content/site'
 import { home } from '../../content/home'
 import { ui } from '../../content/ui'
@@ -28,9 +29,28 @@ export function Film() {
   const root = useRef(null)
   const stage = useRef(null)
   const film = useRef({ progress: 0, mouseX: 0, mouseY: 0 })
+  const mega = useRef(null)
+  const taps = useRef([])
   const { t } = useLang()
+  const { go } = useTransition()
   const introDone = useIntroDone()
   const reduced = prefersReducedMotion()
+
+  // Five clicks on the wordmark within three seconds open the admin. The 3D canvas
+  // lies over the wordmark, so this listens on the stage and checks where the click landed.
+  const secretDoor = (e) => {
+    const el = mega.current
+    // Only while the opening is on screen: once scrolled, the wordmark has gone.
+    if (!el || film.current.progress > 0.04) return
+    const r = el.getBoundingClientRect()
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) return
+    const now = performance.now()
+    taps.current = [...taps.current.filter((time) => now - time < 3000), now]
+    if (taps.current.length >= 5) {
+      taps.current = []
+      go('/admin')
+    }
+  }
 
   useEffect(() => {
     const move = (e) => {
@@ -49,7 +69,9 @@ export function Film() {
         trigger: root.current,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: true,
+        // The text eases after the scroll instead of tracking it frame for frame.
+        // The camera reads self.progress (raw scroll) below, so its timing is unchanged.
+        scrub: 1.2,
         onUpdate: (self) => {
           film.current.progress = self.progress
           stage.current.dataset.tone = self.progress > 0.2 ? 'light' : 'dark'
@@ -57,18 +79,22 @@ export function Film() {
       },
     })
 
-    tl.to(stage.current, { backgroundColor: '#C8975F', duration: 0.08 }, 0.14)
-    tl.to(stage.current, { backgroundColor: '#21120A', duration: 0.08 }, 0.22)
-    tl.to('.film__mega', { yPercent: -26, autoAlpha: 0, duration: 0.11 }, 0.01)
-    tl.to('.film__foot', { y: -40, autoAlpha: 0, duration: 0.06 }, 0.01)
+    // Locked to the scroll, in step with the 3D camera: the room's colour, and the
+    // wordmark leaving before the rising arch can reach it.
+    gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom bottom', scrub: true } })
+      .to('.film__mega', { yPercent: -20, autoAlpha: 0, duration: 0.09, ease: 'sine.in' }, 0.005)
+      .to('.film__foot', { y: -28, autoAlpha: 0, duration: 0.07, ease: 'sine.in' }, 0.005)
+      .to(stage.current, { backgroundColor: '#C8975F', duration: 0.08 }, 0.14)
+      .to(stage.current, { backgroundColor: '#21120A', duration: 0.08 }, 0.22)
+      .to({}, { duration: 0.001 }, 0.999)
 
     Object.entries(BEATS).forEach(([key, [from, to]]) => {
       const el = `[data-beat="${key}"]`
-      const fade = Math.min(0.035, (to - from) / 3)
+      const fade = Math.min(0.042, (to - from) / 2.8)
       // Only the last beat holds a link, which must stay out of the tab order until shown.
       const alpha = key === 'opening' ? 'autoAlpha' : 'opacity'
-      tl.fromTo(el, { [alpha]: 0, y: 46 }, { [alpha]: 1, y: 0, duration: fade }, from)
-      if (to < 0.98) tl.to(el, { [alpha]: 0, y: -46, duration: fade }, to - fade)
+      tl.fromTo(el, { [alpha]: 0, y: 28 }, { [alpha]: 1, y: 0, duration: fade, ease: 'sine.inOut' }, from)
+      if (to < 0.98) tl.to(el, { [alpha]: 0, y: -28, duration: fade, ease: 'sine.inOut' }, to - fade)
     })
     tl.to({}, { duration: 0.001 }, 0.999)
   }, { scope: root, dependencies: [reduced] })
@@ -76,14 +102,14 @@ export function Film() {
   // The hero writes itself in once the preloader starts lifting.
   useGSAP(() => {
     if (!introDone || reduced) return
-    gsap.from('.film__mega', { yPercent: 16, autoAlpha: 0, duration: 2, delay: 0.35 })
-    gsap.from('.film__foot > *', { y: 22, autoAlpha: 0, duration: 1.4, stagger: 0.12, delay: 0.8 })
+    gsap.from('.film__mega', { yPercent: 12, autoAlpha: 0, duration: 2.8, delay: 0.45, ease: 'power3.out' })
+    gsap.from('.film__foot > *', { y: 18, autoAlpha: 0, duration: 2, stagger: 0.2, delay: 1.1, ease: 'power3.out' })
   }, { scope: root, dependencies: [introDone, reduced] })
 
   return (
     <section ref={root} className={`film ${reduced ? 'film--still' : ''}`} aria-label={t(home.headline)}>
-      <div ref={stage} className="film__stage" data-tone="dark">
-        <h1 className="film__mega">
+      <div ref={stage} className="film__stage" data-tone="dark" onClick={secretDoor}>
+        <h1 ref={mega} className="film__mega">
           <span className="sr-only">{t(brand.name)}: {t(home.headline)}</span>
           <Wordmark />
         </h1>

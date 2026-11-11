@@ -60,7 +60,6 @@ export function Menu({ open, onClose }) {
             onPointerEnter={() => setActive(i)}
             onFocus={() => setActive(i)}
           >
-            <small aria-hidden="true">{String(i + 1).padStart(2, '0')}</small>
             {t(item.label)}
           </TLink>
         ))}

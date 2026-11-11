@@ -83,7 +83,6 @@ export function CollectionsReel() {
                 <Picture id={c.images[0]} alt={t(c.title)} sizes="(max-width: 56rem) 80vw, 34vw" />
               </div>
               <div className="reel__meta">
-                <span className="reel__index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
                 <h3 className="display t-sub">{t(c.name)}</h3>
                 <p>{t(c.short)}</p>
               </div>

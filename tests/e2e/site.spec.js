@@ -308,3 +308,39 @@ test.describe('social accounts', () => {
     await expect(page.locator('a[href*="facebook"]')).toHaveCount(0)
   })
 })
+
+test.describe('admin', () => {
+  test('five clicks on the wordmark open the admin, which signs in and saves a post', async ({ page }) => {
+    const errors = trackErrors(page)
+    await open(page, '/')
+    const mark = page.locator('.film__mega')
+    for (let i = 0; i < 5; i++) await mark.click({ force: true, delay: 40 })
+    await expect(page).toHaveURL(/\/admin$/)
+
+    await page.fill('#adm-email', 'ghalia@gmail.com')
+    await page.fill('#adm-password', 'not-it')
+    await page.click('button[type=submit]')
+    await expect(page.getByRole('alert')).toContainText('don’t match')
+    await page.fill('#adm-password', 'ir123456')
+    await page.click('button[type=submit]')
+    await expect(page.getByRole('heading', { name: 'Welcome back' })).toBeVisible()
+
+    await page.getByRole('button', { name: 'Blog' }).click()
+    await page.getByRole('button', { name: 'New article' }).first().click()
+    await page.fill('#art-title', 'A new collection')
+    await page.fill('#art-body', 'Text.')
+    await page.getByRole('button', { name: 'Publish', exact: true }).click()
+    await expect(page.locator('.adm-row')).toContainText('A new collection')
+
+    await page.getByRole('button', { name: 'Social media' }).click()
+    await page.getByRole('button', { name: 'New post' }).first().click()
+    await page.locator('.adm-platform-toggle', { hasText: 'Facebook' }).click()
+    await page.fill('#post-caption', 'From the Patisserie.')
+    await page.getByRole('button', { name: 'Save draft' }).click()
+    await expect(page.locator('.adm-post')).toContainText('From the Patisserie.')
+
+    await page.reload()
+    await expect(page.locator('.adm-post')).toContainText('From the Patisserie.')
+    expect(errors).toEqual([])
+  })
+})

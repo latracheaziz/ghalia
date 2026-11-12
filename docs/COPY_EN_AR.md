@@ -1,0 +1,1114 @@
+# Ghalia website copy: English and Arabic
+
+Source: "Ghalia Website Copy.pdf" (Nov 4, 2026), as held in src/content.
+
+
+## home
+
+- **home.meta**
+  - EN: Luxury Chocolate and Patisserie in Saudi Arabia
+  - AR: شوكولاتة وحلا وحلويات فاخرة في السعودية
+- **home.headline**
+  - EN: Where a childhood dream became a Patisserie.
+  - AR: حلمٍ من الطفولة.. صار محل الحلا والحلويات.
+- **home.subheadline**
+  - EN: Handcrafted chocolates, refined pastries and unforgettable celebrations, created in Hail, Saudi Arabia.
+  - AR: شوكولاتة فاخرة مصنوعة يدويا، وحلويات راقية، ومناسبات ما تنسى.. من حائل لين بيتك.
+- **home.memory.0**
+  - EN: Some recipes are never written down.
+  - AR: في وصفات ما تنكتب في دفتر،
+- **home.memory.1**
+  - EN: They live in memory: in a warm kitchen, in the scent of butter and cocoa,
+  - AR: تعيش في الذاكرة: في مطبخ دافي، وريحة الزبدة والكاكاو،
+- **home.memory.2**
+  - EN: in a mother's hands guiding smaller ones.
+  - AR: وإيدين أمٍّ تعلّم إيدين صغيرة.
+- **home.born**
+  - EN: Ghalia was born from one of those memories. Today it is a Luxury Chocolate and Patisserie, where every chocolate is handcrafted with care, every dessert is designed with elegance, and every celebration becomes a timeless experience.
+  - AR: غالية طلعت من ذاكرة مثل هذي. واليوم هي دار للشوكولاتة والحلا والحلويات الفاخرة، كل حبّة شوكولاتة فيها تُصنع باليد وبكل عناية، وكل حلا يُصمَّم بذوق، وكل مناسبة تصير تجربة ما تنمحي من البال.
+- **home.celebrations.eyebrow**
+  - EN: Weddings and Events
+  - AR: أعراس ومناسبات
+- **home.celebrations.text**
+  - EN: Complete celebrations, from the first concept to the final toast.
+  - AR: نجهّز لكم الفرحة كاملة، من أول فكرة لين آخر ضحكة.
+
+## maison
+
+- **commitment.0**
+  - EN: Every chocolate is handcrafted with care.
+  - AR: كل شوكولاتة نصنعها باليد وبكل عناية.
+- **commitment.1**
+  - EN: Every dessert is designed with elegance.
+  - AR: وكل حلا نصمّمه بذوق.
+- **commitment.2**
+  - EN: Every gift tells a story.
+  - AR: وكل هدية تحكي قصة.
+- **commitment.3**
+  - EN: Every celebration is transformed into a timeless experience.
+  - AR: وكل مناسبة نحوّلها لتجربة خالدة.
+- **fulfil.0.title**
+  - EN: Premium Craftsmanship
+  - AR: حرفية رفيعة
+- **fulfil.0.text**
+  - EN: Handcrafted chocolates and pastries, made with carefully selected ingredients and exceptional artisanal technique.
+  - AR: شوكولاتة وحلويات مصنوعة باليد من مكوّنات منتقاة بعناية وبأساليب حرفية متقنة.
+- **fulfil.1.title**
+  - EN: Bespoke Experiences
+  - AR: تجارب على كيفكم
+- **fulfil.1.text**
+  - EN: Personalized gifts, signature collections and exclusive concepts, tailored to each client's vision and occasion.
+  - AR: هدايا وتشكيلات خاصة وأفكار حصرية تنفصّل على رؤية كل عميل ومناسبته.
+- **fulfil.2.title**
+  - EN: Luxury Weddings and Events
+  - AR: أعراس ومناسبات فاخرة
+- **fulfil.2.text**
+  - EN: Complete event experiences, from creative concept and 3D visualization to flawless execution.
+  - AR: نجهّز المناسبة كاملة، من فكرة الإبداع والتصور ثلاثي الأبعاد لين التنفيذ بدون ولا غلطة.
+- **fulfil.3.title**
+  - EN: Innovation and Creativity
+  - AR: ابتكار وإبداع
+- **fulfil.3.text**
+  - EN: New ideas, original presentations and exclusive designs that set Ghalia apart from the ordinary.
+  - AR: نجرّب دايم أفكار جديدة وتقديمات مميزة وتصاميم حصرية تفرّق غالية عن العادي.
+- **fulfil.4.title**
+  - EN: Customer Excellence
+  - AR: تميّز في خدمة العميل
+- **fulfil.4.text**
+  - EN: Attentive service and memorable experiences at every touchpoint, building relationships that last.
+  - AR: نبني علاقات تدوم بخدمة بشوشة وجودة عالية وتجارب تنذكر في كل محطة.
+- **future.intro**
+  - EN: As Ghalia continues to establish itself as a leading Luxury Chocolate Maison in Saudi Arabia, the brand is committed to continuous innovation while preserving its identity of elegance, craftsmanship, and exclusivity. Our future development focuses on expanding the Ghalia experience beyond premium chocolate into a complete luxury lifestyle destination.
+  - AR: بينما تواصل غالية ترسيخ مكانتها دارًا رائدة للشوكولاتة الفاخرة في المملكة العربية السعودية، تلتزم العلامة بالابتكار المستمر مع الحفاظ على هويتها القائمة على الأناقة والحرفية والحصرية. ويركز تطورنا المقبل على توسيع تجربة غالية من الشوكولاتة الراقية إلى وجهة متكاملة لأسلوب الحياة الفاخر.
+- **future.priorities.0**
+  - EN: Expand Ghalia boutiques across major Saudi cities.
+  - AR: التوسع بمتاجر غالية في كبرى المدن السعودية.
+- **future.priorities.1**
+  - EN: Introduce seasonal luxury collections inspired by Saudi heritage and international trends.
+  - AR: إطلاق مجموعات موسمية فاخرة مستوحاة من التراث السعودي والتوجهات العالمية.
+- **future.priorities.2**
+  - EN: Develop exclusive Wedding & Events concepts with fully personalized experiences.
+  - AR: تطوير مفاهيم حصرية للزفاف والمناسبات بتجارب شخصية بالكامل.
+- **future.priorities.3**
+  - EN: Launch corporate gifting programs for prestigious brands and VIP clients.
+  - AR: إطلاق برامج هدايا الشركات للعلامات المرموقة وكبار العملاء.
+- **future.priorities.4**
+  - EN: Strengthen digital experiences through online ordering, virtual event planning, and 3D wedding visualization.
+  - AR: تعزيز التجارب الرقمية عبر الطلب الإلكتروني والتخطيط الافتراضي للمناسبات والتصور ثلاثي الأبعاد لحفلات الزفاف.
+- **future.priorities.5**
+  - EN: Collaborate with luxury hotels, fashion houses, and premium lifestyle brands.
+  - AR: التعاون مع الفنادق الفاخرة ودور الأزياء وعلامات أسلوب الحياة الراقية.
+- **future.priorities.6**
+  - EN: Continue designing exclusive chocolate trays and signature packaging available only through Ghalia.
+  - AR: مواصلة تصميم صواني شوكولاتة حصرية وتغليف مميز لا يتوفر إلا لدى غالية.
+- **future.priorities.7**
+  - EN: Invest in sustainable premium packaging and responsible sourcing.
+  - AR: الاستثمار في تغليف راقٍ مستدام وتوريد مسؤول.
+- **mission.statement**
+  - EN: To create luxurious chocolate, pastry and event experiences that combine exceptional craftsmanship, innovative design and personalized service, making every celebration unique, elegant and unforgettable.
+  - AR: أن نبتكر تجارب شوكولاتة وحلويات ومناسبات فاخرة، تجمع الحرفية الاستثنائية والتصميم المبتكر والخدمة الشخصية، وتخلّي كل احتفال مميز وأنيق وما ينسى.
+- **patisserie.title**
+  - EN: The Patisserie
+  - AR: الحلا والحلويات
+- **patisserie.headline**
+  - EN: Beyond chocolate, we create emotions.
+  - AR: أكثر من شوكولاتة.. نصنع مشاعر.
+- **patisserie.intro.0**
+  - EN: Ghalia is a Luxury Chocolate and Patisserie, created to redefine the art of chocolate, gifting and celebration. We combine premium ingredients, refined aesthetics and bespoke experiences in one exclusive destination.
+  - AR: غالية دار للشوكولاتة والحلا والحلويات الفاخرة، قامت عشان تعيد تعريف فنّ الشوكولاتة والإهداء والاحتفال. نجمع المكوّنات الفاخرة والذوق الرفيع والتجارب المفصّلة على كيفكم في وجهة وحدة.
+- **patisserie.intro.1**
+  - EN: Every product, tray, dessert and decorative element is designed in-house, so that everything you receive is original, sophisticated and unmistakably Ghalia.
+  - AR: كل منتج وصينية وحلا وتفصيلة ديكور نصمّمها بأنفسنا من الألف إلى الياء، عشان كل شي تستلمونه يكون أصيل وراقي وفيه توقيع غالية.
+- **pillars.0.title**
+  - EN: Excellence
+  - AR: التميّز
+- **pillars.0.text**
+  - EN: Uncompromising quality in every creation and every experience.
+  - AR: جودة ما نتنازل عنها في كل منتج وكل تجربة.
+- **pillars.1.title**
+  - EN: Creativity
+  - AR: الإبداع
+- **pillars.1.text**
+  - EN: Original concepts that inspire and surprise.
+  - AR: أفكار أصيلة تلهم وتفاجئ.
+- **pillars.2.title**
+  - EN: Innovation
+  - AR: الابتكار
+- **pillars.2.text**
+  - EN: Tradition blended with modern design and technology, including immersive 3D event planning.
+  - AR: نمزج الأصالة بالتصميم العصري والتقنية، ومنها التخطيط ثلاثي الأبعاد للمناسبات.
+- **pillars.3.title**
+  - EN: Luxury Experience
+  - AR: التجربة الفاخرة
+- **pillars.3.text**
+  - EN: Personalized service that reflects sophistication, exclusivity and attention to detail.
+  - AR: خدمة تفصّل على ذوقكم وتعكس الرقي والحصرية والاهتمام بالتفاصيل.
+- **pillars.4.title**
+  - EN: Emotional Connection
+  - AR: الارتباط العاطفي
+- **pillars.4.text**
+  - EN: Meaningful moments that clients will remember for a lifetime.
+  - AR: لحظات لها معنى، تبقى في بال عملائنا طول العمر.
+- **promise.0**
+  - EN: We don't simply create chocolate.
+  - AR: نحن ما نسوّي شوكولاتة بس..
+- **promise.1**
+  - EN: We design experiences.
+  - AR: نصمّم تجارب.
+- **promise.2**
+  - EN: We don't simply organize events.
+  - AR: نحن ما ننظّم مناسبات بس..
+- **promise.3**
+  - EN: We create unforgettable memories.
+  - AR: نصنع ذكريات ما تنسى.
+- **story.title**
+  - EN: Our Story
+  - AR: قصتنا
+- **story.headline**
+  - EN: It began in a kitchen, long before it had a name.
+  - AR: بدت في مطبخ، قبل لا يصير لها اسم.
+- **story.chapters.0.title**
+  - EN: Chapter 1: The Kitchen
+  - AR: الفصل الأول: المطبخ
+- **story.chapters.0.paragraphs.0**
+  - EN: Every story has a first room. Ours is a family kitchen, where a little girl stood on tiptoe beside her mother, watching flour drift like snow and sugar turn to gold.
+  - AR: كل قصة لها أول مكان. وقصتنا أولها مطبخ بيت، فيه بنية صغيرة واقفة على أطراف أصابعها جنب أمها، تطالع الطحين يتطاير مثل الثلج، والسكر يصير ذهب.
+- **story.chapters.0.paragraphs.1**
+  - EN: Together they made sweets and pastries. There was no recipe book on the counter, only patience, laughter and a mother's hands showing smaller hands how it is done. For the girl, those hours were not a chore or a hobby. They were the happiest place in the world.
+  - AR: كانوا يسوّون الحلويات والمعجنات سوا. ما كان في دفتر وصفات على الطاولة، بس صبر وضحك، وإيدين أمٍّ تعلّم إيدين صغيرة كيف تصير الأشياء. وبالنسبة للبنية، تلك الساعات ما كانت شغل ولا هواية.. كانت أحلى مكان في الدنيا.
+- **story.chapters.1.title**
+  - EN: Chapter 2: The Dream
+  - AR: الفصل الثاني: الحلم
+- **story.chapters.1.paragraphs.0**
+  - EN: Even then, she knew what she wanted. She would tell her mother, again and again, that one day she would open a place of her own, a place filled with the sweets and pastries they made together.
+  - AR: وهي صغيرة، كانت عارفة وش تبي. كانت تقول لأمها مرة بعد مرة إنها يوم من الأيام بتفتح محل لها، ويكون مليان من الحلويات اللي يسوّونها سوا.
+- **story.chapters.1.paragraphs.1**
+  - EN: Her mother smiled, as mothers do. But the dream never left.
+  - AR: وأمها تبتسم، مثل ما تسوّي الأمهات. لكن الحلم ما راح.
+- **story.chapters.2.title**
+  - EN: Chapter 3: The Years Between
+  - AR: الفصل الثالث: السنين اللي بينهم
+- **story.chapters.2.paragraphs.0**
+  - EN: Life took her down another road. She grew up, studied, and built a path that looked nothing like a pastry kitchen.
+  - AR: ومشت بها الدنيا في طريق ثاني. كبرت ودرست وبنت لها مسار ما يشبه مطابخ الحلويات بشيء.
+- **story.chapters.2.paragraphs.1**
+  - EN: Yet the passion stayed. It lived in the quiet moments, in the sweets she still made for the people she loved, and in the memory of that kitchen, which never faded. Years pass. Some dreams simply wait for the right moment.
+  - AR: لكن الشغف ظل معها. عاش في اللحظات الهادية، وفي الحلويات اللي ما وقفت تسوّيها للناس اللي تحبهم، وفي ذكرى ذاك المطبخ اللي ما بهتت. والسنين تمر.. وبعض الأحلام تنتظر الوقت المناسب.
+- **story.chapters.3.title**
+  - EN: Chapter 4: The Patisserie
+  - AR: الفصل الرابع: دار الحلا والحلويات
+- **story.chapters.3.paragraphs.0**
+  - EN: That moment came. The little girl's dream stepped out of memory and became something real.
+  - AR: وجا الوقت. الحلم طلع من الذاكرة وصار حقيقة.
+- **story.chapters.3.paragraphs.1**
+  - EN: Ghalia is the result: a Luxury Chocolate and Patisserie in the Kingdom of Saudi Arabia, created to redefine the art of chocolate, gifting and celebration. Every handcrafted praline, every pastry, every tray carries the same warmth that began in that first kitchen, now shaped with the finest ingredients and the highest standards of craft.
+  - AR: غالية هي هذي الحقيقة: دار للشوكولاتة والحلا والحلويات الفاخرة في المملكة العربية السعودية، أُسّست عشان تعيد تعريف فنّ الشوكولاتة والإهداء والاحتفال. كل حبّة برالين، وكل معجّنة، وكل صينية فيها نفس الدفا اللي بدا في ذاك المطبخ الأول، بس اليوم بأجود المكوّنات وأعلى معايير الصنعة.
+- **story.name.title**
+  - EN: The meaning of our name
+  - AR: معنى اسمنا
+- **story.name.text**
+  - EN: Ghalia means precious: something dear, something treasured. It is how we regard every recipe, every client and every moment we are trusted to make sweeter.
+  - AR: غالية يعني الغالي، الشي اللي له قيمة في القلب. وهذي نظرتنا لكل وصفة، ولكل ضيف، ولكل لحظة يأتمنّونا نحلّيها.
+- **story.quote**
+  - EN: No matter how many years pass, a dream that is truly loved will find its way home.
+  - AR: مهما مرّت السنين، الحلم اللي تحبه صدق بيرجع لك.
+- **story.lines.0**
+  - EN: Each collection tells a story.
+  - AR: كل مجموعة تحكي قصة.
+- **story.lines.1**
+  - EN: Each celebration becomes unforgettable.
+  - AR: وكل مناسبة تصير ما تنسى.
+- **story.lines.2**
+  - EN: And it all began with a mother, a daughter and a tray of something sweet.
+  - AR: وكل شي بدا بأمٍّ وبنت وصينية حلا.
+- **vision.title**
+  - EN: To become the leading luxury chocolate, patisserie and celebration brand in the Middle East.
+  - AR: أن نصير الدار الأولى للشوكولاتة والحلا والحلويات والاحتفالات الفاخرة في الشرق الأوسط.
+- **vision.paragraphs.0**
+  - EN: We imagine a world where every celebration becomes a timeless experience, crafted with elegance, creativity and exceptional attention to detail.
+  - AR: نتخيّل عالم كل احتفال فيه يصير تجربة خالدة، مصنوعة بأناقة وإبداع واهتمام بأدق التفاصيل.
+- **vision.paragraphs.1**
+  - EN: Through continuous innovation, artisanal excellence and personalized service, we aim to set new standards for luxury hospitality and event experiences across Saudi Arabia and the region.
+  - AR: وبالابتكار المستمر والإتقان الحرفي والخدمة اللي تناسب كل واحد، نطمح نرفع المعايير في الضيافة الفاخرة وتجارب المناسبات في السعودية والمنطقة كلها.
+- **vision.closing**
+  - EN: Our vision is not simply to create beautiful chocolates or extraordinary events. It is to create memories that become part of people's most cherished moments.
+  - AR: رؤيتنا مو بس إنا نسوّي شوكولاتة حلوة أو مناسبات استثنائية، رؤيتنا إنا نصنع ذكريات تصير جزء من أغلى لحظات الناس.
+- **world.essence**
+  - EN: A luxury Chocolate Maison where craftsmanship, elegance, and emotion come together to create unforgettable experiences.
+  - AR: دار شوكولاتة فاخرة تجتمع فيها الحرفية والأناقة والمشاعر لتصنع تجارب لا تُنسى.
+- **world.words.0**
+  - EN: Craftsmanship
+  - AR: الحرفية
+- **world.words.1**
+  - EN: Luxury
+  - AR: الفخامة
+- **world.words.2**
+  - EN: Elegance
+  - AR: الأناقة
+- **world.words.3**
+  - EN: Creativity
+  - AR: الإبداع
+- **world.words.4**
+  - EN: Emotions
+  - AR: المشاعر
+- **world.words.5**
+  - EN: Bespoke Experiences
+  - AR: تجارب مصممة خصيصًا
+- **world.words.6**
+  - EN: Timeless Memories
+  - AR: ذكريات خالدة
+- **world.experience.0**
+  - EN: Exceptional chocolates handcrafted with care
+  - AR: شوكولاتة استثنائية مصنوعة يدويًا بعناية
+- **world.experience.1**
+  - EN: Bespoke gifts made to impress
+  - AR: هدايا مصممة خصيصًا لتُبهر
+- **world.experience.2**
+  - EN: Luxury events designed to inspire
+  - AR: مناسبات فاخرة مصممة لتُلهم
+- **world.experience.3**
+  - EN: Timeless memories created to last
+  - AR: ذكريات خالدة صُنعت لتبقى
+- **world.palette.0.name**
+  - EN: Ivory
+  - AR: عاجي
+- **world.palette.1.name**
+  - EN: Blush
+  - AR: وردي هادئ
+- **world.palette.2.name**
+  - EN: Mocha
+  - AR: موكا
+- **world.palette.3.name**
+  - EN: Gold
+  - AR: ذهبي
+- **world.palette.4.name**
+  - EN: Camel
+  - AR: جملي
+
+## collections
+
+- **collections.0.name**
+  - EN: Standard Classic
+  - AR: الكلاسيكية
+- **collections.0.title**
+  - EN: GHALIA Standard Classic Collection
+  - AR: مجموعة غالية الكلاسيكية
+- **collections.0.short**
+  - EN: The core packaging line.
+  - AR: خط التغليف الأساسي للدار.
+- **collections.0.description**
+  - EN: This packaging represents the Standard Classic Collection of GHALIA, designed as the brand's core packaging line. It embodies the essence of GHALIA's identity through a timeless, elegant, and sophisticated design while maintaining a strong sense of accessibility and versatility.
+  - AR: تمثل هذه العبوات مجموعة غالية الكلاسيكية، وقد صُممت لتكون خط التغليف الأساسي للعلامة. تجسد جوهر هوية غالية بتصميم خالد وأنيق وراقٍ، مع الحفاظ على سهولة الوصول إليها وتعدد استخداماتها.
+- **collections.0.formats.0.label**
+  - EN: Drawer box
+  - AR: علبة بأدراج
+- **collections.0.formats.1.label**
+  - EN: Round box
+  - AR: علبة دائرية
+- **collections.0.formats.2.label**
+  - EN: Heart box
+  - AR: علبة على شكل قلب
+- **collections.0.formats.3.label**
+  - EN: Octagon box
+  - AR: علبة مثمنة
+- **collections.0.formats.4.label**
+  - EN: Long box
+  - AR: علبة طولية
+- **collections.0.formats.5.label**
+  - EN: Shopping bag
+  - AR: حقيبة تسوق
+- **collections.0.fillings.0.label**
+  - EN: Chocolates
+  - AR: شوكولاتة
+- **collections.0.fillings.1.label**
+  - EN: Handcrafted pralines
+  - AR: برالين مصنوع يدويًا
+- **collections.0.fillings.2.label**
+  - EN: Chocolates & pastries
+  - AR: شوكولاتة وحلويات
+- **collections.1.name**
+  - EN: Arabian Heritage
+  - AR: التراث العربي
+- **collections.1.title**
+  - EN: GHALIA Arabian Heritage Collection
+  - AR: مجموعة غالية للتراث العربي
+- **collections.1.short**
+  - EN: Arabian heritage with contemporary luxury.
+  - AR: التراث العربي بفخامة معاصرة.
+- **collections.1.description**
+  - EN: This special packaging collection blends Arabian heritage with contemporary luxury. Inspired by traditional Islamic architecture, geometric patterns, and elegant Arabesque motifs, it reflects GHALIA's cultural identity while maintaining a refined and premium aesthetic. The warm ivory, chocolate-brown, and metallic accents create a sophisticated gifting experience, making the collection ideal for special occasions, festive celebrations, and exclusive luxury editions.
+  - AR: تمزج هذه المجموعة الخاصة التراث العربي بالفخامة المعاصرة. وهي مستوحاة من العمارة الإسلامية التقليدية والأنماط الهندسية وزخارف الأرابيسك الأنيقة، فتعكس الهوية الثقافية لغالية مع الحفاظ على جمال راقٍ. وتصنع درجات العاجي الدافئ والبني الشوكولاتي واللمسات المعدنية تجربة إهداء راقية، ما يجعلها مثالية للمناسبات الخاصة والاحتفالات والإصدارات الفاخرة الحصرية.
+- **collections.1.formats.0.label**
+  - EN: Gift box
+  - AR: علبة هدايا
+- **collections.1.formats.1.label**
+  - EN: Square gift box
+  - AR: علبة هدايا مربعة
+- **collections.1.formats.2.label**
+  - EN: Shopping bag
+  - AR: حقيبة تسوق
+- **collections.1.fillings.0.label**
+  - EN: Chocolates
+  - AR: شوكولاتة
+- **collections.1.fillings.1.label**
+  - EN: Handcrafted pralines
+  - AR: برالين مصنوع يدويًا
+- **collections.1.fillings.2.label**
+  - EN: Chocolates & pastries
+  - AR: شوكولاتة وحلويات
+- **collections.2.name**
+  - EN: Signature Rose
+  - AR: الوردة المميزة
+- **collections.2.title**
+  - EN: GHALIA Signature Rose Collection
+  - AR: مجموعة غالية الوردة المميزة
+- **collections.2.short**
+  - EN: Modern elegance in blush and gold.
+  - AR: أناقة عصرية بالوردي والذهبي.
+- **collections.2.description**
+  - EN: This packaging collection embodies modern elegance and timeless luxury through a refined blush-pink color palette enhanced with delicate gold details. Designed as one of GHALIA's signature collections, it combines sophistication, femininity, and premium craftsmanship while maintaining a clean and contemporary aesthetic.
+  - AR: تجسد هذه المجموعة الأناقة العصرية والفخامة الخالدة عبر درجات وردية راقية تزينها تفاصيل ذهبية رقيقة. صُممت لتكون من المجموعات المميزة لغالية، فتجمع الرقي والأنوثة والحرفية العالية مع جمال نقي ومعاصر.
+- **collections.2.extra**
+  - EN: The soft textured finish, gold foil logo, ribbon details, and coordinated gift bags create a cohesive luxury gifting experience. Available in multiple formats, including round boxes, square gift boxes, and shopping bags, the collection is suitable for chocolates, special occasions, corporate gifts, and exclusive seasonal editions.
+  - AR: تصنع اللمسة الناعمة وشعار الرقائق الذهبية وتفاصيل الشريط وحقائب الهدايا المتناسقة تجربة إهداء فاخرة ومتكاملة. تتوفر المجموعة بأشكال متعددة، منها العلب الدائرية وعلب الهدايا المربعة وحقائب التسوق، وتناسب الشوكولاتة والمناسبات الخاصة وهدايا الشركات والإصدارات الموسمية الحصرية.
+- **collections.2.formats.0.label**
+  - EN: Round box
+  - AR: علبة دائرية
+- **collections.2.formats.1.label**
+  - EN: Square gift box
+  - AR: علبة هدايا مربعة
+- **collections.2.formats.2.label**
+  - EN: Shopping bag
+  - AR: حقيبة تسوق
+- **collections.2.fillings.0.label**
+  - EN: Chocolates
+  - AR: شوكولاتة
+- **collections.2.fillings.1.label**
+  - EN: Handcrafted pralines
+  - AR: برالين مصنوع يدويًا
+- **collections.2.fillings.2.label**
+  - EN: Chocolates & pastries
+  - AR: شوكولاتة وحلويات
+- **collections.3.name**
+  - EN: Ramadan
+  - AR: رمضان
+- **collections.3.title**
+  - EN: GHALIA Ramadan Collection
+  - AR: مجموعة غالية لرمضان
+- **collections.3.short**
+  - EN: A limited edition in royal blue and emerald.
+  - AR: إصدار محدود بالأزرق الملكي والزمردي.
+- **collections.3.description**
+  - EN: A limited-edition packaging collection inspired by the spiritual atmosphere of Ramadan. Featuring rich royal blue and emerald green tones enhanced with intricate gold Islamic patterns, the collection reflects both prestige and tradition. The refined design, premium materials, and exclusive presentation make it ideal for luxury gifting, corporate hampers, and special Ramadan chocolate and date collections.
+  - AR: مجموعة تغليف بإصدار محدود مستوحاة من الأجواء الروحانية لشهر رمضان. تجمع درجات الأزرق الملكي والأخضر الزمردي الغنية مع زخارف إسلامية ذهبية دقيقة، فتعكس الوجاهة والتقاليد معًا. ويجعلها تصميمها الراقي وخاماتها الممتازة وعرضها الحصري مثالية للهدايا الفاخرة وسلال الشركات ومجموعات رمضان الخاصة من الشوكولاتة والتمور.
+- **collections.3.formats.0.label**
+  - EN: Compartment box
+  - AR: علبة بأقسام
+- **collections.3.formats.1.label**
+  - EN: Gift box
+  - AR: علبة هدايا
+- **collections.3.formats.2.label**
+  - EN: Corporate hamper
+  - AR: سلة هدايا للشركات
+- **collections.3.formats.3.label**
+  - EN: Shopping bag
+  - AR: حقيبة تسوق
+- **collections.3.fillings.0.label**
+  - EN: Chocolates
+  - AR: شوكولاتة
+- **collections.3.fillings.1.label**
+  - EN: Handcrafted pralines
+  - AR: برالين مصنوع يدويًا
+- **collections.3.fillings.2.label**
+  - EN: Chocolates & pastries
+  - AR: شوكولاتة وحلويات
+- **collections.3.fillings.3.label**
+  - EN: Chocolates & dates
+  - AR: شوكولاتة وتمور
+- **collections.4.name**
+  - EN: Eid Al Fitr
+  - AR: عيد الفطر
+- **collections.4.title**
+  - EN: Eid Al Fitr Collection
+  - AR: مجموعة عيد الفطر
+- **collections.4.short**
+  - EN: The joy of sharing, in warm luxurious tones.
+  - AR: بهجة العطاء بدرجات دافئة فاخرة.
+- **collections.4.description**
+  - EN: A refined Eid Al Fitr packaging collection inspired by Arabian heritage and the spirit of celebration. Featuring elegant arch motifs, intricate patterns, and warm luxurious tones, each piece is thoughtfully crafted to elevate the gifting experience. Blending tradition with contemporary sophistication, the collection embodies generosity, beauty, and the joy of sharing special moments with loved ones.
+  - AR: مجموعة راقية لعيد الفطر مستوحاة من التراث العربي وروح الاحتفال. تجمع زخارف الأقواس الأنيقة والأنماط الدقيقة والدرجات الدافئة الفاخرة، وقد صُنعت كل قطعة بعناية لترتقي بتجربة الإهداء. وبمزج التقاليد بالرقي المعاصر، تجسد المجموعة الكرم والجمال وبهجة مشاركة اللحظات الخاصة مع الأحبة.
+- **collections.4.formats.0.label**
+  - EN: Crescent box
+  - AR: علبة على شكل هلال
+- **collections.4.formats.1.label**
+  - EN: Arch box
+  - AR: علبة على شكل قوس
+- **collections.4.formats.2.label**
+  - EN: Octagon box
+  - AR: علبة مثمنة
+- **collections.4.formats.3.label**
+  - EN: Round box
+  - AR: علبة دائرية
+- **collections.4.formats.4.label**
+  - EN: Cube box
+  - AR: علبة مكعبة
+- **collections.4.formats.5.label**
+  - EN: Tower box
+  - AR: علبة برجية
+- **collections.4.formats.6.label**
+  - EN: Shopping bag
+  - AR: حقيبة تسوق
+- **collections.4.fillings.0.label**
+  - EN: Chocolates
+  - AR: شوكولاتة
+- **collections.4.fillings.1.label**
+  - EN: Handcrafted pralines
+  - AR: برالين مصنوع يدويًا
+- **collections.4.fillings.2.label**
+  - EN: Chocolates & pastries
+  - AR: شوكولاتة وحلويات
+- **collections.4.fillings.3.label**
+  - EN: Chocolates & dates
+  - AR: شوكولاتة وتمور
+- **collections.5.name**
+  - EN: Eid Al Adha
+  - AR: عيد الأضحى
+- **collections.5.title**
+  - EN: Eid Al Adha Collection
+  - AR: مجموعة عيد الأضحى
+- **collections.5.short**
+  - EN: Generosity and togetherness in ivory and gold.
+  - AR: الكرم واللمّة بالعاجي والذهبي.
+- **collections.5.description**
+  - EN: A sophisticated Eid Al Adha packaging collection that celebrates the essence of generosity and togetherness. Designed in elegant ivory and gold tones, the collection features refined Islamic architectural elements, intricate patterns, and luxurious finishes. Blending timeless heritage with contemporary elegance, each piece is crafted to transform gifting into a memorable and meaningful experience during this special occasion.
+  - AR: مجموعة راقية لعيد الأضحى تحتفي بجوهر الكرم والتآلف. صُممت بدرجات العاجي والذهبي الأنيقة، وتزينها عناصر معمارية إسلامية رفيعة وأنماط دقيقة ولمسات فاخرة. وبمزج التراث الخالد بالأناقة المعاصرة، صُنعت كل قطعة لتحوّل الإهداء إلى تجربة ذات معنى لا تُنسى في هذه المناسبة الخاصة.
+- **collections.5.formats.0.label**
+  - EN: Octagon box
+  - AR: علبة مثمنة
+- **collections.5.formats.1.label**
+  - EN: Square gift box
+  - AR: علبة هدايا مربعة
+- **collections.5.formats.2.label**
+  - EN: Round box
+  - AR: علبة دائرية
+- **collections.5.formats.3.label**
+  - EN: Cube box
+  - AR: علبة مكعبة
+- **collections.5.formats.4.label**
+  - EN: Arch box
+  - AR: علبة على شكل قوس
+- **collections.5.formats.5.label**
+  - EN: Shopping bag
+  - AR: حقيبة تسوق
+- **collections.5.fillings.0.label**
+  - EN: Chocolates
+  - AR: شوكولاتة
+- **collections.5.fillings.1.label**
+  - EN: Handcrafted pralines
+  - AR: برالين مصنوع يدويًا
+- **collections.5.fillings.2.label**
+  - EN: Chocolates & pastries
+  - AR: شوكولاتة وحلويات
+- **collections.5.fillings.3.label**
+  - EN: Chocolates & dates
+  - AR: شوكولاتة وتمور
+- **collections.6.name**
+  - EN: Saudi National Day
+  - AR: اليوم الوطني السعودي
+- **collections.6.title**
+  - EN: Saudi National Day Collection
+  - AR: مجموعة اليوم الوطني السعودي
+- **collections.6.short**
+  - EN: Emerald green and luxurious gold.
+  - AR: الأخضر الزمردي والذهبي الفاخر.
+- **collections.6.description**
+  - EN: Inspired by the pride and heritage of the Kingdom of Saudi Arabia, this exclusive National Day collection features elegant emerald green packaging accented with luxurious gold details. Symbolizing prosperity, unity, and national pride, each piece is thoughtfully crafted to celebrate the spirit of the nation while offering a refined and memorable gifting experience. A perfect blend of contemporary luxury and Saudi identity.
+  - AR: مستوحاة من فخر المملكة العربية السعودية وتراثها، تتميز هذه المجموعة الحصرية لليوم الوطني بتغليف زمردي أنيق تزينه تفاصيل ذهبية فاخرة. ترمز إلى الازدهار والوحدة والفخر الوطني، وقد صُنعت كل قطعة بعناية لتحتفي بروح الوطن وتقدم تجربة إهداء راقية لا تُنسى. مزيج مثالي من الفخامة المعاصرة والهوية السعودية.
+- **collections.6.formats.0.label**
+  - EN: Round box
+  - AR: علبة دائرية
+- **collections.6.formats.1.label**
+  - EN: Gift box
+  - AR: علبة هدايا
+- **collections.6.formats.2.label**
+  - EN: Long box
+  - AR: علبة طولية
+- **collections.6.formats.3.label**
+  - EN: Handle box
+  - AR: علبة بمقبض
+- **collections.6.formats.4.label**
+  - EN: Shopping bag
+  - AR: حقيبة تسوق
+- **collections.6.fillings.0.label**
+  - EN: Chocolates
+  - AR: شوكولاتة
+- **collections.6.fillings.1.label**
+  - EN: Handcrafted pralines
+  - AR: برالين مصنوع يدويًا
+- **collections.6.fillings.2.label**
+  - EN: Chocolates & pastries
+  - AR: شوكولاتة وحلويات
+- **dateFilling.label**
+  - EN: Chocolates & dates
+  - AR: شوكولاتة وتمور
+- **fillings.0.label**
+  - EN: Chocolates
+  - AR: شوكولاتة
+- **fillings.1.label**
+  - EN: Handcrafted pralines
+  - AR: برالين مصنوع يدويًا
+- **fillings.2.label**
+  - EN: Chocolates & pastries
+  - AR: شوكولاتة وحلويات
+
+## events
+
+- **corporate.title**
+  - EN: Gifting
+  - AR: الإهداء
+- **corporate.headline**
+  - EN: Every gift tells a story. Make yours unforgettable.
+  - AR: كل هدية تحكي قصة.. خلّوا قصتكم تنذكر.
+- **corporate.intro**
+  - EN: The best gifts are remembered long after the moment has passed. At Ghalia, gifting is an art: considered, personal and designed to leave a lasting impression.
+  - AR: أحلى الهدايا هي اللي تبقى في البال بعد ما تنتهي اللحظة. وفي غالية، الإهداء فنّ: مدروس وشخصي ومصمَّم يترك أثر.
+- **corporate.moments.0.title**
+  - EN: Bespoke Gifting
+  - AR: هدايا على الطلب
+- **corporate.moments.0.text**
+  - EN: For weddings, births, graduations, anniversaries, Ramadan, Eid or simply because someone deserves it, we design gift collections around the person and the occasion. Choose from our signature collections, or work with our design team to create something entirely your own, from the chocolates inside to the ribbon on the box.
+  - AR: للأعراس والمواليد والتخرّج والذكريات السنوية ورمضان والعيد، أو بس لأن فيه أحد يستاهل، نصمّم تشكيلات الهدايا على الشخص وعلى المناسبة. اختاروا من تشكيلاتنا الخاصة، أو اشتغلوا مع فريق التصميم عندنا وسوّوا شي يخصّكم وحدكم، من الشوكولاتة اللي بالداخل لين الشريطة اللي على العلبة.
+- **corporate.moments.1.title**
+  - EN: Corporate Gifting Solutions
+  - AR: حلول هدايا الشركات
+- **corporate.moments.1.text**
+  - EN: For prestigious brands and VIP clients, a gift is a statement. Ghalia creates corporate gifting programs that reflect the standards of the company giving them and the importance of the person receiving them.
+  - AR: للعلامات المرموقة وعملاء كبار الشخصيات، الهدية رسالة. وغالية تصمّم برامج هدايا للشركات تعكس مستوى الجهة المهدية ومكانة المُهدى له.
+- **corporate.moments.2.title**
+  - EN: The Ghalia standard
+  - AR: معيار غالية
+- **corporate.moments.2.text**
+  - EN: Every piece is handcrafted, designed in-house and presented with the same attention to detail, whether it is one gift or one thousand.
+  - AR: كل قطعة مصنوعة باليد ومصمَّمة عندنا وتُقدَّم بنفس العناية بالتفاصيل، سواء كانت هدية وحدة أو ألف هدية.
+- **corporate.moments.3.title**
+  - EN: Corporate and Private Events
+  - AR: مناسبات الشركات والمناسبات الخاصة
+- **corporate.moments.3.text**
+  - EN: From boardroom launches to private receptions, our team designs the sweet side of the occasion, including chocolate tables, desserts and luxury catering, all consistent with your brand.
+  - AR: من إطلاقات القاعات لين الاستقبالات الخاصة، يصمّم فريقنا الجانب الحلو من مناسبتكم: طاولات شوكولاتة وحلويات وضيافة فاخرة، كلها متناغمة مع هوية علامتكم.
+- **corporate.closing**
+  - EN: Tell us about your occasion, and we will design the gift.
+  - AR: قولوا لنا عن مناسبتكم، وعلينا تصميم الهدية.
+- **expertise.0.name**
+  - EN: Handcrafted Chocolates
+  - AR: شوكولاتة مصنوعة باليد
+- **expertise.1.name**
+  - EN: Luxury Pastries and Desserts
+  - AR: حلويات ومعجنات فاخرة
+- **expertise.2.name**
+  - EN: Signature Chocolate Trays
+  - AR: أطباق الشوكولاتة الخاصة
+- **expertise.3.name**
+  - EN: Bespoke Gifting
+  - AR: هدايا على الطلب
+- **expertise.4.name**
+  - EN: Weddings and Events
+  - AR: أعراس ومناسبات
+- **expertise.5.name**
+  - EN: 3D Event Concept Design
+  - AR: تصميم مفاهيم المناسبات ثلاثي الأبعاد
+- **expertise.6.name**
+  - EN: Corporate Gifting Solutions
+  - AR: حلول هدايا الشركات
+- **expertise.7.name**
+  - EN: Luxury Catering Experiences
+  - AR: تجارب ضيافة وتقديم فاخرة
+- **haloTray.label**
+  - EN: Concept 01
+  - AR: المفهوم 01
+- **haloTray.name**
+  - EN: The Halo Tray
+  - AR: صينية الهالة
+- **haloTray.kind**
+  - EN: Event Presentation Tray · Wedding & Luxury Events
+  - AR: صينية عرض للمناسبات · الزفاف والمناسبات الفاخرة
+- **haloTray.intro**
+  - EN: A statement tray designed to elevate every celebration with elegance and sophistication.
+  - AR: صينية لافتة صُممت لترتقي بكل مناسبة بأناقة ورقي.
+- **haloTray.features.0**
+  - EN: Elegant halo arches inspired by timeless architecture.
+  - AR: أقواس هالة أنيقة مستوحاة من العمارة الخالدة.
+- **haloTray.features.1**
+  - EN: Sophisticated combination of blush, mocha and gold.
+  - AR: مزيج راقٍ من الوردي والموكا والذهبي.
+- **haloTray.features.2**
+  - EN: Custom floral arrangements to match the event theme.
+  - AR: تنسيقات زهور مخصصة تناسب طابع المناسبة.
+- **haloTray.features.3**
+  - EN: Ideal for weddings, VIP events and luxury celebrations.
+  - AR: مثالية لحفلات الزفاف ومناسبات كبار الضيوف والاحتفالات الفاخرة.
+- **haloTray.materials.0.name**
+  - EN: Acrylic
+  - AR: أكريليك
+- **haloTray.materials.1.name**
+  - EN: Stainless Steel Gold Finish
+  - AR: ستانلس ستيل بلمسة ذهبية
+- **haloTray.materials.2.name**
+  - EN: Leather Texture
+  - AR: ملمس جلدي
+- **haloTray.materials.3.name**
+  - EN: Fresh Flowers
+  - AR: زهور طبيعية
+- **haloTray.width**
+  - EN: 60 cm
+  - AR: 60 سم
+- **haloTray.height**
+  - EN: 55 cm
+  - AR: 55 سم
+- **haloTray.capacity**
+  - EN: Approx. 80 – 120 pieces (Chocolates & Pastries)
+  - AR: نحو 80 إلى 120 قطعة (شوكولاتة وحلويات)
+- **haloTray.signoff**
+  - EN: Crafted for unforgettable celebrations
+  - AR: صُنعت لاحتفالات لا تُنسى
+- **journey.0.title**
+  - EN: Consultation
+  - AR: الجلسة الأولى
+- **journey.0.text**
+  - EN: We listen to your story, your style and your vision for the day.
+  - AR: نسمع قصتكم وذوقكم ورؤيتكم لليوم.
+- **journey.1.title**
+  - EN: Concept
+  - AR: الفكرة
+- **journey.1.text**
+  - EN: Our design team shapes a creative direction made only for you.
+  - AR: يرسم فريقنا اتجاه إبداعي مخصص لكم وحدكم.
+- **journey.2.title**
+  - EN: 3D Visualization
+  - AR: التصور ثلاثي الأبعاد
+- **journey.2.text**
+  - EN: You see your entire event in immersive detail and refine it with us.
+  - AR: تشوفون مناسبتكم كاملة بالتفصيل وتعدّلون معنا.
+- **journey.3.title**
+  - EN: Curation
+  - AR: الاختيار والتنسيق
+- **journey.3.text**
+  - EN: Every dessert, tray, decoration and detail is selected and designed in-house.
+  - AR: كل حلا وصينية وديكور وتفصيلة تُختار وتُصمَّم عندنا.
+- **journey.4.title**
+  - EN: Execution
+  - AR: التنفيذ
+- **journey.4.text**
+  - EN: Our team delivers the celebration flawlessly, so you can simply be present.
+  - AR: يسلّمكم فريقنا الحفل بدون ولا خلل، وأنتم بس استمتعوا.
+- **pergola.name**
+  - EN: GHALIA de Chocolat
+  - AR: غالية دو شوكولا
+- **pergola.kind**
+  - EN: Pergola Event & Wedding Concept
+  - AR: مفهوم البرجولة للمناسبات والزفاف
+- **pergola.intro**
+  - EN: An elegant pergola where chocolate meets the art of celebration. A space imagined to enchant, create memories, and elevate every event.
+  - AR: برجولة أنيقة يلتقي فيها الشوكولاتة بفن الاحتفال. فضاء صُمم ليسحر ويصنع الذكريات ويرتقي بكل مناسبة.
+- **pergola.zones.0.name**
+  - EN: Chocolate Arch Photo Spot
+  - AR: قوس الشوكولاتة للتصوير
+- **pergola.zones.1.name**
+  - EN: Ceiling Detail
+  - AR: تفاصيل السقف
+- **pergola.zones.2.name**
+  - EN: Intimate Ceremony Space
+  - AR: مساحة الحفل الخاصة
+- **pergola.zones.3.name**
+  - EN: Decoration Detail
+  - AR: تفاصيل الديكور
+- **pergola.zones.4.name**
+  - EN: Lounge & Reception Space
+  - AR: مساحة الجلوس والاستقبال
+- **pergola.qualities.0**
+  - EN: Customizable for all types of events
+  - AR: قابلة للتخصيص لجميع أنواع المناسبات
+- **pergola.qualities.1**
+  - EN: Warm and romantic atmosphere
+  - AR: أجواء دافئة ورومانسية
+- **pergola.qualities.2**
+  - EN: Noble materials: wood, metal, fabrics, flowers
+  - AR: خامات نبيلة: خشب ومعدن وأقمشة وزهور
+- **pergola.qualities.3**
+  - EN: Ideal for photos and Instagram content
+  - AR: مثالية للصور ومحتوى إنستغرام
+- **studio.settings.0.label**
+  - EN: Halo Ceremony
+  - AR: حفل الهالة
+- **studio.settings.1.label**
+  - EN: Pergola
+  - AR: البرجولة
+- **studio.settings.2.label**
+  - EN: Reception Table
+  - AR: طاولة الاستقبال
+- **studio.palettes.0.label**
+  - EN: Blush, Mocha & Gold
+  - AR: وردي وموكا وذهبي
+- **studio.palettes.1.label**
+  - EN: Ivory & Gold
+  - AR: عاجي وذهبي
+- **studio.palettes.2.label**
+  - EN: Emerald & Gold
+  - AR: زمردي وذهبي
+- **studio.palettes.3.label**
+  - EN: Royal Blue & Gold
+  - AR: أزرق ملكي وذهبي
+- **studio.florals.0.label**
+  - EN: Light
+  - AR: خفيفة
+- **studio.florals.1.label**
+  - EN: Full
+  - AR: كثيفة
+- **studio.florals.2.label**
+  - EN: Abundant
+  - AR: وفيرة
+- **studio.moods.0.label**
+  - EN: Golden Hour
+  - AR: الساعة الذهبية
+- **studio.moods.1.label**
+  - EN: Candlelit Evening
+  - AR: أمسية الشموع
+- **studio.moods.2.label**
+  - EN: Daylight
+  - AR: ضوء النهار
+
+## ui
+
+- **ui.skip**
+  - EN: Skip to content
+  - AR: انتقل إلى المحتوى
+- **ui.menu**
+  - EN: Menu
+  - AR: القائمة
+- **ui.close**
+  - EN: Close
+  - AR: إغلاق
+- **ui.language**
+  - EN: العربية
+  - AR: English
+- **ui.languageLabel**
+  - EN: Switch to Arabic
+  - AR: التبديل إلى الإنجليزية
+- **ui.scroll**
+  - EN: Scroll to enter
+  - AR: مرّر للدخول
+- **ui.loading**
+  - EN: Preparing the Maison
+  - AR: نُعدّ الدار
+- **ui.enter**
+  - EN: Enter the Maison
+  - AR: ادخل الدار
+- **ui.discover**
+  - EN: Discover
+  - AR: اكتشف
+- **ui.view**
+  - EN: View
+  - AR: عرض
+- **ui.drag**
+  - EN: Drag
+  - AR: اسحب
+- **ui.next**
+  - EN: Next
+  - AR: التالي
+- **ui.back**
+  - EN: Back
+  - AR: رجوع
+- **ui.notFound**
+  - EN: This page has been unwrapped elsewhere.
+  - AR: هذه الصفحة غير موجودة.
+- **ui.home**
+  - EN: Return to the Maison
+  - AR: العودة إلى الدار
+- **ui.sceneFallback**
+  - EN: 3D is not available on this device, so we are showing a photograph instead.
+  - AR: تقنية ثلاثية الأبعاد غير متاحة على هذا الجهاز، لذا نعرض صورة بدلًا منها.
+- **ui.chapters.story**
+  - EN: The Story
+  - AR: الحكاية
+- **ui.chapters.expertise**
+  - EN: What we create
+  - AR: وش نسوّي لكم
+- **ui.chapters.collections**
+  - EN: Collections
+  - AR: المجموعات
+- **ui.chapters.celebrations**
+  - EN: Celebrations
+  - AR: الاحتفالات
+- **ui.chapters.promise**
+  - EN: Our Promise
+  - AR: وعدنا
+- **ui.collectionsAll**
+  - EN: All collections
+  - AR: كل المجموعات
+- **ui.groupCore**
+  - EN: The signature lines
+  - AR: الخطوط المميزة
+- **ui.groupSeasonal**
+  - EN: Seasonal & limited
+  - AR: موسمية ومحدودة
+- **ui.filterAll**
+  - EN: All
+  - AR: الكل
+- **ui.orderThis**
+  - EN: Order this collection
+  - AR: اطلب هذه المجموعة
+- **ui.nextCollection**
+  - EN: Next collection
+  - AR: المجموعة التالية
+- **ui.formatsTitle**
+  - EN: Formats
+  - AR: الأشكال
+- **ui.planEvent**
+  - EN: Plan your celebration
+  - AR: خططوا لمناسبتكم
+- **ui.openStudio**
+  - EN: Open the 3D Event Studio
+  - AR: افتحوا استوديو المناسبات
+- **ui.explore**
+  - EN: Explore the collections
+  - AR: استكشف المجموعات
+- **ui.enquire**
+  - EN: Enquire
+  - AR: استفسر
+- **ui.orderTitle**
+  - EN: Compose your order
+  - AR: نسّقوا طلبكم
+- **ui.orderIntro**
+  - EN: Choose a collection, a format and what goes inside, then send your choice to the Maison on WhatsApp. The Maison confirms price, availability and delivery with you directly.
+  - AR: اختاروا المجموعة والشكل وما بداخله، ثم أرسلوا اختياركم إلى الدار عبر واتساب. تؤكد لكم الدار السعر والتوفر والتوصيل مباشرة.
+- **ui.stepCollection**
+  - EN: The collection
+  - AR: المجموعة
+- **ui.stepFormat**
+  - EN: The format
+  - AR: الشكل
+- **ui.stepFilling**
+  - EN: Inside
+  - AR: المحتوى
+- **ui.stepDetails**
+  - EN: The finishing touch
+  - AR: اللمسة الأخيرة
+- **ui.stepReview**
+  - EN: Your gift
+  - AR: هديتكم
+- **ui.openBox**
+  - EN: Open the box
+  - AR: افتحوا العلبة
+- **ui.closeBox**
+  - EN: Close the box
+  - AR: أغلقوا العلبة
+- **ui.resetView**
+  - EN: Reset view
+  - AR: إعادة الضبط
+- **ui.boxHint**
+  - EN: Drag to turn · Scroll to zoom · Click the box to open it
+  - AR: اسحبوا للتدوير · مرروا للتكبير · انقروا على العلبة لفتحها
+- **ui.bagContents**
+  - EN: Your selection travels inside the bag.
+  - AR: تُوضع مجموعتكم داخل الحقيبة.
+- **ui.quantity**
+  - EN: Quantity
+  - AR: الكمية
+- **ui.decrease**
+  - EN: Decrease quantity
+  - AR: إنقاص الكمية
+- **ui.increase**
+  - EN: Increase quantity
+  - AR: زيادة الكمية
+- **ui.giftNote**
+  - EN: Gift note (optional)
+  - AR: رسالة الهدية (اختياري)
+- **ui.giftNoteShort**
+  - EN: Gift note
+  - AR: رسالة الهدية
+- **ui.orderWhatsApp**
+  - EN: Order on WhatsApp
+  - AR: اطلبوا عبر واتساب
+- **ui.orderGreeting**
+  - EN: Hello GHALIA, I would like to order:
+  - AR: مرحبًا غالية، أودّ أن أطلب:
+- **ui.collaborateGreeting**
+  - EN: Hello GHALIA, I would like to discuss a collaboration.
+  - AR: مرحبًا غالية، أودّ مناقشة فرصة تعاون.
+- **ui.newTab**
+  - EN: (opens in a new tab)
+  - AR: (يفتح في علامة تبويب جديدة)
+- **ui.pricesNote**
+  - EN: No payment online. The Maison confirms price, availability and delivery with you on WhatsApp before anything is prepared.
+  - AR: لا يوجد دفع عبر الموقع. تؤكد لكم الدار السعر والتوفر والتوصيل عبر واتساب قبل تجهيز أي شيء.
+- **ui.name**
+  - EN: Full name
+  - AR: الاسم الكامل
+- **ui.email**
+  - EN: Email address
+  - AR: البريد الإلكتروني
+- **ui.phone**
+  - EN: Phone number
+  - AR: رقم الجوال
+- **ui.city**
+  - EN: City
+  - AR: المدينة
+- **ui.date**
+  - EN: Date of occasion (if applicable)
+  - AR: تاريخ المناسبة (إن وجد)
+- **ui.guests**
+  - EN: Number of guests
+  - AR: عدد الضيوف
+- **ui.company**
+  - EN: Company
+  - AR: الشركة
+- **ui.occasion**
+  - EN: Occasion
+  - AR: المناسبة
+- **ui.message**
+  - EN: Tell us about your vision
+  - AR: قولوا لنا عن رؤيتكم
+- **ui.subject**
+  - EN: I would like to enquire about
+  - AR: استفساري عن
+- **ui.consent**
+  - EN: I agree that GHALIA may store these details and contact me about this request.
+  - AR: أوافق على أن تحفظ غالية هذه البيانات وتتواصل معي بخصوص هذا الطلب.
+- **ui.send**
+  - EN: Send to the Maison
+  - AR: أرسل إلى الدار
+- **ui.sending**
+  - EN: Sending…
+  - AR: جارٍ الإرسال…
+- **ui.sentTitle**
+  - EN: Thank you.
+  - AR: يعطيكم العافية.
+- **ui.sentBody**
+  - EN: Your message has reached Ghalia, and a member of our team will be in touch shortly to begin designing your experience.
+  - AR: وصلت رسالتكم غالية، وبيتواصل معكم أحد من فريقنا قريب عشان نبدأ نصمّم تجربتكم.
+- **ui.sendAnother**
+  - EN: Send another
+  - AR: إرسال طلب آخر
+- **ui.errRequired**
+  - EN: Please fill this in.
+  - AR: يرجى تعبئة هذا الحقل.
+- **ui.errEmail**
+  - EN: Please enter a valid email.
+  - AR: يرجى إدخال بريد إلكتروني صحيح.
+- **ui.errPhone**
+  - EN: Please enter a valid phone number.
+  - AR: يرجى إدخال رقم هاتف صحيح.
+- **ui.errContact**
+  - EN: Please give us an email or a phone number so we can reply.
+  - AR: يرجى تزويدنا ببريد إلكتروني أو رقم هاتف لنتمكن من الرد.
+- **ui.errConsent**
+  - EN: Please confirm so we can store your request.
+  - AR: يرجى التأكيد لنتمكن من حفظ طلبكم.
+- **ui.errServer**
+  - EN: We could not send this just now. Your details are still here, so please try again.
+  - AR: تعذر الإرسال الآن. بياناتكم ما زالت هنا، يرجى المحاولة مرة أخرى.
+- **ui.errRate**
+  - EN: Too many requests in a short time. Please try again in a few minutes.
+  - AR: طلبات كثيرة في وقت قصير. يرجى المحاولة بعد بضع دقائق.
+- **ui.subjects.general**
+  - EN: A general question
+  - AR: سؤال عام
+- **ui.subjects.wedding**
+  - EN: A wedding or event
+  - AR: زفاف أو مناسبة
+- **ui.subjects.corporate**
+  - EN: Corporate gifting
+  - AR: هدايا الشركات
+- **ui.subjects.partnership**
+  - EN: A collaboration or partnership
+  - AR: تعاون أو شراكة
+- **ui.studioTitle**
+  - EN: 3D Event Studio
+  - AR: استوديو المناسبات ثلاثي الأبعاد
+- **ui.studioIntro**
+  - EN: Compose a first sketch of your celebration in 3D. Our Wedding Planner and Creative Design Team take it from here.
+  - AR: ارسموا أول تصور لمناسبتكم بتقنية ثلاثية الأبعاد، ثم يكمل مخطط الزفاف وفريق التصميم الإبداعي من هنا.
+- **ui.studioDisclaimer**
+  - EN: A simplified sketch to start the conversation, not the final design.
+  - AR: تصور مبسط لبدء الحوار، وليس التصميم النهائي.
+- **ui.studioSetting**
+  - EN: Setting
+  - AR: المكان
+- **ui.studioPalette**
+  - EN: Palette
+  - AR: الألوان
+- **ui.studioFlorals**
+  - EN: Florals
+  - AR: الزهور
+- **ui.studioMood**
+  - EN: Atmosphere
+  - AR: الأجواء
+- **ui.studioTray**
+  - EN: Halo Tray
+  - AR: صينية الهالة
+- **ui.studioTrayOn**
+  - EN: Include the Halo Tray
+  - AR: إضافة صينية الهالة
+- **ui.studioSend**
+  - EN: Send this concept
+  - AR: أرسلوا هذا المفهوم
+- **ui.studioGreeting**
+  - EN: Hello GHALIA, I would like to discuss this event concept:
+  - AR: مرحبًا غالية، أودّ أن أتحدث معكم عن هذا التصور لمناسبتي:
+- **ui.studioSave**
+  - EN: Save image
+  - AR: حفظ الصورة
+- **ui.studioShare**
+  - EN: Copy link
+  - AR: نسخ الرابط
+- **ui.studioCopied**
+  - EN: Link copied
+  - AR: تم نسخ الرابط
+- **ui.studioAttached**
+  - EN: Your 3D concept is attached to this request.
+  - AR: تم إرفاق مفهومكم ثلاثي الأبعاد بهذا الطلب.
+- **ui.studioDragHint**
+  - EN: Drag to look around
+  - AR: اسحبوا للتجول
+- **ui.haloViews.front**
+  - EN: Front
+  - AR: أمامي
+- **ui.haloViews.side**
+  - EN: Side
+  - AR: جانبي
+- **ui.haloViews.back**
+  - EN: Back
+  - AR: خلفي
+- **ui.haloCapacity**
+  - EN: Capacity
+  - AR: السعة
+- **ui.haloDimensions**
+  - EN: Dimensions
+  - AR: الأبعاد
+- **ui.haloFeatures**
+  - EN: Features
+  - AR: المزايا
+- **ui.haloMaterials**
+  - EN: Materials
+  - AR: الخامات
+- **ui.contactLocation**
+  - EN: Find us
+  - AR: موقعنا
+- **ui.inboxTitle**
+  - EN: Maison inbox
+  - AR: بريد الدار
+- **ui.inboxToken**
+  - EN: Admin token
+  - AR: رمز المسؤول
+- **ui.inboxOpen**
+  - EN: Open inbox
+  - AR: فتح البريد
+- **ui.inboxEmpty**
+  - EN: Nothing here yet.
+  - AR: لا يوجد شيء بعد.
+- **ui.inboxDenied**
+  - EN: That token was not accepted.
+  - AR: لم يُقبل هذا الرمز.
+- **ui.inboxDisabled**
+  - EN: The inbox is off. Set ADMIN_TOKEN on the server to enable it.
+  - AR: البريد غير مفعّل. عيّنوا ADMIN_TOKEN على الخادم لتفعيله.

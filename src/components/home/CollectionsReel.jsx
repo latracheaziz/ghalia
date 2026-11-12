@@ -79,7 +79,7 @@ export function CollectionsReel() {
             style={horizontal ? undefined : { '--reel-bg': c.theme.bg, '--reel-ink': c.theme.ink, '--reel-accent': c.theme.accent }}
           >
             <TLink to={`/collections/${c.slug}`} className="reel__link" data-cursor={t(ui.view)}>
-              <div className={`arch reel__image grain ${i % 3 === 1 ? 'arch--ogee' : ''}`}>
+              <div className={`arch reel__image grain`}>
                 <Picture id={c.images[0]} alt={t(c.title)} sizes="(max-width: 56rem) 80vw, 34vw" />
               </div>
               <div className="reel__meta">

@@ -157,8 +157,8 @@
 .adm-preview-article { display: grid; gap: 1rem; max-inline-size: 42rem; margin-inline: auto; line-height: 1.75; }
 .adm-preview-article img { inline-size: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 0.8rem; }
 .adm-preview-article h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
-.adm-preview-article[dir='rtl'] { font-family: 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif; }
-.adm-preview-article[dir='rtl'] h1 { font-family: 'Amiri', serif; line-height: 1.4; }
+.adm-preview-article[dir='rtl'] { font-family: 'Reem Kufi', 'Segoe UI', sans-serif; }
+.adm-preview-article[dir='rtl'] h1 { font-family: 'Reem Kufi', 'Segoe UI', sans-serif; line-height: 1.4; }
 
 /* Overview */
 .adm-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem; margin-block-end: 1rem; }

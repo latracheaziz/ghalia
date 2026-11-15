@@ -19,6 +19,14 @@ function trackErrors(page) {
   return errors
 }
 
+// The site opens in Arabic. These tests were written against the English copy, so unless a
+// visitor has already chosen a language they start in English.
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    try { if (!localStorage.getItem('ghalia.lang')) localStorage.setItem('ghalia.lang', 'en') } catch { /* storage blocked */ }
+  })
+})
+
 const adminList = async (request) => {
   const res = await request.get('/api/admin/submissions', { headers: { authorization: 'Bearer e2e-token' } })
   return (await res.json()).submissions
@@ -112,6 +120,17 @@ test.describe('navigation', () => {
     await expect(page.locator('.index__item')).toHaveCount(4)
     await page.getByRole('button', { name: 'The signature lines' }).click()
     await expect(page.locator('.index__item')).toHaveCount(3)
+  })
+
+  test('a first-time visitor sees Arabic, and can switch to English', async ({ browser }) => {
+    const context = await browser.newContext()
+    const page = await context.newPage()
+    await open(page, '/maison')
+    await expect(page.locator('html')).toHaveAttribute('lang', 'ar')
+    await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
+    await page.getByRole('button', { name: 'التبديل إلى الإنجليزية' }).click()
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en')
+    await context.close()
   })
 
   test('language switch mirrors the site and survives a reload', async ({ page }) => {

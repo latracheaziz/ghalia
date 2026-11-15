@@ -1,4 +1,4 @@
-import wordmark from '../../assets/brand/wordmark.svg?raw'
+import { useLang } from '../../state/LangContext'
 import lockup from '../../assets/brand/lockup.svg?raw'
 import ornament from '../../assets/brand/ornament.svg?raw'
 
@@ -14,7 +14,24 @@ const Raw = ({ svg, label, className }) => (
   />
 )
 
-export const Wordmark = (props) => <Raw svg={wordmark} {...props} />
+/** The name set in Kufi: GHALIA in English, غالية in Arabic. It inherits currentColor like the traced artwork. */
+export function Wordmark({ label, className }) {
+  const { rtl } = useLang()
+  const style = { fontFamily: "'Reem Kufi', sans-serif", fontWeight: 500, fill: 'currentColor' }
+  return (
+    <span className={className} style={{ display: 'block', lineHeight: 0 }} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : true}>
+      {rtl ? (
+        <svg viewBox="0 0 1400 384" xmlns="http://www.w3.org/2000/svg">
+          <text x="700" y="318" textAnchor="middle" fontSize="400" style={style}>غالية</text>
+        </svg>
+      ) : (
+        <svg viewBox="0 0 2728 384" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="316" fontSize="372" textLength="2728" lengthAdjust="spacing" style={style}>GHALIA</text>
+        </svg>
+      )}
+    </span>
+  )
+}
 export const Lockup = (props) => <Raw svg={lockup} {...props} />
 export const Ornament = (props) => <Raw svg={ornament} {...props} />
 

@@ -15,13 +15,13 @@
   --gold-warm: #e3b873;
   --error: #9b2c1f;
 
-  --font-display: 'Cormorant', 'Times New Roman', serif;
-  --font-text: 'Jost', 'Segoe UI', sans-serif;
-  --font-script: 'Mrs Saint Delafield', cursive;
+  --font-display: 'Reem Kufi', 'Segoe UI', sans-serif;
+  --font-text: 'Reem Kufi', 'Segoe UI', sans-serif;
+  --font-script: 'Reem Kufi', 'Segoe UI', sans-serif;
   --track-wide: 0.28em;
   --track-mid: 0.14em;
   --track-tight: -0.015em;
-  --accent-style: italic;
+  --accent-style: normal;
 
   --t-mega: clamp(3.6rem, 13.5vw, 15rem);
   --t-hero: clamp(3rem, 8.4vw, 9rem);
@@ -48,9 +48,9 @@
 
 /* Arabic has no italics or tracking: spacing breaks the connected script. */
 :root[dir='rtl'] {
-  --font-display: 'Amiri', 'Times New Roman', serif;
-  --font-text: 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif;
-  --font-script: 'Amiri', serif;
+  --font-display: 'Reem Kufi', 'Segoe UI', sans-serif;
+  --font-text: 'Reem Kufi', 'Segoe UI', sans-serif;
+  --font-script: 'Reem Kufi', 'Segoe UI', sans-serif;
   --track-wide: 0;
   --track-mid: 0;
   --track-tight: 0;

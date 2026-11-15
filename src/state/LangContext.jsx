@@ -5,9 +5,10 @@ const LangContext = createContext(null)
 
 function initialLang() {
   try {
-    return localStorage.getItem(KEY) === 'ar' ? 'ar' : 'en'
+    // Arabic first; English only when the visitor has chosen it.
+    return localStorage.getItem(KEY) === 'en' ? 'en' : 'ar'
   } catch {
-    return 'en'
+    return 'ar'
   }
 }
 

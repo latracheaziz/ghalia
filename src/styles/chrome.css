@@ -125,4 +125,4 @@
 .cursor.is-link .cursor__ring { inline-size: 2.6rem; block-size: 2.6rem; margin: -1.3rem; background: rgb(211 160 95 / 0.32); }
 .cursor.is-label .cursor__ring { inline-size: 5.2rem; block-size: 5.2rem; margin: -2.6rem; background: var(--gold); color: var(--mocha-deep); }
 .cursor.is-hidden .cursor__ring { opacity: 0; }
-
+:root[dir='rtl'] .header__logo { inline-size: clamp(4.5rem, 7vw, 6rem); }

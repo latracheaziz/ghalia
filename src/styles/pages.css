@@ -387,3 +387,5 @@
 /* Not found */
 .lost { min-block-size: 100svh; display: grid; align-content: center; gap: 1rem; }
 .lost .t-mega { color: var(--gold); }
+/* The Arabic name is a shorter word, so it is set narrower than GHALIA. */
+:root[dir='rtl'] .film__mega { inline-size: min(100% - 2 * var(--gutter), 34vw, 48vh); }

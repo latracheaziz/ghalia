@@ -18,6 +18,11 @@
 .page-hero__copy { display: grid; gap: 1.4rem; max-inline-size: min(100%, 72rem); }
 .page-hero__eyebrow { color: inherit; }
 .page-hero .eyebrow { color: currentColor; }
+/* Two sizes only: the big title, and one medium size for the label above it and the text below it. */
+.page-hero .page-hero__eyebrow, .detail__hero .eyebrow { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 4rem); line-height: 1.2; letter-spacing: 0.01em; text-transform: none; font-weight: 500; }
+.page-hero .t-lead { font-size: clamp(1.3rem, 2.1vw, 2.1rem); line-height: 1.5; max-inline-size: 44ch; }
+:root[dir='rtl'] .page-hero .page-hero__eyebrow, :root[dir='rtl'] .detail__hero .eyebrow { font-size: clamp(2.2rem, 4.3vw, 4.4rem); letter-spacing: 0; line-height: 1.5; }
+:root[dir='rtl'] .page-hero .t-lead { font-size: clamp(1.35rem, 2.2vw, 2.2rem); line-height: 1.7; }
 
 /* Split rows: uneven by design */
 .split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(3rem, 8vw, 8rem); align-items: center; }
@@ -131,7 +136,7 @@
 .promise { display: grid; gap: 0.2em; justify-items: center; text-align: center; }
 .promise .eyebrow { margin-block-end: 2.5rem; }
 /* A rule on both sides keeps the centred label balanced. */
-.promise .eyebrow::after { content: ''; inline-size: 2.4em; block-size: 1px; background: currentColor; }
+.promise .eyebrow::after { display: none; }
 .promise__line--answer { font-style: var(--accent-style); color: var(--gold-warm); margin-block-end: 0.6em; }
 
 /* Doors */

@@ -79,7 +79,7 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.05; overflow-wrap: break-word;
   color: var(--accent);
 }
 :root[dir='rtl'] .eyebrow { font-size: 0.9rem; }
-.eyebrow::before { content: ''; inline-size: 2.4em; block-size: 1px; background: currentColor; }
+.eyebrow::before { display: none; }
 .eyebrow--plain::before { display: none; }
 
 .script { font-family: var(--font-script); line-height: 1; }

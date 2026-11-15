@@ -14,11 +14,11 @@ export default function Home() {
   return (
     <Page description={t(home.meta)}>
       <Film />
+      <Doors />
       <Expertise />
       <CollectionsReel />
       <Celebrations />
       <PromiseStatement />
-      <Doors />
       <ChapterRail />
     </Page>
   )

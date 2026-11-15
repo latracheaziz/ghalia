@@ -33,15 +33,15 @@ const fragment = /* glsl */ `
     return v;
   }
   float folds(vec2 p) {
-    float t = uTime * 0.05;
+    float t = uTime * 0.018;
     vec2 q = vec2(fbm(p + t), fbm(p + vec2(5.2, 1.3) - t));
     vec2 r = vec2(fbm(p + 2.6 * q + vec2(1.7, 9.2) + t), fbm(p + 2.6 * q + vec2(8.3, 2.8)));
     return fbm(p + 2.2 * r);
   }
   void main() {
     vec2 p = vec2(vUv.x * uAspect, vUv.y) * 1.25;
-    float pull = exp(-6.0 * distance(vec2(vUv.x * uAspect, vUv.y), vec2(uMouse.x * uAspect, uMouse.y)));
-    p += (uMouse - vUv) * pull * 0.2;
+    float pull = exp(-3.2 * distance(vec2(vUv.x * uAspect, vUv.y), vec2(uMouse.x * uAspect, uMouse.y)));
+    p += (uMouse - vUv) * pull * 0.55;
     float e = 0.012;
     float h = folds(p);
     vec2 slope = vec2(folds(p + vec2(e, 0.0)) - h, folds(p + vec2(0.0, e)) - h) / e;
@@ -79,8 +79,8 @@ function Silk({ colors, pointer }) {
     u.uTime.value = state.clock.elapsedTime
     u.uAspect.value = size.width / size.height
     const m = u.uMouse.value
-    m.x = THREE.MathUtils.damp(m.x, pointer.current.x, 3, delta)
-    m.y = THREE.MathUtils.damp(m.y, pointer.current.y, 3, delta)
+    m.x = THREE.MathUtils.damp(m.x, pointer.current.x, 1.4, delta)
+    m.y = THREE.MathUtils.damp(m.y, pointer.current.y, 1.4, delta)
   })
 
   return (

@@ -1,25 +1,70 @@
-// Copy from "Ghalia: Website Copy" (Nov 2026): Page 1, Home.
-// The Arabic is the document's own Hail-dialect version.
+// Copy from "GHALIA | Website Content": the Home page (Hero, The World of Ghalia, Discover Ghalia).
+// English and Arabic are the documents' own text.
 
 export const home = {
-  meta: { en: 'Luxury Chocolate and Patisserie in Saudi Arabia', ar: 'شوكولاتة وحلا وحلويات فاخرة في السعودية' },
-  headline: { en: 'Where a childhood dream became a Patisserie.', ar: 'حلمٍ من الطفولة.. صار محل الحلا والحلويات.' },
-  subheadline: {
-    en: 'Handcrafted chocolates, refined pastries and unforgettable celebrations, created in Hail, Saudi Arabia.',
-    ar: 'شوكولاتة فاخرة مصنوعة يدويا، وحلويات راقية، ومناسبات ما تنسى.. من حائل لين بيتك.',
+  meta: {
+    en: 'From fine chocolates and carefully crafted pastries to thoughtful gifts and celebration details, Ghalia creates experiences worthy of your most treasured moments.',
+    ar: 'من الشوكولاتة الفاخرة والحلويات المصنوعة بعناية، إلى الهدايا والتفاصيل التي تضيف إلى مناسباتكم، نخلق في غالية تجارب تليق بلحظاتكم الثمينة.',
   },
-  // "Welcome", first paragraph, told one beat at a time as the film scrolls.
-  memory: [
-    { en: 'Some recipes are never written down.', ar: 'في وصفات ما تنكتب في دفتر،' },
-    { en: 'They live in memory: in a warm kitchen, in the scent of butter and cocoa,', ar: 'تعيش في الذاكرة: في مطبخ دافي، وريحة الزبدة والكاكاو،' },
-    { en: "in a mother's hands guiding smaller ones.", ar: 'وإيدين أمٍّ تعلّم إيدين صغيرة.' },
-  ],
-  born: {
-    en: 'Ghalia was born from one of those memories. Today it is a Luxury Chocolate and Patisserie, where every chocolate is handcrafted with care, every dessert is designed with elegance, and every celebration becomes a timeless experience.',
-    ar: 'غالية طلعت من ذاكرة مثل هذي. واليوم هي دار للشوكولاتة والحلا والحلويات الفاخرة، كل حبّة شوكولاتة فيها تُصنع باليد وبكل عناية، وكل حلا يُصمَّم بذوق، وكل مناسبة تصير تجربة ما تنمحي من البال.',
+
+  hero: {
+    headline: { en: 'GHALIA. Because some moments are priceless.', ar: 'غالية... لأن بعض اللحظات لا تُقدَّر بثمن.' },
+    tagline: { en: 'Because some moments are priceless.', ar: 'لأن بعض اللحظات لا تُقدَّر بثمن.' },
+    // The hero paragraph, told one clause at a time as the film scrolls.
+    lines: [
+      { en: 'From fine chocolates and carefully crafted pastries', ar: 'من الشوكولاتة الفاخرة والحلويات المصنوعة بعناية،' },
+      { en: 'to thoughtful gifts and celebration details,', ar: 'إلى الهدايا والتفاصيل التي تضيف إلى مناسباتكم،' },
+      { en: 'Ghalia creates experiences worthy of your most treasured moments.', ar: 'نخلق في غالية تجارب تليق بلحظاتكم الثمينة.' },
+    ],
+    buttons: {
+      collections: { en: 'Explore Our Collections', ar: 'اكتشف مجموعاتنا' },
+      events: { en: 'Discover Events', ar: 'اكتشف خدمات المناسبات' },
+    },
   },
-  celebrations: {
-    eyebrow: { en: 'Weddings and Events', ar: 'أعراس ومناسبات' },
-    text: { en: 'Complete celebrations, from the first concept to the final toast.', ar: 'نجهّز لكم الفرحة كاملة، من أول فكرة لين آخر ضحكة.' },
+
+  world: {
+    eyebrow: { en: 'The World of Ghalia', ar: 'عالم غالية' },
+    headline: { en: 'Beyond chocolate, a story told through taste.', ar: 'أكثر من شوكولاتة... حكاية تُروى بالمذاق.' },
+    body: {
+      en: 'At Ghalia, we believe the smallest details hold the most cherished memories—and a single flavor can bring an entire story back to life. We craft fine chocolates and pastries and create experiences that bring together exceptional ingredients and elegant presentation, making every occasion worth remembering.',
+      ar: 'في غالية، نؤمن بأن أجمل الذكريات ترتبط بأبسط التفاصيل، وأن مذاقًا واحدًا قد يعيد إلينا حكاية كاملة. نصنع الشوكولاتة والحلويات الفاخرة، ونبتكر تجارب تجمع بين جودة المكونات وجمال التقديم، لتبقى كل مناسبة ذكرى تستحق الاحتفاء.',
+    },
+    button: { en: 'Discover Our Story', ar: 'تعرّف على حكايتنا' },
+  },
+
+  discover: {
+    title: { en: 'Discover Ghalia', ar: 'اكتشف غالية' },
+    items: [
+      {
+        to: '/atelier',
+        image: 'mood-craft',
+        title: { en: 'Chocolate & Patisserie', ar: 'الشوكولاتة والباتيسري' },
+        text: {
+          en: 'Handcrafted chocolates and fine pastries where exquisite flavors meet refined presentation.',
+          ar: 'تشكيلة من الشوكولاتة المصنوعة يدويًا والحلويات الفاخرة، حيث يلتقي المذاق المميز بجمال التفاصيل.',
+        },
+        alt: { en: 'A gold nozzle finishing chocolates by hand', ar: 'نقش ذهبي على الشوكولاتة باليد' },
+      },
+      {
+        to: '/collections',
+        image: 'gift-heritage',
+        title: { en: 'Gift Collections', ar: 'مجموعات الهدايا' },
+        text: {
+          en: 'Carefully designed collections that give every gift a personal touch and express your sentiments with elegance.',
+          ar: 'مجموعات صُمّمت بعناية لتمنح كل هدية طابعًا خاصًا، وتعبّر عن مشاعركم بأناقة.',
+        },
+        alt: { en: 'A GHALIA gift box in the Arabian Heritage collection', ar: 'علبة هدايا غالية من مجموعة التراث العربي' },
+      },
+      {
+        to: '/weddings',
+        image: 'pergola-ceremony',
+        title: { en: 'Weddings & Celebrations', ar: 'المناسبات والاحتفالات' },
+        text: {
+          en: 'From intimate gatherings to grand weddings, we create tailored experiences that reflect your taste and the spirit of your occasion.',
+          ar: 'من اللقاءات العائلية إلى حفلات الزفاف والمناسبات الكبرى، نصنع تجارب متكاملة تعكس ذائقتكم وجمال التفاصيل المختارة.',
+        },
+        alt: { en: 'A ceremony aisle under a flowered pergola', ar: 'ممر حفل تحت برجولة مزهرة' },
+      },
+    ],
   },
 }

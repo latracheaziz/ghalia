@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { gsap, useGSAP } from '../../animations/gsap'
 import { useLang } from '../../state/LangContext'
 import { collections } from '../../content/collections'
+import { collectionsPage } from '../../content/pages'
 import { ui } from '../../content/ui'
 import { isSmallScreen, prefersReducedMotion } from '../../utils/env'
 import { Picture } from '../ui/Picture'
@@ -68,9 +69,9 @@ export function CollectionsReel() {
     >
       <div ref={track} className="reel__track">
         <div className="reel__intro">
-          <p className="eyebrow eyebrow--plain">{t(ui.chapters.collections)}</p>
-          <h2 className="display t-hero">{t({ en: 'Each collection tells a story.', ar: 'كل مجموعة تحكي قصة.' })}</h2>
-          <TextLink to="/collections">{t(ui.collectionsAll)}</TextLink>
+          <p className="eyebrow eyebrow--plain">{t(collectionsPage.title)}</p>
+          <h2 className="display t-hero">{t(collectionsPage.headline)}</h2>
+          <TextLink to="/collections">{t(collectionsPage.button)}</TextLink>
         </div>
         {collections.map((c, i) => (
           <article
@@ -84,7 +85,7 @@ export function CollectionsReel() {
               </div>
               <div className="reel__meta">
                 <h3 className="display t-sub">{t(c.name)}</h3>
-                <p>{t(c.short)}</p>
+                <p>{t(c.description)}</p>
               </div>
             </TLink>
           </article>

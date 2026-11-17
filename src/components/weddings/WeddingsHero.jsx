@@ -3,7 +3,7 @@ import { gsap, useGSAP } from '../../animations/gsap'
 import { scrollToTarget } from '../../animations/lenis'
 import { useLang } from '../../state/LangContext'
 import { useIntroDone } from '../../state/intro'
-import { journey, pergola } from '../../content/events'
+import { eventsPage } from '../../content/pages'
 import { ui } from '../../content/ui'
 import { hasFinePointer, prefersReducedMotion } from '../../utils/env'
 import { Button } from '../ui/Button'
@@ -11,22 +11,18 @@ import { Picture } from '../ui/Picture'
 import '../../styles/weddings-hero.css'
 
 const COPY = {
-  headline: { en: 'See your celebration before it begins.', ar: 'شوفوا فرحتكم قبل لا تبدأ.' },
-  intro: {
-    en: 'A wedding is not a date on a calendar. It is a story you tell once, in front of everyone you love. At Ghalia, we help you tell it beautifully.',
-    ar: 'العرس مو تاريخ في التقويم. العرس قصة تنحكى مرة وحدة، قدّام كل اللي تحبونهم. وفي غالية نساعدكم تحكونها بأجمل صورة.',
-  },
-  page: { en: 'Weddings and Events', ar: 'الأعراس والمناسبات' },
   hint: { en: 'Explore the space', ar: 'استكشفوا المكان' },
 }
 
-// Where each of the pergola's own spaces sits in the photograph, as a share of its width and height.
+// The three Event Services, placed on what the photograph shows: the aisle, the lounge, the flowered column.
 const SPOTS = [
-  { zone: 1, x: 52, y: 27 },
-  { zone: 3, x: 84, y: 46 },
-  { zone: 4, x: 58, y: 58 },
-  { zone: 2, x: 48, y: 68 },
+  { service: 0, x: 48, y: 68 },
+  { service: 1, x: 58, y: 58 },
+  { service: 2, x: 84, y: 46 },
 ]
+
+// The three Signature Event Concepts, as the way on down the page.
+const CONCEPTS = ['halo', 'pergola', 'studio']
 
 /** Words only: splitting letters would break Arabic's joined script. Each word rises out of its own mask. */
 function Title({ text }) {
@@ -52,7 +48,7 @@ export function WeddingsHero() {
   const { t, lang } = useLang()
   const introDone = useIntroDone()
   const reduced = prefersReducedMotion()
-  const [open, setOpen] = useState(2)
+  const [open, setOpen] = useState(1)
   const numbers = new Intl.NumberFormat(lang === 'ar' ? 'ar-SA' : 'en')
 
   useGSAP(() => {
@@ -125,9 +121,9 @@ export function WeddingsHero() {
     return () => cleanups.forEach((fn) => fn())
   }, { scope: root, dependencies: [lang] })
 
-  const toNext = () => {
-    const next = root.current?.nextElementSibling
-    if (next) scrollToTarget(next, { offset: 0 })
+  const scrollTo = (id) => {
+    const target = document.getElementById(id)
+    if (target) scrollToTarget(target)
   }
 
   return (
@@ -135,12 +131,12 @@ export function WeddingsHero() {
       <div className="wh__photo" aria-hidden="true">
         <div className="wh__scene">
           <Picture id="pergola-ceremony" priority alt="" sizes="130vw" />
-          {SPOTS.map(({ zone, x, y }, i) => {
-            const item = pergola.zones[zone]
-            const name = t(item.name)
+          {SPOTS.map(({ service, x, y }, i) => {
+            const item = eventsPage.services.items[service]
+            const name = t(item.title)
             const isOpen = open === i
             return (
-              <div key={item.name.en} className={`wh__spot ${isOpen ? 'is-open' : ''} ${x > 50 ? 'is-end' : ''} ${y > 50 ? 'is-up' : ''}`} style={{ insetInlineStart: `${x}%`, insetBlockStart: `${y}%` }}>
+              <div key={item.id} className={`wh__spot ${isOpen ? 'is-open' : ''} ${x > 75 ? 'is-end' : ''} ${y > 50 ? 'is-up' : ''}`} style={{ insetInlineStart: `${x}%`, insetBlockStart: `${y}%` }}>
                 <button
                   type="button"
                   className="wh__dot"
@@ -151,8 +147,9 @@ export function WeddingsHero() {
                   onClick={() => setOpen(isOpen ? -1 : i)}
                 />
                 <div className="wh__card" role="group" aria-label={name}>
-                  <div className="wh__card-img arch"><Picture id={item.image} alt="" sizes="12rem" /></div>
+                  <div className="wh__card-img arch"><Picture id={item.image} alt="" sizes="15rem" /></div>
                   <p className="wh__card-name">{name}</p>
+                  <p className="wh__card-text">{t(item.text)}</p>
                 </div>
               </div>
             )
@@ -163,25 +160,25 @@ export function WeddingsHero() {
 
       <div className="wh__grid wrap">
         <div className="wh__copy">
-          <p className="wh__eyebrow">{t(COPY.page)}</p>
-          <Title text={t(COPY.headline)} />
-          <p className="wh__intro">{t(COPY.intro)}</p>
+          <p className="wh__eyebrow">{t(eventsPage.title)}</p>
+          <Title text={t(eventsPage.headline)} />
+          <p className="wh__intro">{t(eventsPage.intro)}</p>
           <div className="wh__actions">
-            <Button to="/studio">{t(ui.openStudio)}</Button>
+            <Button to="/weddings#enquire">{t(eventsPage.button)}</Button>
           </div>
         </div>
       </div>
 
       <p className="wh__hint"><span aria-hidden="true" className="wh__pulse" />{t(COPY.hint)}</p>
 
-      <nav className="wh__journey wrap" aria-label={t({ en: 'How it works', ar: 'كيف نشتغل' })}>
+      <nav className="wh__journey wrap" aria-label={t(eventsPage.concepts.title)}>
         <span className="wh__line" aria-hidden="true" />
         <ol>
-          {journey.map((step, i) => (
-            <li key={step.title.en} className="wh__step">
-              <button type="button" onClick={toNext}>
+          {CONCEPTS.map((id, i) => (
+            <li key={id} className="wh__step">
+              <button type="button" onClick={() => scrollTo(id)}>
                 <span className="wh__num" aria-hidden="true">{numbers.format(0)}{numbers.format(i + 1)}</span>
-                <span className="wh__name">{t(step.title)}</span>
+                <span className="wh__name">{t(eventsPage.concepts[id].title)}</span>
               </button>
             </li>
           ))}

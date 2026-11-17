@@ -38,8 +38,6 @@ export function MaisonHero() {
   const { t, lang } = useLang()
   const introDone = useIntroDone()
   const reduced = prefersReducedMotion()
-  const numbers = new Intl.NumberFormat(lang === 'ar' ? 'ar-SA' : 'en')
-  const pad = (n) => `${numbers.format(0)}${numbers.format(n)}`
 
   // Starting poses are set before the first paint; the entrance plays once the preloader lifts.
   useGSAP(() => {
@@ -52,8 +50,6 @@ export function MaisonHero() {
     gsap.set(q('.mh__rosette'), { opacity: 0, rotate: -40 })
     gsap.set(q('.mh__eyebrow, .mh__quote'), { opacity: 0, y: 24 })
     gsap.set(q('.mh__wi'), { yPercent: 115, rotate: 4, opacity: 0 })
-    gsap.set(q('.mh__rule'), { scaleX: 0 })
-    gsap.set(q('.mh__chapter'), { opacity: 0, y: 26 })
     gsap.set(q('.mh__cue'), { opacity: 0 })
     return undefined
   }, { scope: root, dependencies: [lang] })
@@ -70,8 +66,6 @@ export function MaisonHero() {
       .to(q('.mh__eyebrow'), { opacity: 1, y: 0, duration: 1.2 }, 0.7)
       .to(q('.mh__wi'), { yPercent: 0, rotate: 0, opacity: 1, duration: 1.5, stagger: 0.07 }, 0.85)
       .to(q('.mh__quote'), { opacity: 1, y: 0, duration: 1.4 }, 1.6)
-      .to(q('.mh__rule'), { scaleX: 1, duration: 1.8, ease: 'power3.inOut' }, 1.5)
-      .to(q('.mh__chapter'), { opacity: 1, y: 0, duration: 1.1, stagger: 0.12 }, 1.8)
       .to(q('.mh__cue'), { opacity: 1, duration: 1 }, 2.4)
     return () => tl.kill()
   }, { scope: root, dependencies: [introDone, lang] })
@@ -103,7 +97,6 @@ export function MaisonHero() {
     gsap.to(q('.mh__stage'), { yPercent: -7, ease: 'none', scrollTrigger: scrub })
     gsap.to(q('.mh__copy'), { yPercent: -12, opacity: 0.25, ease: 'none', scrollTrigger: scrub })
     gsap.to(q('.mh__rosette'), { rotate: 70, ease: 'none', scrollTrigger: scrub })
-    gsap.to(q('.mh__chapters'), { yPercent: 40, opacity: 0, ease: 'none', scrollTrigger: { ...scrub, end: '60% top' } })
     return () => cleanups.forEach((fn) => fn())
   }, { scope: root, dependencies: [lang] })
 
@@ -123,7 +116,7 @@ export function MaisonHero() {
         <div className="mh__copy">
           <p className="mh__eyebrow">{t(story.title)}</p>
           <Title text={t(story.headline)} />
-          <p className="mh__quote">{t(story.quote)}</p>
+          <p className="mh__quote">{t(story.paragraphs[0])}</p>
         </div>
 
         <div className="mh__stage">
@@ -142,20 +135,6 @@ export function MaisonHero() {
           </div>
         </div>
       </div>
-
-      <nav className="mh__chapters wrap" aria-label={t(story.title)}>
-        <span className="mh__rule" aria-hidden="true" />
-        <ol>
-          {story.chapters.map((chapter, i) => (
-            <li key={chapter.title.en} className="mh__chapter">
-              <button type="button" onClick={toStory}>
-                <span className="mh__num" aria-hidden="true">{pad(i + 1)}</span>
-                <span className="mh__name">{t(chapter.title).replace(/^[^:：]*[:：]\s*/, '')}</span>
-              </button>
-            </li>
-          ))}
-        </ol>
-      </nav>
 
       <button type="button" className="mh__cue" onClick={toStory}>
         <span className="mh__cue-label">{t(ui.discover)}</span>

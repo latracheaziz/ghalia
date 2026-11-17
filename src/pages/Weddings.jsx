@@ -3,130 +3,96 @@ import { Page } from '../components/layout/Page'
 import { WeddingsHero } from '../components/weddings/WeddingsHero'
 import { Picture } from '../components/ui/Picture'
 import { Words } from '../components/ui/Words'
-import { Button, TextLink } from '../components/ui/Button'
+import { Button } from '../components/ui/Button'
 import { EnquiryForm } from '../components/forms/EnquiryForm'
+import { Scene } from '../three/Scene'
 import { useLang } from '../state/LangContext'
-import { journey, pergola } from '../content/events'
+import { eventsPage } from '../content/pages'
 import { ui } from '../content/ui'
 
-const COPY = {
-  page: { en: 'Weddings and Events', ar: 'الأعراس والمناسبات' },
-  meta: { en: 'Luxury Wedding and Event Planning', ar: 'تخطيط أعراس ومناسبات فاخرة' },
-  description: { en: 'Ghalia', ar: 'غالية' },
-  headline: { en: 'See your celebration before it begins.', ar: 'شوفوا فرحتكم قبل لا تبدأ.' },
-  intro: {
-    en: 'A wedding is not a date on a calendar. It is a story you tell once, in front of everyone you love. At Ghalia, we help you tell it beautifully.',
-    ar: 'العرس مو تاريخ في التقويم. العرس قصة تنحكى مرة وحدة، قدّام كل اللي تحبونهم. وفي غالية نساعدكم تحكونها بأجمل صورة.',
-  },
-  planner: { en: 'Wedding Planner and Creative Design Team', ar: 'منسّقة الأعراس وفريق التصميم الإبداعي' },
-  plannerText: {
-    en: "With our in-house Wedding Planner and Creative Design Team, every celebration is designed around who you are: your personality, your aspirations and the way you want your guests to feel. From the first consultation to the final celebration, nothing is left to chance and nothing is borrowed from anyone else's story.",
-    ar: 'مع منسّقة الأعراس وفريق التصميم الإبداعي عندنا، كل احتفال يُصمَّم على شخصيتكم وطموحكم وعلى الشعور اللي تبونه لضيوفكم. من أول جلسة لين آخر لحظة في الحفل، ما نترك شي للصدفة، وما نستعير شي من قصة غيركم.',
-  },
-  preview: {
-    en: 'Before a single flower is placed, you walk through your event. Our immersive 3D concepts let you visualize the entrance, the ceremony, the tables, the lighting and the details, then refine them until it feels exactly right. Only then do we bring your vision to life.',
-    ar: 'قبل لا توضع وردة وحدة، تمشون في مناسبتكم. تصاميمنا ثلاثية الأبعاد تخلّيكم تشوفون المدخل والزفّة والطاولات والإضاءة والتفاصيل، وتعدّلون عليها لين تكون زي ما تبون بالضبط. وبعدها نبدأ نحوّل الرؤية لواقع.',
-  },
-  journey: { en: 'How it works', ar: 'كيف نشتغل' },
-  catering: { en: 'The Ghalia difference', ar: 'الفرق اللي تسوّيه غالية' },
-  difference: {
-    en: 'Everything is designed under one roof: the chocolates, the pastries, the trays, the decor and the planning. The result is a celebration that feels complete, because it was imagined as a whole.',
-    ar: 'كل شي يتصمم تحت سقف واحد: الشوكولاتة والمعجنات والأطباق والديكور والتخطيط. والنتيجة احتفال متكامل، لأنه انتصوّر من البداية كوحدة وحدة.',
-  },
-  form: { en: "Let's begin your story.", ar: 'تعالوا نبدأ قصتكم.' },
-}
-
-/** The pergola's five spaces. Choosing one brings it into the large arch. */
-function PergolaZones() {
+/** The Halo Tray in 3D: turn it, or pick front, side and back. */
+function HaloStudio() {
   const { t } = useLang()
-  const [active, setActive] = useState(0)
+  const [view, setView] = useState('front')
+  const name = t(eventsPage.concepts.halo.title)
   return (
-    <div className="zones">
-      <div className="arch zones__view grain" data-reveal="fade">
-        {pergola.zones.map((zone, i) => (
-          <Picture key={zone.image} id={zone.image} alt={i === active ? t(zone.name) : ''} sizes="(max-width: 56rem) 90vw, 34vw" className={i === active ? 'is-on' : ''} />
+    <div className="halo__stage" data-cursor={t(ui.drag)}>
+      <Scene name="halo" view={view} fallback="halo-tray" fallbackAlt={name} note />
+      <div className="choices halo__views" role="group" aria-label={name}>
+        {Object.entries(ui.haloViews).map(([id, label]) => (
+          <button key={id} type="button" className="choice" aria-pressed={view === id} onClick={() => setView(id)}>{t(label)}</button>
         ))}
       </div>
-      <ul className="zones__list">
-        {pergola.zones.map((zone, i) => (
-          <li key={zone.image} data-reveal="fade">
-            <button type="button" className="display t-sub" aria-pressed={i === active} onClick={() => setActive(i)} onPointerEnter={() => setActive(i)} onFocus={() => setActive(i)}>
-              {t(zone.name)}
-            </button>
-          </li>
-        ))}
-      </ul>
     </div>
   )
 }
 
+/** Weddings & Events: the opening, the services, the three signature concepts, then the enquiry. */
 export default function Weddings() {
   const { t } = useLang()
+  const { services, concepts } = eventsPage
   return (
-    <Page title={t(COPY.meta)} description={t(COPY.description)}>
+    <Page title={t(eventsPage.title)} description={t(eventsPage.headline)}>
       <WeddingsHero />
 
-      <section className="section wrap split" data-theme="paper">
-        <div className="split__copy">
-          <p className="eyebrow" data-reveal="fade">{t(COPY.planner)}</p>
-          <p className="t-lead" data-reveal="fade">{t(COPY.plannerText)}</p>
-          <p className="muted" data-reveal="fade">{t(COPY.preview)}</p>
-        </div>
-        <div className="split__media">
-          <div className="arch split__arch grain" data-reveal="arch">
-            <Picture id="mood-arch" alt={t({ en: 'A flowered arch set for a celebration', ar: 'قوس مزهر مجهز لمناسبة' })} sizes="(max-width: 56rem) 90vw, 40vw" />
-          </div>
-        </div>
-      </section>
-
-      <section className="section wrap journey" data-theme="deep">
-        <Words as="h2" className="display t-title" text={t(COPY.journey)} />
-        <ol className="journey__steps">
-          {journey.map((step, i) => (
-            <li key={step.title.en} data-reveal="fade">
-              <span className="journey__index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="display t-sub">{t(step.title)}</h3>
-              <p className="muted">{t(step.text)}</p>
+      <section id="services" className="section wrap services" data-theme="paper">
+        <header className="section-head">
+          <p className="eyebrow" data-reveal="fade">{t(services.title)}</p>
+        </header>
+        <ul className="services__list">
+          {services.items.map((item, i) => (
+            <li key={item.id} className={`services__item services__item--${i}`}>
+              <div className="arch services__image grain" data-reveal="arch">
+                <Picture id={item.image} alt={t(item.alt)} sizes="(max-width: 56rem) 90vw, 30vw" />
+              </div>
+              <h2 className="display t-sub">{t(item.title)}</h2>
+              <p className="muted">{t(item.text)}</p>
             </li>
           ))}
-        </ol>
-        <div className="actions" data-reveal="fade">
-          <Button to="/studio">{t(ui.openStudio)}</Button>
-        </div>
-      </section>
-
-      <section className="section wrap pergola" data-theme="mocha">
-        <div className="pergola__head">
-          <p className="eyebrow" data-reveal="fade">{t(pergola.kind)}</p>
-          <Words as="h2" className="display t-hero" text={t(pergola.name)} />
-          <p className="t-lead measure" data-reveal="fade">{t(pergola.intro)}</p>
-        </div>
-        <div className="frame pergola__image grain" data-reveal="fade">
-          <Picture id="pergola" alt={t({ en: 'The GHALIA de Chocolat pergola at dusk', ar: 'برجولة غالية عند الغروب' })} sizes="(max-width: 56rem) 90vw, 70vw" />
-        </div>
-        <PergolaZones />
-        <ul className="pergola__qualities" data-reveal="stagger">
-          {pergola.qualities.map((q) => <li key={q.en}>{t(q)}</li>)}
         </ul>
       </section>
 
-      <section id="catering" className="section wrap split split--reverse" data-theme="blush">
-        <div className="split__media">
-          <div className="arch split__arch grain" data-reveal="arch">
-            <Picture id="hosts" alt={t({ en: 'GHALIA hosts in ivory and blush uniforms presenting chocolate trays', ar: 'مضيفات غالية بزي عاجي ووردي يقدمن صواني الشوكولاتة' })} sizes="(max-width: 56rem) 90vw, 40vw" />
+      <section id="concepts" className="section wrap concepts" data-theme="deep">
+        <header className="section-head">
+          <Words as="h2" className="display t-title" text={t(concepts.title)} />
+        </header>
+
+        <article id="halo" className="concept split">
+          <div className="split__copy">
+            <p className="eyebrow" data-reveal="fade">01</p>
+            <h3 className="display t-sub" data-reveal="fade">{t(concepts.halo.title)}</h3>
+            <p className="t-lead" data-reveal="fade">{t(concepts.halo.text)}</p>
           </div>
-        </div>
-        <div className="split__copy">
-          <Words as="h2" className="display t-title" text={t(COPY.catering)} />
-          <p className="t-lead" data-reveal="fade">{t(COPY.difference)}</p>
-          <div data-reveal="fade"><TextLink to="/atelier#halo">{t({ en: 'See the Halo Tray', ar: 'شاهدوا صينية الهالة' })}</TextLink></div>
-        </div>
+          <div className="split__media" data-reveal="fade"><HaloStudio /></div>
+        </article>
+
+        <article id="pergola" className="concept split split--reverse">
+          <div className="split__media">
+            <div className="frame concept__image grain" data-reveal="fade">
+              <Picture id={concepts.pergola.image} alt={t(concepts.pergola.alt)} sizes="(max-width: 56rem) 90vw, 46vw" />
+            </div>
+          </div>
+          <div className="split__copy">
+            <p className="eyebrow" data-reveal="fade">02</p>
+            <h3 className="display t-sub" data-reveal="fade">{t(concepts.pergola.title)}</h3>
+            <p className="t-lead" data-reveal="fade">{t(concepts.pergola.text)}</p>
+          </div>
+        </article>
+
+        <article id="studio" className="concept concept--studio">
+          <p className="eyebrow" data-reveal="fade">03</p>
+          <h3 className="display t-sub" data-reveal="fade">{t(concepts.studio.title)}</h3>
+          <p className="t-lead measure" data-reveal="fade">{t(concepts.studio.text)}</p>
+          <div className="actions" data-reveal="fade">
+            <Button to="/studio">{t(ui.openStudio)}</Button>
+          </div>
+        </article>
       </section>
 
       <section id="enquire" className="section wrap form-band" data-theme="paper">
         <div>
-          <p className="eyebrow" data-reveal="fade">{t(ui.planEvent)}</p>
-          <Words as="h2" className="display t-title" text={t(COPY.form)} />
+          <p className="eyebrow" data-reveal="fade">{t(eventsPage.title)}</p>
+          <Words as="h2" className="display t-title" text={t(eventsPage.button)} />
         </div>
         <div data-reveal="fade"><EnquiryForm kind="wedding" /></div>
       </section>

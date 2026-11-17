@@ -7,6 +7,7 @@ import { TLink } from '../components/ui/TLink'
 import { Scene } from '../three/Scene'
 import { useLang } from '../state/LangContext'
 import { collections, findCollection } from '../content/collections'
+import { collectionsPage } from '../content/pages'
 import { ui } from '../content/ui'
 import NotFound from './NotFound'
 
@@ -29,19 +30,14 @@ function Detail({ slug, collection }) {
         <header className="detail__hero wrap" data-tone={tone}>
           <div className="page-hero__silk"><Scene name="silk" colors={theme.silk} fallback={images[0]} /></div>
           <div className="detail__copy">
-            <p className="eyebrow eyebrow--plain" data-reveal="fade">{t(ui.chapters.collections)}</p>
+            <p className="eyebrow eyebrow--plain" data-reveal="fade">{t(collectionsPage.title)}</p>
             <Words as="h1" className="display t-hero" text={t(collection.name)} />
-            <p className="t-lead" data-reveal="fade">{t(collection.short)}</p>
+            <p className="t-lead" data-reveal="fade">{t(collection.description)}</p>
           </div>
           <div className="arch detail__image grain" data-reveal="arch">
             <Picture id={images[0]} alt={t(collection.title)} priority sizes="(max-width: 56rem) 80vw, 38vw" />
           </div>
         </header>
-
-        <section className="section wrap detail__story" data-tone={tone}>
-          <p className="t-lead" data-reveal="fade">{t(collection.description)}</p>
-          {collection.extra ? <p data-reveal="fade">{t(collection.extra)}</p> : null}
-        </section>
 
         {images.length > 1 ? (
           <section className="wrap detail__gallery" data-tone={tone} aria-label={t(collection.title)}>

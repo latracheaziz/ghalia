@@ -6,18 +6,11 @@ import { Picture } from '../components/ui/Picture'
 import { TLink } from '../components/ui/TLink'
 import { useLang } from '../state/LangContext'
 import { collections } from '../content/collections'
-import { story } from '../content/maison'
+import { collectionsPage } from '../content/pages'
 import { ui } from '../content/ui'
+import { Button } from '../components/ui/Button'
+import { scrollToTarget } from '../animations/lenis'
 
-const COPY = {
-  page: { en: 'Handcrafted Chocolates, Pastries and Gifting', ar: 'شوكولاتة وحلويات فاخرة وهدايا مفصّلة' },
-  description: { en: 'Ghalia', ar: 'غالية' },
-  eyebrow: { en: 'The Collections', ar: 'المجموعات' },
-  intro: {
-    en: 'From the first cocoa bean to the final ribbon, every Ghalia creation is made by hand, with care, and designed in-house. Nothing here is ordinary, and nothing is rushed.',
-    ar: 'من أول حبّة كاكاو لين آخر شريطة، كل إبداع من غالية يُصنع باليد وبكل عناية، ويُصمَّم عندنا. ما فيه شي عادي، وما فيه شي مستعجل.',
-  },
-}
 import { ScrollTrigger } from '../animations/gsap'
 
 const FILTERS = [
@@ -32,10 +25,14 @@ export default function Collections() {
   const shown = collections.filter((c) => filter === 'all' || c.group === filter)
 
   return (
-    <Page title={t(COPY.page)} description={t(COPY.description)}>
-      <PageHero eyebrow={t(COPY.eyebrow)} title={t(story.lines[0])} intro={t(COPY.intro)} scene="chocolate" tone="light" />
+    <Page title={t(collectionsPage.title)} description={t(collectionsPage.intro)}>
+      <PageHero eyebrow={t(collectionsPage.title)} title={t(collectionsPage.headline)} intro={t(collectionsPage.intro)} scene="chocolate" tone="light">
+        <div className="actions" data-reveal="fade">
+          <Button onClick={() => scrollToTarget(document.getElementById('collections-list'), { offset: 0 })}>{t(collectionsPage.button)}</Button>
+        </div>
+      </PageHero>
 
-      <section className="section wrap index" data-theme="paper">
+      <section id="collections-list" className="section wrap index" data-theme="paper">
         <div className="choices index__filters" role="group" aria-label={t(ui.chapters.collections)}>
           {FILTERS.map((f) => (
             <button key={f.id} type="button" className="choice" aria-pressed={filter === f.id} onClick={() => setFilter(f.id)}>{t(f.label)}</button>
@@ -58,7 +55,7 @@ export default function Collections() {
                     <Picture id={c.images[0]} alt={t(c.title)} sizes="(max-width: 56rem) 90vw, 46vw" />
                   </div>
                   <h2 className="display t-sub">{t(c.name)}</h2>
-                  <p className="muted">{t(c.short)}</p>
+                  <p className="muted">{t(c.description)}</p>
                 </TLink>
               </motion.li>
             ))}

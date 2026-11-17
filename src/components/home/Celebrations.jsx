@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { gsap, useGSAP } from '../../animations/gsap'
 import { useLang } from '../../state/LangContext'
 import { ui } from '../../content/ui'
-import { home } from '../../content/home'
+import { eventsPage } from '../../content/pages'
 import { prefersReducedMotion } from '../../utils/env'
 import { Picture } from '../ui/Picture'
 import { Button } from '../ui/Button'
@@ -28,16 +28,16 @@ export function Celebrations() {
 
   return (
     <section ref={root} id="celebrations" className="open-arch" data-theme="deep" data-chapter={t(ui.chapters.celebrations)}>
-      <h2 className="open-arch__title display t-mega">{t({ en: 'Celebrations', ar: 'الاحتفالات' })}</h2>
+      <h2 className="open-arch__title display t-hero">{t(eventsPage.title)}</h2>
       <div className="open-arch__mask grain">
         <Picture id="pergola" sizes="max(100vw, 185vh)" alt={t({ en: 'The GHALIA de Chocolat pergola at dusk, dressed with flowers, drapes and lanterns', ar: 'برجولة غالية عند الغروب مزينة بالزهور والستائر والفوانيس' })} />
       </div>
       <div className="open-arch__copy wrap">
-        <p className="eyebrow">{t(home.celebrations.eyebrow)}</p>
-        <p className="t-lead measure">{t(home.celebrations.text)}</p>
+        <p className="display t-sub measure">{t(eventsPage.headline)}</p>
+        <p className="measure">{t(eventsPage.intro)}</p>
         <div className="actions">
-          <Button to="/studio">{t(ui.openStudio)}</Button>
-          <Button to="/weddings" variant="ghost">{t(ui.planEvent)}</Button>
+          <Button to="/weddings#enquire">{t(eventsPage.button)}</Button>
+          <Button to="/studio" variant="ghost">{t(ui.openStudio)}</Button>
         </div>
       </div>
     </section>

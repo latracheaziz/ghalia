@@ -90,7 +90,7 @@ test.describe('navigation', () => {
     await expect(dialog).toBeHidden()
 
     await page.getByRole('button', { name: 'Menu' }).first().click()
-    await dialog.getByRole('link', { name: 'Corporate Gifting' }).click()
+    await dialog.getByRole('link', { name: 'Bespoke Gifting' }).click()
     await expect(page).toHaveURL(/\/corporate$/)
     await expect(page.locator('.curtain')).toBeHidden({ timeout: 8000 })
     await expect(dialog).toBeHidden()
@@ -146,7 +146,7 @@ test.describe('navigation', () => {
     await expect(page.locator('.curtain')).toBeHidden({ timeout: 8000 })
     await page.reload()
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl')
-    await expect(page.locator('h1').first()).toContainText('بدت في مطبخ')
+    await expect(page.locator('h1').first()).toContainText('من ذاكرة الطفولة')
   })
 })
 
@@ -259,7 +259,7 @@ test.describe('3D experiences', () => {
   })
 
   test('the Halo Tray viewer switches views', async ({ page }) => {
-    await open(page, '/atelier')
+    await open(page, '/weddings')
     await page.locator('#halo').scrollIntoViewIfNeeded()
     await page.getByRole('button', { name: 'Back', exact: true }).click()
     await expect(page.getByRole('button', { name: 'Back', exact: true })).toHaveAttribute('aria-pressed', 'true')
@@ -289,7 +289,7 @@ test.describe('graceful fallbacks', () => {
     await inEnglish(context)
     const page = await context.newPage()
     await open(page, '/')
-    for (const text of ['Where a childhood dream became a Patisserie.', 'Some recipes are never written down.']) {
+    for (const text of ['GHALIA. Because some moments are priceless.', 'From fine chocolates and carefully crafted pastries']) {
       await expect(page.getByText(text).first()).toBeVisible()
     }
     await context.close()

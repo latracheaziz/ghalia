@@ -4,6 +4,8 @@ import { gsap, ScrollTrigger, useGSAP } from '../../animations/gsap'
 import { scrollToTarget } from '../../animations/lenis'
 import { useLang } from '../../state/LangContext'
 import { social } from '../../content/site'
+import { contactPage } from '../../content/pages'
+import { ContactActions } from './ContactActions'
 import { ui } from '../../content/ui'
 import { prefersReducedMotion, supportsWebGL } from '../../utils/env'
 import { pourPhase } from '../../utils/pour'
@@ -12,12 +14,6 @@ import { SocialIcon } from '../brand/SocialIcon'
 import { Words } from '../ui/Words'
 
 const COPY = {
-  eyebrow: { en: 'Visit and Contact', ar: 'زورونا وتواصلوا معنا' },
-  title: { en: "Let's begin your story.", ar: 'تعالوا نبدأ قصتكم.' },
-  lead: {
-    en: 'Whether you are choosing a gift, planning a wedding or imagining a celebration that does not exist yet, we would love to hear from you. Every conversation with Ghalia begins with listening.',
-    ar: 'سواء تدورون هدية، أو تخططون لعرس، أو تتخيلون احتفال ما له وجود للحين، يسعدنا نسمع منكم. وكل حديث مع غالية يبدأ بالإنصات.',
-  },
   open: { en: 'Open', ar: 'افتح' },
   goTo: { en: 'Go to', ar: 'انتقل إلى' },
 }
@@ -113,9 +109,10 @@ export function Socials() {
   return (
     <section ref={root} className={`pour ${moving ? '' : 'pour--still'}`} data-theme="deep" aria-labelledby="pour-title">
       <header className="pour__intro wrap">
-        <p className="eyebrow" data-reveal="fade">{t(COPY.eyebrow)}</p>
-        <Words as="h1" id="pour-title" className="display t-hero" text={t(COPY.title)} />
-        <p className="t-lead muted measure" data-reveal="fade">{t(COPY.lead)}</p>
+        <p className="eyebrow" data-reveal="fade">{t(contactPage.title)}</p>
+        <Words as="h1" id="pour-title" className="display t-hero" text={t(contactPage.headline)} />
+        <p className="t-lead muted measure" data-reveal="fade">{t(contactPage.intro)}</p>
+        <div data-reveal="fade"><ContactActions /></div>
       </header>
 
       <div ref={track} className="pour__track" style={{ '--count': social.length }}>
@@ -153,7 +150,7 @@ export function Socials() {
               <Scene name="pour" ids={IDS} tones={TONES} state={pour} />
               <div className="pour__ui">
                 <span className="pour__progress" aria-hidden="true"><i /></span>
-                <nav className="pour__dots" aria-label={t(COPY.eyebrow)}>
+                <nav className="pour__dots" aria-label={t(contactPage.title)}>
                   {social.map((account, i) => (
                     <button key={account.id} type="button" aria-label={`${t(COPY.goTo)} ${t(account.name)}`} aria-current={i === active ? 'true' : undefined} onClick={() => jump(i)}>
                       <SocialIcon id={account.id} />

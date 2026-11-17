@@ -6,14 +6,11 @@ export const brand = {
   name: { en: 'GHALIA', ar: 'غالية' },
   descriptor: { en: 'Luxury Chocolate and Patisserie', ar: 'دار للشوكولاتة والحلا والحلويات الفاخرة' },
   location: { en: 'Hail, Saudi Arabia', ar: 'حائل، المملكة العربية السعودية' },
-  tagline: { en: 'Crafting luxury. Creating emotions. Celebrating life.', ar: 'نسوي حلى مميز، ونصنع المشاعر، ونحتفل بالحياة.' },
-  footerTagline: {
-    en: 'Ghalia Chocolate and Patisserie. Crafting luxury. Creating emotions. Celebrating life.',
-    ar: 'غالية للشوكولاتة والحلا والحلويات. نصنع الفخامة، ونصنع المشاعر، ونحتفل بالحياة.',
-  },
+  tagline: { en: 'Because some moments are priceless.', ar: 'لأن بعض اللحظات لا تُقدَّر بثمن.' },
+  footerTagline: { en: 'GHALIA. Because some moments are priceless.', ar: 'غالية... لأن بعض اللحظات لا تُقدَّر بثمن.' },
   footerDescription: {
-    en: 'A Luxury Chocolate and Patisserie in Saudi Arabia, creating handcrafted chocolates, refined pastries, bespoke gifts and unforgettable celebrations.',
-    ar: 'دار للشوكولاتة والحلا والحلويات الفاخرة في المملكة العربية السعودية، تصنع شوكولاتة باليد وحلويات راقية وهدايا مفصّلة واحتفالات ما تنسى.',
+    en: 'From fine chocolates and carefully crafted pastries to thoughtful gifts and celebration details, Ghalia creates experiences worthy of your most treasured moments.',
+    ar: 'من الشوكولاتة الفاخرة والحلويات المصنوعة بعناية، إلى الهدايا والتفاصيل التي تضيف إلى مناسباتكم، نخلق في غالية تجارب تليق بلحظاتكم الثمينة.',
   },
 }
 
@@ -34,13 +31,13 @@ export const social = [
   { id: 'linktree', name: { en: 'Linktree', ar: 'لينكتري' }, handle: 'linktr.ee/Ghali.A', url: 'https://linktr.ee/Ghali.A', action: { en: 'Every link in one place', ar: 'كل الروابط في مكان واحد' } },
 ].filter((account) => account.url)
 
+// Page names are the section titles of the website copy.
 export const navigation = [
-  { to: '/maison', label: { en: 'Our Story', ar: 'قصتنا' }, image: 'boutique-salon' },
-  { to: '/atelier', label: { en: 'The Atelier', ar: 'المشغل' }, image: 'mood-craft' },
-  { to: '/collections', label: { en: 'Collections and Gifting', ar: 'المجموعات والإهداء' }, image: 'gift-heritage' },
-  { to: '/weddings', label: { en: 'Weddings and Events', ar: 'الأعراس والمناسبات' }, image: 'pergola' },
-  { to: '/studio', label: { en: '3D Event Studio', ar: 'استوديو المناسبات ثلاثي الأبعاد' }, image: 'pergola-ceremony' },
-  { to: '/corporate', label: { en: 'Corporate Gifting', ar: 'هدايا الشركات' }, image: 'national-5' },
-  { to: '/order', label: { en: 'Order', ar: 'اطلب الآن' }, image: 'mood-open-box' },
-  { to: '/contact', label: { en: 'Contact', ar: 'تواصل معنا' }, image: 'boutique-front' },
+  { to: '/maison', label: { en: 'Our Story', ar: 'حكاية غالية' }, image: 'boutique-salon' },
+  { to: '/atelier', label: { en: 'Chocolate & Patisserie', ar: 'الشوكولاتة والباتيسري' }, image: 'mood-craft' },
+  { to: '/collections', label: { en: 'Our Collections', ar: 'مجموعات غالية' }, image: 'gift-heritage' },
+  { to: '/weddings', label: { en: 'Weddings & Events', ar: 'المناسبات' }, image: 'pergola' },
+  { to: '/studio', label: { en: '3D Event Studio', ar: 'ستوديو المناسبات ثلاثي الأبعاد' }, image: 'pergola-ceremony' },
+  { to: '/corporate', label: { en: 'Bespoke Gifting', ar: 'هدايا حسب الطلب' }, image: 'national-5' },
+  { to: '/contact', label: { en: 'Contact Us', ar: 'تواصل معنا' }, image: 'boutique-front' },
 ]

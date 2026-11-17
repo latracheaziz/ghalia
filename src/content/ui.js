@@ -18,11 +18,10 @@ export const ui = {
   sceneFallback: { en: '3D is not available on this device, so we are showing a photograph instead.', ar: 'تقنية ثلاثية الأبعاد غير متاحة على هذا الجهاز، لذا نعرض صورة بدلًا منها.' },
 
   chapters: {
-    story: { en: 'The Story', ar: 'الحكاية' },
-    expertise: { en: 'What we create', ar: 'وش نسوّي لكم' },
-    collections: { en: 'Collections', ar: 'المجموعات' },
-    celebrations: { en: 'Celebrations', ar: 'الاحتفالات' },
-    promise: { en: 'Our Promise', ar: 'وعدنا' },
+    world: { en: 'The World of Ghalia', ar: 'عالم غالية' },
+    collections: { en: 'Our Collections', ar: 'مجموعات غالية' },
+    celebrations: { en: 'Weddings & Events', ar: 'المناسبات' },
+    contact: { en: 'Contact Us', ar: 'تواصل معنا' },
   },
 
   collectionsAll: { en: 'All collections', ar: 'كل المجموعات' },
@@ -61,6 +60,7 @@ export const ui = {
   giftNoteShort: { en: 'Gift note', ar: 'رسالة الهدية' },
   orderWhatsApp: { en: 'Order on WhatsApp', ar: 'اطلبوا عبر واتساب' },
   orderGreeting: { en: 'Hello GHALIA, I would like to order:', ar: 'مرحبًا غالية، أودّ أن أطلب:' },
+  contactGreeting: { en: 'Hello GHALIA, I would like to get in touch.', ar: 'مرحبًا غالية، أودّ التواصل معكم.' },
   collaborateGreeting: { en: 'Hello GHALIA, I would like to discuss a collaboration.', ar: 'مرحبًا غالية، أودّ مناقشة فرصة تعاون.' },
   newTab: { en: '(opens in a new tab)', ar: '(يفتح في علامة تبويب جديدة)' },
   pricesNote: { en: 'No payment online. The Maison confirms price, availability and delivery with you on WhatsApp before anything is prepared.', ar: 'لا يوجد دفع عبر الموقع. تؤكد لكم الدار السعر والتوفر والتوصيل عبر واتساب قبل تجهيز أي شيء.' },
@@ -103,8 +103,8 @@ export const ui = {
   // Studio
   studioTitle: { en: '3D Event Studio', ar: 'استوديو المناسبات ثلاثي الأبعاد' },
   studioIntro: {
-    en: 'Compose a first sketch of your celebration in 3D. Our Wedding Planner and Creative Design Team take it from here.',
-    ar: 'ارسموا أول تصور لمناسبتكم بتقنية ثلاثية الأبعاد، ثم يكمل مخطط الزفاف وفريق التصميم الإبداعي من هنا.',
+    en: 'An initial visual preview of your event, including colors, floral styling, and special arrangements, before final details are confirmed.',
+    ar: 'خدمة تتيح تصور مبدئي لتصميم المناسبة، يشمل الألوان والزهور وتنسيق المساحات، قبل اعتماد التفاصيل النهائية.',
   },
   studioDisclaimer: { en: 'A simplified sketch to start the conversation, not the final design.', ar: 'تصور مبسط لبدء الحوار، وليس التصميم النهائي.' },
   studioSetting: { en: 'Setting', ar: 'المكان' },

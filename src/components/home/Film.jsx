@@ -10,15 +10,14 @@ import { ui } from '../../content/ui'
 import { prefersReducedMotion } from '../../utils/env'
 import { Scene } from '../../three/Scene'
 import { Wordmark } from '../brand/Logo'
-import { TextLink } from '../ui/Button'
+import { Button } from '../ui/Button'
 
 // [appears, leaves] as fractions of the film's scroll length.
 const BEATS = {
   beyond: [0.3, 0.44],
-  line0: [0.46, 0.56],
-  line1: [0.57, 0.67],
-  line2: [0.68, 0.78],
-  opening: [0.8, 0.98],
+  line0: [0.46, 0.59],
+  line1: [0.6, 0.72],
+  opening: [0.74, 0.98],
 }
 
 /**
@@ -107,10 +106,10 @@ export function Film() {
   }, { scope: root, dependencies: [introDone, reduced] })
 
   return (
-    <section ref={root} className={`film ${reduced ? 'film--still' : ''}`} aria-label={t(home.headline)}>
+    <section ref={root} className={`film ${reduced ? 'film--still' : ''}`} aria-label={t(home.hero.headline)}>
       <div ref={stage} className="film__stage" data-tone="dark" onClick={secretDoor}>
         <h1 ref={mega} className="film__mega">
-          <span className="sr-only">{t(brand.name)}: {t(home.headline)}</span>
+          <span className="sr-only">{t(home.hero.headline)}</span>
           <Wordmark />
         </h1>
         <Scene name="film" film={film} fallback="gift-heritage" />
@@ -122,13 +121,16 @@ export function Film() {
           )}
         </div>
         <div className="film__beats wrap">
-          <p className="film__beat display t-hero" data-beat="beyond">{t(home.headline)}</p>
-          {home.memory.map((line, i) => (
+          <p className="film__beat display t-hero" data-beat="beyond">{t(home.hero.headline)}</p>
+          {home.hero.lines.slice(0, 2).map((line, i) => (
             <p key={line.en} className="film__beat display t-title" data-beat={`line${i}`}>{t(line)}</p>
           ))}
           <div className="film__beat film__beat--end" data-beat="opening">
-            <p className="t-lead">{t(home.born)}</p>
-            <TextLink to="/maison">{t(ui.enter)}</TextLink>
+            <p className="t-lead">{t(home.hero.lines[2])}</p>
+            <div className="actions">
+              <Button to="/collections">{t(home.hero.buttons.collections)}</Button>
+              <Button to="/weddings" variant="ghost">{t(home.hero.buttons.events)}</Button>
+            </div>
           </div>
         </div>
       </div>

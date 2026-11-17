@@ -776,5 +776,46 @@
    2400
   ],
   "color": "rgb(232 216 184)"
+ },
+ "atelier-ingredients": {
+  "ratio": 0.9938,
+  "widths": [
+   480,
+   800,
+   1200,
+   1443
+  ],
+  "color": "rgb(200 152 104)"
+ },
+ "atelier-hall": {
+  "ratio": 0.688,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600,
+   1832
+  ],
+  "color": "rgb(200 184 168)"
+ },
+ "atelier-craft": {
+  "ratio": 1.001,
+  "widths": [
+   480,
+   800,
+   1200,
+   1440
+  ],
+  "color": "rgb(168 136 120)"
+ },
+ "atelier-finish": {
+  "ratio": 1,
+  "widths": [
+   480,
+   800,
+   1200,
+   1448
+  ],
+  "color": "rgb(152 136 104)"
  }
 }

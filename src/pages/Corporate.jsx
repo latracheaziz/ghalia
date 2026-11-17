@@ -2,38 +2,39 @@ import { Page } from '../components/layout/Page'
 import { PageHero } from '../components/ui/PageHero'
 import { Picture } from '../components/ui/Picture'
 import { Words } from '../components/ui/Words'
-import { TLink } from '../components/ui/TLink'
+import { Button } from '../components/ui/Button'
 import { EnquiryForm } from '../components/forms/EnquiryForm'
 import { useLang } from '../state/LangContext'
-import { corporate } from '../content/events'
-import { ui } from '../content/ui'
+import { bespoke } from '../content/pages'
 
+/** Bespoke Gifting: the opening, Corporate Gifting beside its photograph, then the enquiry. */
 export default function Corporate() {
   const { t } = useLang()
+  const { corporate } = bespoke
   return (
-    <Page title={t(corporate.title)} description={t(corporate.intro)}>
-      <PageHero eyebrow={t(corporate.title)} title={t(corporate.headline)} intro={t(corporate.intro)} scene="drip" navTone="light" />
+    <Page title={t(bespoke.title)} description={t(bespoke.intro)}>
+      <PageHero eyebrow={t(bespoke.title)} title={t(bespoke.headline)} intro={t(bespoke.intro)} scene="drip" navTone="light">
+        <div className="actions" data-reveal="fade">
+          <Button to="/order">{t(bespoke.button)}</Button>
+        </div>
+      </PageHero>
 
-      <section className="section wrap moments" data-theme="paper">
-        <ul className="moments__list">
-          {corporate.moments.map((moment, i) => (
-            <li key={moment.to} className={`moments__item moments__item--${i}`}>
-              <TLink to={moment.to} data-cursor={t(ui.view)}>
-                <div className={`grain ${i % 2 ? 'frame' : 'arch'} moments__image`} data-reveal="arch">
-                  <Picture id={moment.image} alt={t(moment.title)} sizes="(max-width: 56rem) 90vw, 44vw" />
-                </div>
-                <h2 className="display t-sub">{t(moment.title)}</h2>
-                <p className="muted">{t(moment.text)}</p>
-              </TLink>
-            </li>
-          ))}
-        </ul>
+      <section className="section wrap split split--reverse" data-theme="paper">
+        <div className="split__media">
+          <div className="arch split__arch grain" data-reveal="arch">
+            <Picture id={corporate.image} alt={t(corporate.alt)} sizes="(max-width: 56rem) 90vw, 40vw" />
+          </div>
+        </div>
+        <div className="split__copy">
+          <Words as="h2" className="display t-title" text={t(corporate.title)} />
+          <p className="t-lead" data-reveal="fade">{t(corporate.text)}</p>
+        </div>
       </section>
 
-      <section className="section wrap form-band" data-theme="mocha">
+      <section id="enquire" className="section wrap form-band" data-theme="mocha">
         <div>
-          <p className="eyebrow" data-reveal="fade">{t(ui.enquire)}</p>
-          <Words as="h2" className="display t-title" text={t(corporate.closing)} />
+          <p className="eyebrow" data-reveal="fade">{t(corporate.title)}</p>
+          <Words as="h2" className="display t-title" text={t(bespoke.button)} />
         </div>
         <div data-reveal="fade"><EnquiryForm kind="corporate" /></div>
       </section>

@@ -48,9 +48,9 @@
 
 /* Arabic has no italics or tracking: spacing breaks the connected script. */
 :root[dir='rtl'] {
-  --font-display: 'Reem Kufi', 'Segoe UI', sans-serif;
-  --font-text: 'Reem Kufi', 'Segoe UI', sans-serif;
-  --font-script: 'Reem Kufi', 'Segoe UI', sans-serif;
+  --font-display: 'Changa', 'Segoe UI', sans-serif;
+  --font-text: 'Changa', 'Segoe UI', sans-serif;
+  --font-script: 'Changa', 'Segoe UI', sans-serif;
   --track-wide: 0;
   --track-mid: 0;
   --track-tight: 0;

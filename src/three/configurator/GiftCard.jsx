@@ -28,7 +28,7 @@ async function drawCard(note) {
   c.height = 632
   const ctx = c.getContext('2d')
   const arabic = /[؀-ۿ]/.test(note)
-  const font = arabic ? '66px "Reem Kufi"' : '70px "Reem Kufi"'
+  const font = arabic ? '700 66px Changa' : '70px "Reem Kufi"'
   await document.fonts.load(font, note)
 
   ctx.fillStyle = '#FBF4EA'

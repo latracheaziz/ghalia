@@ -17,7 +17,7 @@ const Raw = ({ svg, label, className }) => (
 /** The name set in Kufi: GHALIA in English, غالية in Arabic. It inherits currentColor like the traced artwork. */
 export function Wordmark({ label, className }) {
   const { rtl } = useLang()
-  const style = { fontFamily: "'Reem Kufi', sans-serif", fontWeight: 500, fill: 'currentColor' }
+  const style = { fontFamily: rtl ? "'Changa', sans-serif" : "'Reem Kufi', sans-serif", fontWeight: rtl ? 700 : 500, fill: 'currentColor' }
   return (
     <span className={className} style={{ display: 'block', lineHeight: 0 }} role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : true}>
       {rtl ? (

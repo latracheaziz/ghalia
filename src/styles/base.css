@@ -124,4 +124,6 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.05; overflow-wrap: break-word;
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
-:root[dir='rtl'] body { word-spacing: 0.22em; }
+:root[dir='rtl'] body { word-spacing: 0.04em; font-weight: 500; }
+/* Arabic headings are set heavy, like the sample the Maison supplied. */
+:root[dir='rtl'] .display, :root[dir='rtl'] h1, :root[dir='rtl'] h2, :root[dir='rtl'] h3 { font-weight: 700; }

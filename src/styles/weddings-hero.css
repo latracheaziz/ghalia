@@ -1,0 +1,99 @@
+/* Weddings and Events opening. Every class is prefixed .wh so nothing here can reach another page. */
+.wh {
+  --mx: 66%;
+  --my: 44%;
+  position: relative;
+  isolation: isolate;
+  min-block-size: 100svh;
+  display: grid;
+  align-content: center;
+  padding-block: calc(var(--header-h) + 2rem) clamp(7.5rem, 16vh, 10rem);
+  overflow: hidden;
+  background: var(--mocha-deep);
+  color: var(--ivory-soft);
+}
+
+/* The photograph is wider than the screen, so the room sits on the far side of the text. */
+.wh__photo { position: absolute; inset: 0; z-index: -2; overflow: hidden; }
+/* GSAP owns this element's transform, so its position is set with margins. */
+.wh__scene { --w: max(104vw, 120svh); position: absolute; inset-block-start: 50%; inset-inline-start: 0; margin-inline-start: -2vw; inline-size: var(--w); aspect-ratio: 1 / 1.0733; margin-block-start: calc(var(--w) * -0.5); will-change: transform; }
+.wh__scene > img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; }
+/* In Arabic the whole room is mirrored with the layout, so the hotspots stay on what they mark. */
+:root[dir='rtl'] .wh__scene > img { transform: scaleX(-1); }
+
+/* Dark where the words are; a warm light under the cursor where the room is. */
+.wh__shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 34vmax at var(--mx) var(--my), rgb(255 205 130 / 0.22), transparent 70%),
+    linear-gradient(90deg, rgb(24 12 6 / 0.86) 0%, rgb(24 12 6 / 0.62) 34%, rgb(24 12 6 / 0.12) 66%, rgb(24 12 6 / 0.28) 100%),
+    linear-gradient(0deg, rgb(24 12 6 / 0.82) 0%, transparent 38%);
+}
+:root[dir='rtl'] .wh__shade {
+  background:
+    radial-gradient(circle 34vmax at var(--mx) var(--my), rgb(255 205 130 / 0.22), transparent 70%),
+    linear-gradient(270deg, rgb(24 12 6 / 0.86) 0%, rgb(24 12 6 / 0.62) 34%, rgb(24 12 6 / 0.12) 66%, rgb(24 12 6 / 0.28) 100%),
+    linear-gradient(0deg, rgb(24 12 6 / 0.82) 0%, transparent 38%);
+}
+
+.wh__grid { position: relative; display: grid; }
+.wh__copy { text-shadow: 0 2px 26px rgb(24 12 6 / 0.65); display: grid; gap: clamp(1.1rem, 2.2vw, 1.8rem); align-content: center; justify-items: start; max-inline-size: min(100%, 38rem); }
+.wh__eyebrow { font-family: var(--font-display); font-size: clamp(1.4rem, 2.4vw, 2.4rem); font-weight: 500; line-height: 1.3; color: var(--gold); }
+.wh__title { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.6rem, 5.6vw, 6rem); line-height: 1.06; letter-spacing: var(--track-tight); color: var(--ivory-soft); }
+:root[dir='rtl'] .wh__title { line-height: 1.5; font-size: clamp(2.5rem, 5.2vw, 5.6rem); }
+.wh__w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-block: 0.1em 0.14em; margin-block: -0.1em -0.14em; }
+.wh__wi { display: inline-block; will-change: transform; }
+.wh__intro { max-inline-size: 34ch; font-size: clamp(1.2rem, 1.8vw, 1.8rem); line-height: 1.55; color: rgb(244 232 216 / 0.86); }
+:root[dir='rtl'] .wh__intro { line-height: 1.8; }
+.wh__actions { padding-block-start: 0.4rem; }
+.wh__actions .btn { background: var(--gold); color: var(--mocha-deep); }
+
+.wh__hint { position: absolute; z-index: 3; inset-inline-end: var(--gutter); inset-block-end: clamp(6.6rem, 16vh, 8.8rem); display: flex; align-items: center; gap: 0.7rem; font-size: var(--t-micro); letter-spacing: var(--track-mid); text-transform: uppercase; color: rgb(244 232 216 / 0.85); }
+:root[dir='rtl'] .wh__hint { font-size: 1.05rem; }
+.wh__pulse { position: relative; inline-size: 0.55rem; block-size: 0.55rem; border-radius: 50%; background: var(--gold); }
+.wh__pulse::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--gold); animation: wh-pulse 2.2s ease-out infinite; }
+@keyframes wh-pulse { from { transform: scale(1); opacity: 0.9; } to { transform: scale(3.2); opacity: 0; } }
+
+/* Hotspots: a pulsing gold point that opens a small card onto that space. */
+.wh__spot { position: absolute; }
+.wh__dot { position: absolute; inset-block-start: 0; inset-inline-start: 0; translate: -50% -50%; inline-size: 1.1rem; block-size: 1.1rem; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 5px rgb(255 235 200 / 0.3); cursor: pointer; transition: transform 0.5s var(--ease-out); }
+:root[dir='rtl'] .wh__dot { translate: 50% -50%; }
+.wh__dot::after { content: ''; position: absolute; inset: -0.5rem; border-radius: 50%; border: 1px solid rgb(255 235 200 / 0.75); animation: wh-pulse 2.6s ease-out infinite; }
+.wh__dot:hover, .wh__dot:focus-visible, .is-open .wh__dot { transform: scale(1.25); }
+.wh__card { position: absolute; inset-block-start: 1.4rem; inset-inline-start: 1rem; inline-size: clamp(9.5rem, 13vw, 12.5rem); display: grid; gap: 0.6rem; padding: 0.6rem 0.6rem 0.8rem; background: rgb(251 244 234 / 0.96); color: var(--mocha); box-shadow: 0 24px 50px -18px rgb(0 0 0 / 0.65); opacity: 0; transform: translateY(8px) scale(0.96); transform-origin: 0 0; pointer-events: none; transition: opacity 0.45s var(--ease-out), transform 0.6s var(--ease-out); }
+.is-end .wh__card { inset-inline-start: auto; inset-inline-end: 1rem; transform-origin: 100% 0; }
+.is-up .wh__card { inset-block-start: auto; inset-block-end: 1.4rem; transform-origin: 0 100%; }
+.is-up.is-end .wh__card { transform-origin: 100% 100%; }
+.is-open .wh__card { opacity: 1; transform: none; pointer-events: auto; z-index: 2; }
+.wh__card-img { aspect-ratio: 5 / 4; min-block-size: 0; }
+.wh__card-img img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+.wh__card-name { font-size: clamp(0.85rem, 1vw, 1rem); line-height: 1.35; font-weight: 500; }
+:root[dir='rtl'] .wh__card-name { font-size: 1rem; }
+
+/* The five-step journey: one line, five numbered steps. */
+.wh__journey { position: absolute; z-index: 3; inset-inline: 0; inset-block-end: clamp(1.4rem, 4vh, 2.8rem); margin-inline: auto; }
+.wh__line { display: block; block-size: 1px; background: linear-gradient(90deg, var(--gold), rgb(211 160 95 / 0.2)); transform-origin: 0 50%; }
+:root[dir='rtl'] .wh__line { transform-origin: 100% 50%; background: linear-gradient(270deg, var(--gold), rgb(211 160 95 / 0.2)); }
+.wh__journey ol { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.5rem clamp(0.8rem, 2vw, 2rem); }
+.wh__step button { display: grid; gap: 0.2rem; justify-items: start; text-align: start; inline-size: 100%; padding-block: 0.9rem 0.2rem; transition: transform 0.7s var(--ease-out); }
+.wh__num { font-family: var(--font-display); font-size: clamp(1.05rem, 1.5vw, 1.5rem); color: var(--gold); transition: color 0.4s; }
+.wh__name { font-size: clamp(0.88rem, 1.1vw, 1.1rem); line-height: 1.35; color: rgb(244 232 216 / 0.78); transition: color 0.4s; }
+.wh__step button:hover, .wh__step button:focus-visible { transform: translateY(-4px); }
+.wh__step button:hover .wh__name, .wh__step button:focus-visible .wh__name { color: var(--ivory-soft); }
+
+@media (max-width: 56rem) {
+  .wh { align-content: end; padding-block: calc(var(--header-h) + 14rem) 2.4rem; }
+  .wh__scene { inset: 0; margin: 0; inline-size: auto; aspect-ratio: auto; }
+  .wh__scene > img { object-position: 30% 28%; }
+  .wh__spot { display: none; }
+  .wh__shade { background: linear-gradient(0deg, rgb(24 12 6 / 0.94) 0%, rgb(24 12 6 / 0.7) 46%, rgb(24 12 6 / 0.1) 80%); }
+  .wh__hint { display: none; }
+  .wh__card { display: none; }
+  .wh__journey { position: relative; inset: auto; inline-size: 100%; margin-block-start: 1.8rem; }
+  .wh__journey ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) { .wh__pulse::after, .wh__dot::after { animation: none; } }

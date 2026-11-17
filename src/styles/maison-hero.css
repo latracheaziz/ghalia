@@ -1,0 +1,108 @@
+/* Our Story opening. Everything is prefixed .mh so nothing here can reach another page. */
+.mh {
+  position: relative;
+  isolation: isolate;
+  min-block-size: 100svh;
+  display: grid;
+  align-content: center;
+  padding-block: calc(var(--header-h) + 2.5rem) clamp(9rem, 17vh, 11.5rem);
+  overflow: hidden;
+  background: var(--mocha-deep);
+  color: var(--ivory-soft);
+}
+.mh__bg { position: absolute; inset: 0; z-index: -2; background: radial-gradient(120% 90% at 78% 8%, #3a2013 0%, var(--mocha-deep) 62%); }
+.mh__glow {
+  position: absolute;
+  inset-block-start: 4%;
+  inset-inline-end: -8%;
+  inline-size: min(70vw, 64rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(211 160 95 / 0.34) 0%, rgb(189 125 69 / 0.12) 38%, transparent 68%);
+  filter: blur(6px);
+}
+.mh__dust { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.mh__dust .scene, .mh__dust canvas { position: absolute !important; inset: 0; }
+
+.mh__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 7rem);
+}
+
+/* Words: big title, one medium size for everything else. */
+.mh__copy { display: grid; gap: clamp(1.1rem, 2.2vw, 1.8rem); align-content: center; }
+.mh__eyebrow {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--gold);
+}
+.mh__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.7rem, 6vw, 6.4rem);
+  line-height: 1.04;
+  letter-spacing: var(--track-tight);
+  color: var(--ivory-soft);
+}
+:root[dir='rtl'] .mh__title { line-height: 1.5; font-size: clamp(2.6rem, 5.6vw, 6rem); }
+.mh__w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-block: 0.1em 0.14em; margin-block: -0.1em -0.14em; }
+.mh__wi { display: inline-block; will-change: transform; }
+.mh__quote {
+  max-inline-size: 30ch;
+  font-size: clamp(1.25rem, 1.9vw, 1.9rem);
+  line-height: 1.5;
+  color: rgb(244 232 216 / 0.78);
+  padding-inline-start: 1.2rem;
+  border-inline-start: 2px solid var(--gold);
+}
+:root[dir='rtl'] .mh__quote { line-height: 1.75; }
+
+/* A gold arch window onto the craft, traced by two fine lines. */
+/* Sized by the screen's height, so the chapter timeline always fits under it. */
+.mh__stage { position: relative; justify-self: center; block-size: clamp(18rem, calc(100svh - 22rem), 40rem); aspect-ratio: 400 / 560; max-inline-size: 100%; }
+.mh__line { position: absolute; inset: -4% -6% -2%; inline-size: 112%; block-size: 106%; overflow: visible; pointer-events: none; transform: translate(-3%, 0); }
+.mh__line path { stroke: var(--gold); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+.mh__window { position: absolute; inset: 5% 6% 4%; border-end-start-radius: 0; border-end-end-radius: 0; box-shadow: 0 40px 90px -30px rgb(0 0 0 / 0.7); }
+.mh__window img { inline-size: 100%; block-size: 100%; object-fit: cover; object-position: 50% 40%; }
+.mh__window::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgb(33 18 10 / 0.08), rgb(33 18 10 / 0.42)); }
+.mh__rosette { position: absolute; inset-block-start: -9%; inset-inline-start: -22%; inline-size: 56%; color: var(--gold); opacity: 0.5; z-index: -1; pointer-events: none; }
+
+/* The four chapters, as a timeline along the bottom. */
+.mh__chapters { position: absolute; inset-inline: 0; inset-block-end: clamp(1.6rem, 4vh, 3rem); margin-inline: auto; }
+.mh__rule { display: block; block-size: 1px; background: linear-gradient(90deg, var(--gold), rgb(211 160 95 / 0.15)); transform-origin: 0 50%; margin-block-end: 1.1rem; }
+:root[dir='rtl'] .mh__rule { transform-origin: 100% 50%; background: linear-gradient(270deg, var(--gold), rgb(211 160 95 / 0.15)); }
+.mh__chapters ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem clamp(1rem, 3vw, 3rem); }
+.mh__chapter button { display: grid; gap: 0.35rem; justify-items: start; text-align: start; inline-size: 100%; padding-block: 0.4rem; transition: transform 0.7s var(--ease-out); }
+.mh__num { font-family: var(--font-display); font-size: clamp(1.15rem, 1.7vw, 1.7rem); color: var(--gold); transition: color 0.4s; }
+.mh__name { font-size: clamp(0.95rem, 1.25vw, 1.2rem); line-height: 1.4; color: rgb(244 232 216 / 0.72); transition: color 0.4s; }
+.mh__chapter button:hover, .mh__chapter button:focus-visible { transform: translateY(-5px); }
+.mh__chapter button:hover .mh__name, .mh__chapter button:focus-visible .mh__name { color: var(--ivory-soft); }
+.mh__chapter button:hover .mh__num, .mh__chapter button:focus-visible .mh__num { color: var(--gold-warm); }
+
+.mh__cue { position: absolute; inset-inline-start: var(--gutter); inset-block-end: clamp(6.6rem, 16vh, 8.6rem); display: flex; align-items: center; gap: 0.9rem; gap: 0.7rem; font-size: var(--t-micro); letter-spacing: var(--track-mid); text-transform: uppercase; color: rgb(244 232 216 / 0.7); }
+:root[dir='rtl'] .mh__cue { font-size: 1rem; }
+.mh__cue-line { position: relative; display: block; inline-size: 3.2rem; block-size: 1px; background: rgb(211 160 95 / 0.35); overflow: hidden; }
+.mh__cue-line::after { content: ''; position: absolute; inset-block: 0; inset-inline-start: 0; inline-size: 40%; background: var(--gold); animation: mh-cue 2.4s var(--ease-in-out) infinite; }
+@keyframes mh-cue { 0% { transform: translateX(-110%); } 100% { transform: translateX(260%); } }
+:root[dir='rtl'] .mh__cue-line::after { animation-name: mh-cue-rtl; }
+@keyframes mh-cue-rtl { 0% { transform: translateX(110%); } 100% { transform: translateX(-260%); } }
+
+@media (max-width: 56rem) {
+  .mh { padding-block: calc(var(--header-h) + 1rem) 11rem; align-content: start; }
+  .mh__grid { grid-template-columns: 1fr; gap: 1.8rem; }
+  .mh__stage { order: -1; inline-size: min(66vw, 17rem); }
+  .mh__rosette { inset-inline-start: -30%; }
+  .mh__chapters ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mh__chapters { position: relative; inset: auto; margin-block-start: 2rem; }
+  .mh__cue { display: none; }
+}
+@media (max-width: 34rem) { .mh__quote { max-inline-size: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mh__cue-line::after { animation: none; }
+  .mh__line path { stroke-dashoffset: 0; }
+}

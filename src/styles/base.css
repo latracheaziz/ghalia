@@ -72,18 +72,18 @@ h1, h2, h3, h4 { font-weight: 400; line-height: 1.05; overflow-wrap: break-word;
   display: inline-flex;
   align-items: center;
   gap: 0.9em;
-  font-size: var(--t-micro);
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
   font-weight: 500;
-  letter-spacing: var(--track-wide);
+  letter-spacing: var(--track-mid);
   text-transform: uppercase;
   color: var(--accent);
 }
-:root[dir='rtl'] .eyebrow { font-size: 0.9rem; }
+:root[dir='rtl'] .eyebrow { font-size: clamp(1.25rem, 1.6vw, 1.5rem); }
 .eyebrow::before { display: none; }
 .eyebrow--plain::before { display: none; }
 
 .script { font-family: var(--font-script); line-height: 1; }
-:root[dir='rtl'] .script { font-size: 0.62em; line-height: 1.5; }
+:root[dir='rtl'] .script { font-size: 0.8em; line-height: 1.5; }
 
 .muted { color: var(--muted); }
 .measure { max-inline-size: 38rem; }

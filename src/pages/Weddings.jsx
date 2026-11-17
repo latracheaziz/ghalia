@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Page } from '../components/layout/Page'
-import { PageHero } from '../components/ui/PageHero'
+import { WeddingsHero } from '../components/weddings/WeddingsHero'
 import { Picture } from '../components/ui/Picture'
 import { Words } from '../components/ui/Words'
 import { Button, TextLink } from '../components/ui/Button'
@@ -64,11 +64,7 @@ export default function Weddings() {
   const { t } = useLang()
   return (
     <Page title={t(COPY.meta)} description={t(COPY.description)}>
-      <PageHero eyebrow={t(COPY.page)} title={t(COPY.headline)} intro={t(COPY.intro)} silk={['#EBC8BA', '#B98378']}>
-        <div className="actions" data-reveal="fade">
-          <Button to="/studio">{t(ui.openStudio)}</Button>
-        </div>
-      </PageHero>
+      <WeddingsHero />
 
       <section className="section wrap split" data-theme="paper">
         <div className="split__copy">

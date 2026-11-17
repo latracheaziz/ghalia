@@ -12,6 +12,9 @@ const scenes = {
   event: lazy(() => import('./scenes/EventScene')),
   box: lazy(() => import('./scenes/BoxScene')),
   pour: lazy(() => import('./scenes/PourScene')),
+  chocolate: lazy(() => import('./scenes/ChocolateScene')),
+  drip: lazy(() => import('./scenes/DripScene')),
+  flour: lazy(() => import('./scenes/FlourScene')),
 }
 
 /**

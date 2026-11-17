@@ -33,7 +33,7 @@ export default function Collections() {
 
   return (
     <Page title={t(COPY.page)} description={t(COPY.description)}>
-      <PageHero eyebrow={t(COPY.eyebrow)} title={t(story.lines[0])} intro={t(COPY.intro)} silk={['#F4E2D6', '#C9A07F']} />
+      <PageHero eyebrow={t(COPY.eyebrow)} title={t(story.lines[0])} intro={t(COPY.intro)} scene="chocolate" tone="light" />
 
       <section className="section wrap index" data-theme="paper">
         <div className="choices index__filters" role="group" aria-label={t(ui.chapters.collections)}>
@@ -54,7 +54,7 @@ export default function Collections() {
                 className={`index__item index__item--${i % 4}`}
               >
                 <TLink to={`/collections/${c.slug}`} data-cursor={t(ui.view)}>
-                  <div className={`arch index__image grain ${i % 4 === 2 ? 'arch--ogee' : ''}`}>
+                  <div className="arch index__image grain">
                     <Picture id={c.images[0]} alt={t(c.title)} sizes="(max-width: 56rem) 90vw, 46vw" />
                   </div>
                   <h2 className="display t-sub">{t(c.name)}</h2>

@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Page } from '../components/layout/Page'
-import { PageHero } from '../components/ui/PageHero'
+import { MaisonHero } from '../components/maison/MaisonHero'
 import { Picture } from '../components/ui/Picture'
 import { Words } from '../components/ui/Words'
 import { useLang } from '../state/LangContext'
@@ -55,7 +55,7 @@ export default function Maison() {
   const { t } = useLang()
   return (
     <Page title={t(COPY.page)} description={t(COPY.description)}>
-      <PageHero eyebrow={t(story.title)} title={t(story.headline)} intro={t(story.quote)} />
+      <MaisonHero />
 
       <section className="section wrap split split--story" data-theme="paper">
         <div className="split__media">

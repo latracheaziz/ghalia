@@ -27,10 +27,10 @@
   --t-hero: clamp(3rem, 8.4vw, 9rem);
   --t-title: clamp(2.3rem, 5.4vw, 5.6rem);
   --t-sub: clamp(1.6rem, 2.9vw, 2.9rem);
-  --t-lead: clamp(1.18rem, 1.55vw, 1.5rem);
-  --t-body: clamp(1rem, 1.08vw, 1.12rem);
-  --t-small: 0.9rem;
-  --t-micro: 0.72rem;
+  --t-lead: clamp(1.35rem, 1.9vw, 1.85rem);
+  --t-body: clamp(1.2rem, 1.5vw, 1.4rem);
+  --t-small: 1.2rem;
+  --t-micro: 1rem;
 
   --gutter: clamp(1.25rem, 4.5vw, 5rem);
   --section: clamp(5.5rem, 13vw, 13rem);
@@ -59,7 +59,7 @@
   --t-hero: clamp(2.6rem, 6.8vw, 7.4rem);
   --t-title: clamp(2rem, 4.6vw, 4.8rem);
   --t-sub: clamp(1.45rem, 2.5vw, 2.5rem);
-  --t-lead: clamp(1.12rem, 1.45vw, 1.4rem);
+  --t-lead: clamp(1.3rem, 1.8vw, 1.7rem);
 }
 
 [data-theme='paper'] { --bg: var(--paper); --fg: var(--mocha); --muted: #6e5444; --line: rgb(68 41 26 / 0.18); --accent: var(--gold-ink); }

@@ -27,6 +27,11 @@ test.beforeEach(async ({ page }) => {
   })
 })
 
+/** A fresh browser context has no stored language, so it would open in Arabic. */
+const inEnglish = (context) => context.addInitScript(() => {
+  try { localStorage.setItem('ghalia.lang', 'en') } catch { /* storage blocked */ }
+})
+
 const adminList = async (request) => {
   const res = await request.get('/api/admin/submissions', { headers: { authorization: 'Bearer e2e-token' } })
   return (await res.json()).submissions
@@ -281,6 +286,7 @@ test.describe('graceful fallbacks', () => {
 
   test('reduced motion shows the whole story with nothing hidden', async ({ browser }) => {
     const context = await browser.newContext({ reducedMotion: 'reduce', viewport: { width: 1280, height: 800 } })
+    await inEnglish(context)
     const page = await context.newPage()
     await open(page, '/')
     for (const text of ['Where a childhood dream became a Patisserie.', 'Some recipes are never written down.']) {
@@ -291,6 +297,7 @@ test.describe('graceful fallbacks', () => {
 
   test('phones get the swipe reel instead of the pinned one', async ({ browser }) => {
     const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true })
+    await inEnglish(context)
     const page = await context.newPage()
     await open(page, '/')
     await expect(page.locator('.reel--pinned')).toHaveCount(0)
@@ -332,8 +339,13 @@ test.describe('admin', () => {
   test('five clicks on the wordmark open the admin, which signs in and saves a post', async ({ page }) => {
     const errors = trackErrors(page)
     await open(page, '/')
-    const mark = page.locator('.film__mega')
-    for (let i = 0; i < 5; i++) await mark.click({ force: true, delay: 40 })
+    // The door needs five clicks inside three seconds. On a slow machine five real clicks take longer
+    // than that, so send them from inside the page, where they cost nothing.
+    const box = await page.locator('.film__mega').boundingBox()
+    await page.evaluate(({ x, y }) => {
+      const target = document.elementFromPoint(x, y)
+      for (let i = 0; i < 5; i++) target.dispatchEvent(new MouseEvent('click', { bubbles: true, clientX: x, clientY: y }))
+    }, { x: box.x + box.width / 2, y: box.y + box.height / 2 })
     await expect(page).toHaveURL(/\/admin$/)
 
     await page.fill('#adm-email', 'ghalia@gmail.com')

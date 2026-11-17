@@ -12,7 +12,7 @@ export default function Corporate() {
   const { t } = useLang()
   return (
     <Page title={t(corporate.title)} description={t(corporate.intro)}>
-      <PageHero eyebrow={t(corporate.title)} title={t(corporate.headline)} intro={t(corporate.intro)} silk={['#16694F', '#0A3327']} tone="light" />
+      <PageHero eyebrow={t(corporate.title)} title={t(corporate.headline)} intro={t(corporate.intro)} scene="drip" navTone="light" />
 
       <section className="section wrap moments" data-theme="paper">
         <ul className="moments__list">
